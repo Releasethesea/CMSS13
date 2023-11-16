@@ -111,11 +111,14 @@
 #define MOBILE_SHUTTLE_LIFEBOAT_STARBOARD "lifeboat-starboard"
 #define MOBILE_SHUTTLE_VEHICLE_ELEVATOR "vehicle_elevator"
 
+#define DROPSHIP_WACO "dropship_waco"
 #define DROPSHIP_ALAMO "dropship_alamo"
 #define DROPSHIP_NORMANDY "dropship_normandy"
 
 #define ALMAYER_DROPSHIP_LZ1 "almayer-hangar-lz1"
 #define ALMAYER_DROPSHIP_LZ2 "almayer-hangar-lz2"
+
+#define ALAMYER_DROPSHIP_LZ3 "dropship-hanger-lz3"
 
 #define DROPSHIP_FLYBY_ID "special_flight"
 #define DROPSHIP_LZ1 "dropship-lz1"
