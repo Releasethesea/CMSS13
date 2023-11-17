@@ -131,6 +131,9 @@
 /obj/effect/attach_point/crew_weapon/dropship2
 	ship_tag = DROPSHIP_NORMANDY
 
+/obj/effect/attach_point/crew_weapon/waco
+	ship_tag = DROPSHIP_WACO
+
 /obj/effect/attach_point/electronics
 	name = "electronic system attach point"
 	base_category = DROPSHIP_ELECTRONICS
@@ -142,6 +145,9 @@
 
 /obj/effect/attach_point/electronics/dropship2
 	ship_tag = DROPSHIP_NORMANDY
+
+/obj/effect/attach_point/electronics/waco
+	ship_tag = DROPSHIP_WACO
 
 /obj/effect/attach_point/fuel
 	name = "engine system attach point"
@@ -155,6 +161,9 @@
 /obj/effect/attach_point/fuel/dropship2
 	ship_tag = DROPSHIP_NORMANDY
 
+/obj/effect/attach_point/fuel/waco
+	ship_tag = DROPSHIP_WACO
+
 /obj/effect/attach_point/computer
 	base_category = DROPSHIP_COMPUTER
 
@@ -163,3 +172,7 @@
 
 /obj/effect/attach_point/computer/dropship2
 	ship_tag = DROPSHIP_NORMANDY
+
+/obj/effect/attach_point/computer/waco
+	ship_tag = DROPSHIP_WACO
+
