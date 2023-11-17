@@ -287,7 +287,9 @@
 	},
 /area/shuttle/waco)
 "wb" = (
-/obj/effect/attach_point/weapon/waco/left_fore,
+/obj/effect/attach_point/weapon/waco/left_fore{
+	ship_tag = "dropship_waco"
+	},
 /obj/structure/shuttle/part/dropship1/transparent/outer_left_weapons{
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
@@ -414,8 +416,13 @@
 	},
 /area/shuttle/waco)
 "Go" = (
-/obj/effect/attach_point/electronics/waco,
-/obj/structure/shuttle/part/dropship1/transparent/inner_left_weapons,
+/obj/structure/shuttle/part/dropship1/transparent/inner_left_weapons{
+	name = "\improper Waco"
+	},
+/obj/effect/attach_point/weapon/waco/left_fore{
+	ship_tag = "dropship_waco";
+	attach_id = 1
+	},
 /turf/template_noop,
 /area/shuttle/waco)
 "Hz" = (
@@ -584,10 +591,12 @@
 	},
 /area/shuttle/waco)
 "Xr" = (
-/obj/effect/attach_point/weapon/waco/right_fore,
+/obj/effect/attach_point/weapon/waco/right_fore{
+	ship_tag = "dropship_waco"
+	},
 /obj/structure/shuttle/part/dropship1/transparent/outer_right_weapons{
 	icon = 'icons/turf/waco.dmi';
-	name = "\improper Waco"
+	name = ss
 	},
 /turf/template_noop,
 /area/shuttle/waco)
@@ -601,7 +610,9 @@
 /area/shuttle/waco)
 "Zr" = (
 /obj/effect/attach_point/electronics/waco,
-/obj/structure/shuttle/part/dropship1/transparent/inner_right_weapons,
+/obj/structure/shuttle/part/dropship1/transparent/inner_right_weapons{
+	name = "\improper Waco"
+	},
 /turf/template_noop,
 /area/shuttle/waco)
 "Zu" = (
