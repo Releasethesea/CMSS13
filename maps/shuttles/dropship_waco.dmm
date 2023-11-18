@@ -27,28 +27,12 @@
 	icon_state = "rasputin6"
 	},
 /area/shuttle/waco)
-"dr" = (
-/obj/structure/machinery/door_control{
-	id = "dropship_waco";
-	name = "Dropship Lockdown";
-	normaldoorcontrol = 3;
-	pixel_y = -19;
-	req_one_access_txt = "3;22"
-	},
-/obj/structure/machinery/door/airlock/dropship_hatch{
-	dir = 8;
-	id = "dropship_waco"
-	},
-/turf/open/shuttle/dropship{
-	icon_state = "rasputin15"
-	},
-/area/shuttle/waco)
 "dB" = (
 /obj/structure/shuttle/part/dropship1/left_inner_wing_connector{
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/waco)
 "dD" = (
 /turf/closed/shuttle/waco/transparent{
@@ -74,6 +58,18 @@
 	icon_state = "101T"
 	},
 /turf/template_noop,
+/area/shuttle/waco)
+"eN" = (
+/obj/structure/machinery/door_control{
+	id = "dropship_waco";
+	name = "Dropship Lockdown";
+	normaldoorcontrol = 3;
+	pixel_y = -19;
+	req_one_access_txt = "3;22"
+	},
+/turf/closed/shuttle/waco{
+	icon_state = "24"
+	},
 /area/shuttle/waco)
 "fv" = (
 /obj/structure/bed/chair/vehicle{
@@ -165,7 +161,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "s"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/waco)
 "my" = (
 /obj/structure/bed/chair/vehicle{
@@ -314,7 +310,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/waco)
 "yO" = (
 /turf/closed/shuttle/waco{
@@ -438,7 +434,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/open/space/basic,
+/turf/template_noop,
 /area/shuttle/waco)
 "HY" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds1{
@@ -456,15 +452,7 @@
 	},
 /area/shuttle/waco)
 "Jt" = (
-/obj/structure/machinery/door_control{
-	id = s;
-	name = "Dropship Lockdown";
-	normaldoorcontrol = 3;
-	pixel_y = -19;
-	req_one_access_txt = "3;22"
-	},
 /obj/structure/machinery/door/airlock/dropship_hatch{
-	dir = 8;
 	id = "dropship_waco"
 	},
 /turf/open/shuttle/dropship{
@@ -474,6 +462,18 @@
 "Kw" = (
 /turf/template_noop,
 /area/space)
+"Le" = (
+/obj/structure/machinery/door_control{
+	id = "dropship_waco";
+	name = "Dropship Lockdown";
+	normaldoorcontrol = 3;
+	pixel_y = -19;
+	req_one_access_txt = "3;22"
+	},
+/turf/closed/shuttle/waco{
+	icon_state = "25"
+	},
+/area/shuttle/waco)
 "LY" = (
 /obj/structure/blocker/invisible_wall,
 /obj/structure/machinery/computer/shuttle/dropship/flight,
@@ -674,10 +674,10 @@ vJ
 hO
 dE
 Bn
-hl
+eN
 dE
 Mf
-dr
+Mf
 dE
 dE
 dE
@@ -754,9 +754,9 @@ yO
 DH
 yB
 sl
-Ed
+Le
 yB
-Mf
+Jt
 Jt
 yB
 yB
