@@ -36,7 +36,8 @@
 	req_one_access_txt = "3;22"
 	},
 /obj/structure/machinery/door/airlock/dropship_hatch{
-	id = "port_door"
+	dir = 8;
+	id = "dropship_waco"
 	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
@@ -63,6 +64,19 @@
 /obj/structure/shuttle/part/dropship1/transparent/left_outer_bottom_wing{
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
+	},
+/turf/template_noop,
+/area/shuttle/waco)
+"eD" = (
+/obj/structure/shuttle/part/dropship1/transparent/nose_center{
+	icon = 'icons/turf/waco.dmi';
+	name = "\improper Waco";
+	icon_state = "101T"
+	},
+/obj/structure/shuttle/part/dropship1/transparent/nose_center{
+	icon = 'icons/turf/waco.dmi';
+	name = "\improper Waco";
+	icon_state = "101T"
 	},
 /turf/template_noop,
 /area/shuttle/waco)
@@ -98,6 +112,11 @@
 	icon_state = "24"
 	},
 /area/shuttle/waco)
+"hI" = (
+/turf/closed/shuttle/waco/transparent{
+	icon_state = "39T"
+	},
+/area/shuttle/waco)
 "hL" = (
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin2"
@@ -118,12 +137,6 @@
 	name = "\improper Waco"
 	},
 /turf/template_noop,
-/area/shuttle/waco)
-"iV" = (
-/obj/effect/attach_point/weapon/waco/left_wing,
-/turf/closed/shuttle/waco/transparent{
-	icon_state = "34"
-	},
 /area/shuttle/waco)
 "jW" = (
 /turf/open/shuttle/dropship{
@@ -310,7 +323,7 @@
 /area/shuttle/waco)
 "yO" = (
 /turf/closed/shuttle/waco{
-	icon_state = "94"
+	icon_state = "94T"
 	},
 /area/shuttle/waco)
 "zm" = (
@@ -351,7 +364,7 @@
 	pixel_x = -10;
 	pixel_y = 16;
 	name = "Bluebonnet Belle";
-	desc = "Souvenir all the way from texas, no idea how it wound up in neroid, but here she is."
+	desc = "A souvenir all the way from texas, no idea how it wound up in neroid. Apparently Shes named after a old warbird."
 	},
 /obj/structure/blocker/invisible_wall,
 /obj/structure/machinery/computer/cameras/dropship/waco,
@@ -449,7 +462,7 @@
 /area/shuttle/waco)
 "Jt" = (
 /obj/structure/machinery/door_control{
-	id = "dropship_waco";
+	id = s;
 	name = "Dropship Lockdown";
 	normaldoorcontrol = 3;
 	pixel_y = -19;
@@ -457,19 +470,10 @@
 	},
 /obj/structure/machinery/door/airlock/dropship_hatch{
 	dir = 8;
-	id = "starboard_door"
+	id = "dropship_waco"
 	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
-	},
-/area/shuttle/waco)
-"Kv" = (
-/obj/structure/machinery/light{
-	dir = 4;
-	pixel_x = 14
-	},
-/turf/open/shuttle/dropship{
-	icon_state = "rasputin3"
 	},
 /area/shuttle/waco)
 "Kw" = (
@@ -478,18 +482,33 @@
 "LY" = (
 /obj/structure/blocker/invisible_wall,
 /obj/structure/machinery/computer/shuttle/dropship/flight,
+/obj/item/clothing/head/helmet/marine/pilottex{
+	pixel_x = 11;
+	pixel_y = 11;
+	specialty = "M30 tactical helmet";
+	desc = "The M30 tactical helmet has a left eyepiece filter used to filter tactical data. It is required to fly the dropships manually and in safety. This one belongs to the Wacos pilot, fucker loves texas and proudly displays it."
+	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
 	},
 /area/shuttle/waco)
 "LZ" = (
 /turf/closed/shuttle/waco/transparent{
-	icon_state = "33"
+	icon_state = "33T"
 	},
+/area/shuttle/waco)
+"Me" = (
+/obj/structure/shuttle/part/dropship1/transparent/nose_center{
+	icon = 'icons/turf/waco.dmi';
+	name = "\improper Waco";
+	icon_state = "101TI"
+	},
+/turf/template_noop,
 /area/shuttle/waco)
 "Mf" = (
 /obj/structure/machinery/door/airlock/dropship_hatch{
-	id = "port_door"
+	dir = 8;
+	id = "dropship_waco"
 	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
@@ -533,15 +552,6 @@
 	icon_state = "rasputin15"
 	},
 /area/shuttle/waco)
-"QK" = (
-/obj/structure/machinery/light{
-	dir = 8;
-	pixel_x = -14
-	},
-/turf/open/shuttle/dropship{
-	icon_state = "rasputin3"
-	},
-/area/shuttle/waco)
 "Rm" = (
 /obj/structure/platform_decoration{
 	dir = 8
@@ -552,15 +562,6 @@
 	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin6"
-	},
-/area/shuttle/waco)
-"SS" = (
-/obj/structure/machinery/door/airlock/dropship_hatch{
-	dir = 8;
-	id = "starboard_door"
-	},
-/turf/open/shuttle/dropship{
-	icon_state = "rasputin15"
 	},
 /area/shuttle/waco)
 "SZ" = (
@@ -576,6 +577,11 @@
 	name = "\improper Waco"
 	},
 /turf/template_noop,
+/area/shuttle/waco)
+"Ws" = (
+/turf/closed/shuttle/waco/transparent{
+	icon_state = "27T"
+	},
 /area/shuttle/waco)
 "WN" = (
 /obj/structure/bed/chair/vehicle{
@@ -596,7 +602,7 @@
 	},
 /obj/structure/shuttle/part/dropship1/transparent/outer_right_weapons{
 	icon = 'icons/turf/waco.dmi';
-	name = ss
+	name = "\improper Waco"
 	},
 /turf/template_noop,
 /area/shuttle/waco)
@@ -631,7 +637,7 @@ Kw
 Kw
 Kw
 wb
-iV
+af
 mG
 dD
 BU
@@ -687,14 +693,14 @@ dB
 Hz
 "}
 (4,1,1) = {"
-nH
+Me
 OB
 Cr
 hL
 ti
 my
 bs
-QK
+jW
 jW
 jW
 Ds
@@ -727,14 +733,14 @@ Kw
 Kw
 "}
 (6,1,1) = {"
-nH
+eD
 Pc
 go
 Gf
 ro
 ux
 Gh
-Kv
+jW
 jW
 jW
 Mz
@@ -755,7 +761,7 @@ yB
 sl
 Ed
 yB
-SS
+Mf
 Jt
 yB
 yB
@@ -791,9 +797,9 @@ Kw
 Kw
 Kw
 Xr
-ZZ
+hI
 LZ
-if
+Ws
 bm
 Kw
 Kw
