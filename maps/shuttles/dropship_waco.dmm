@@ -73,11 +73,6 @@
 	name = "\improper Waco";
 	icon_state = "101T"
 	},
-/obj/structure/shuttle/part/dropship1/transparent/nose_center{
-	icon = 'icons/turf/waco.dmi';
-	name = "\improper Waco";
-	icon_state = "101T"
-	},
 /turf/template_noop,
 /area/shuttle/waco)
 "fv" = (
