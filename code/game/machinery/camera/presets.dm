@@ -93,6 +93,9 @@
 /obj/structure/machinery/camera/autoname/almayer/dropship_two
 	network = list(CAMERA_NET_ALMAYER, CAMERA_NET_NORMANDY)
 
+/obj/structure/machinery/camera/autoname/almayer/dropship_waco
+	network = list(CAMERA_NET_ALMAYER, CAMERA_NET_WACO)
+
 /obj/structure/machinery/camera/autoname/almayer
 	name = "military-grade camera"
 	network = list(CAMERA_NET_ALMAYER)
@@ -112,10 +115,6 @@
 /obj/structure/machinery/camera/autoname/almayer/containment/ares
 	name = "ares core camera"
 	network = list(CAMERA_NET_ALMAYER, CAMERA_NET_ARES)
-
-/obj/structure/machinery/camera/autoname/almayer
-	name = "military-grade camera"
-	network = list(CAMERA_NET_WACO)
 
 /obj/structure/machinery/camera/autoname/almayer/waco
 	network = list(CAMERA_NET_ALMAYER, CAMERA_NET_WACO)
