@@ -116,6 +116,7 @@
 	name = "ares core camera"
 	network = list(CAMERA_NET_ALMAYER, CAMERA_NET_ARES)
 
+
 /obj/structure/machinery/camera/autoname/almayer/waco
 	network = list(CAMERA_NET_ALMAYER, CAMERA_NET_WACO)
 
