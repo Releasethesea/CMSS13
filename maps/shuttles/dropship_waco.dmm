@@ -437,10 +437,7 @@
 /turf/template_noop,
 /area/shuttle/waco)
 "HY" = (
-/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds1{
-	id = "aft_door";
-	name = "\improper Waco cargo door"
-	},
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds1,
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
 	},
@@ -520,6 +517,15 @@
 	},
 /area/shuttle/waco)
 "ME" = (
+/turf/open/shuttle/dropship{
+	icon_state = "rasputin15"
+	},
+/area/shuttle/waco)
+"Nr" = (
+/obj/structure/machinery/door/airlock/dropship_hatch{
+	dir = 1;
+	id = "dropship_waco"
+	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
 	},
@@ -676,8 +682,8 @@ dE
 Bn
 eN
 dE
-Mf
-Mf
+Jt
+Jt
 dE
 dE
 dE
@@ -756,8 +762,8 @@ yB
 sl
 Le
 yB
-Jt
-Jt
+Mf
+Nr
 yB
 yB
 yB
