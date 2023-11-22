@@ -441,7 +441,7 @@
 	name = "\improper Waco cargo door"
 	},
 /turf/open/shuttle/dropship{
-	icon_state = "rasputin15"
+	icon_state = "rasputin3"
 	},
 /area/shuttle/waco)
 "Id" = (
@@ -742,7 +742,7 @@ mL
 tG
 jW
 jW
-ME
+jW
 Kw
 Kw
 "}
