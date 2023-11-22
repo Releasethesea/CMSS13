@@ -30,7 +30,8 @@
 	network = list(CAMERA_NET_LASER_TARGETS)
 	unslashable = TRUE
 	unacidable = TRUE
-	emp_proof = TRUE
+	var/emp_proof = TRUE
+
 
 /obj/structure/machinery/camera/laser_cam/Initialize(mapload, laser_name)
 	. = ..()
@@ -131,7 +132,7 @@
 	invisibility = 101 //fuck you init()
 
 	colony_camera_mapload = FALSE
-	emp_proof = TRUE
+	var/emp_proof = TRUE
 
 /obj/structure/machinery/camera/autoname/lz_camera/ex_act()
 	return
@@ -141,7 +142,7 @@
 
 /obj/structure/machinery/camera/proc/isEmpProof()
 	var/O = locate(/obj/item/stack/sheet/mineral/osmium) in assembly.upgrades
-	return O || emp_proof
+	var/emp_proof = TRUE
 
 /obj/structure/machinery/camera/proc/isXRay()
 	var/obj/item/stock_parts/scanning_module/O = locate(/obj/item/stock_parts/scanning_module) in assembly.upgrades

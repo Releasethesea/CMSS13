@@ -9,7 +9,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/shuttle/waco)
 "bs" = (
 /obj/structure/machinery/cm_vending/sorted/medical/wall_med{
@@ -32,7 +32,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/shuttle/waco)
 "dD" = (
 /turf/closed/shuttle/waco/transparent{
@@ -161,7 +161,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "s"
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/shuttle/waco)
 "my" = (
 /obj/structure/bed/chair/vehicle{
@@ -310,7 +310,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/shuttle/waco)
 "yO" = (
 /turf/closed/shuttle/waco{
@@ -342,7 +342,7 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/shuttle/waco)
 "Cm" = (
 /obj/effect/attach_point/fuel/waco,
@@ -434,10 +434,12 @@
 	icon = 'icons/turf/waco.dmi';
 	name = "\improper Waco"
 	},
-/turf/template_noop,
+/turf/open/space/basic,
 /area/shuttle/waco)
 "HY" = (
-/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds1,
+/obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/ds1{
+	name = "\improper Waco cargo door"
+	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
 	},
@@ -458,7 +460,7 @@
 /area/shuttle/waco)
 "Kw" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Le" = (
 /obj/structure/machinery/door_control{
 	id = "dropship_waco";
@@ -517,15 +519,6 @@
 	},
 /area/shuttle/waco)
 "ME" = (
-/turf/open/shuttle/dropship{
-	icon_state = "rasputin15"
-	},
-/area/shuttle/waco)
-"Nr" = (
-/obj/structure/machinery/door/airlock/dropship_hatch{
-	dir = 1;
-	id = "dropship_waco"
-	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
 	},
@@ -763,7 +756,7 @@ sl
 Le
 yB
 Mf
-Nr
+Mf
 yB
 yB
 yB
