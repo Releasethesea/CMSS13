@@ -451,8 +451,8 @@
 	},
 /area/shuttle/waco)
 "Jt" = (
-/obj/structure/machinery/door/airlock/dropship_hatch{
-	id = "dropship_waco"
+/obj/structure/machinery/door/airlock/dropship_hatch/waco{
+	id = "port_door"
 	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
@@ -500,9 +500,9 @@
 /turf/template_noop,
 /area/shuttle/waco)
 "Mf" = (
-/obj/structure/machinery/door/airlock/dropship_hatch{
+/obj/structure/machinery/door/airlock/dropship_hatch/waco{
 	dir = 8;
-	id = "dropship_waco"
+	id = "starboard_door"
 	},
 /turf/open/shuttle/dropship{
 	icon_state = "rasputin15"
