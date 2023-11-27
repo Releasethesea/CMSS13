@@ -68,6 +68,7 @@
 	return charged
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/start_charging(user)
+	charge_sound  = 'sound/weapons/plasmaguncharge.ogg'
 	if (charged)
 		to_chat(user, SPAN_WARNING("Your Phased-plasma infantry Gun is already charged."))
 		return

@@ -50,6 +50,9 @@
 	///Delay before we can cock again, in tenths of seconds
 	var/cock_delay = 30
 
+	var/charge_sound = null
+	/// its ment to make a noise when the gun is charging up, but i cant make it do the noise
+
 	/**How the bullet will behave once it leaves the gun, also used for basic bullet damage and effects, etc.
 	Ammo will be replaced on New() for things that do not use mags.**/
 	var/datum/ammo/ammo = null
