@@ -42,14 +42,6 @@
 	unacidable = TRUE
 	indestructible = 1
 	muzzle_flash = "muzzle_energy"
-	var/obj/item/plasmagun_battery/battery = TRUE
-	/// Whether the smartgun drains the battery (Ignored if requires_battery is false)
-	var/requires_power = TRUE
-	/// Whether the smartgun requires a battery
-	var/requires_battery = TRUE
-	/// Whether the smartgun requires a harness to use
-	var/requires_harness = TRUE
-
 	fire_sound = 'sound/weapons/gun_sniper.ogg'
 	current_mag = /obj/item/ammo_magazine/phased_plasma_infantry_gun
 	force = 12
@@ -59,6 +51,7 @@
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY
 	map_specific_decoration = TRUE
 	actions_types = list(/datum/action/item_action/phased_plasma_infantry_gun_start_charge, /datum/action/item_action/phased_plasma_infantry_gun_abort_charge)
+	var/obj/item/plasmagun_powerpack/battery = TRUE
 
 	// Hellpullverizer ready or not??
 	var/charged = FALSE
@@ -128,7 +121,7 @@
 // so we don't need to override ready_in_chamber, which is what makes the bullet and puts it in the chamber var.
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/reload_into_chamber(mob/user)
 	charged = FALSE
-	in_chamber = null // blackpilled again
+	in_chamber = FALSE // blackpilled again
 	return null
 
 /datum/action/item_action/phased_plasma_infantry_gun_start_charge
@@ -178,26 +171,4 @@
 	if (isxeno(M))
 		M.apply_effect(1, SLOW)
 
-/obj/item/plasmagun_battery
-	name = "4mW hydrogen fuel cell"
-	desc = "A standard-issue 9-volt lithium dry-cell battery, most commonly used within the USCMC to power smartguns. Per the manual, one battery is good for up to 50000 rounds and plugs directly into the smartgun's power receptacle, which is only compatible with this type of battery. Various auxiliary modes usually bring the round count far lower. While this cell is incompatible with most standard electrical system, it can be charged by common rechargers in a pinch. USCMC smartgunners often guard them jealously."
 
-	icon = 'icons/obj/structures/machinery/power.dmi'
-	icon_state = "smartguncell"
-	force = 5
-	throwforce = 5
-	throw_speed = SPEED_VERY_FAST
-	throw_range = 5
-	w_class = SIZE_SMALL
-
-	var/obj/item/cell/high/power_cell
-
-/obj/item/plasmagun_battery/Initialize(mapload)
-	. = ..()
-
-	power_cell = new(src)
-
-/obj/item/plasmagun_battery/get_examine_text(mob/user)
-	. = ..()
-
-	. += SPAN_NOTICE("The power indicator reads [power_cell.charge] charge out of [power_cell.maxcharge] total.")

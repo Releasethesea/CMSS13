@@ -85,3 +85,54 @@
 		overlays += image(icon, "smartgun")
 	else
 		icon_state = "kit_case_e"
+
+/obj/item/plasmagun_powerpack
+	name = "\improper M78 Phased-plasma Infantry Gun battery bank"
+	desc = "A heavy reinforced backpack with support equipment and power cells for the M56 Smartgun System."
+	icon = 'icons/obj/items/clothing/backpacks.dmi'
+	icon_state = "d_marinesatch_techi"
+	flags_atom = FPRINT|CONDUCT
+	flags_equip_slot = 2048
+	w_class = SIZE_HUGE
+	var/obj/item/cell/pcell = null
+	var/reloading = 0
+
+/obj/item/plasmagun_powerpack/Initialize(mapload, ...)
+	. = ..()
+	pcell = new /obj/item/cell/hydrogen_fuel_cell(src)
+
+/obj/item/plasmagun_powerpack/Destroy()
+	. = ..()
+	QDEL_NULL(pcell)
+
+
+/obj/item/plasmagun_powerpack/attackby(/obj/item/A as obj, mob/user as mob)
+	if(istype(A,//obj/item/cell/hydrogen_fuel_cell))
+		var/obj/item/cell/hydrogen_fuel_cell = A
+		visible_message("[user.name] swaps out the hydrogen fuel cell in the [src.name].","You swap out the hydrogen fuel cell in the [src] and drop the old one.")
+		to_chat(user, "The new cell contains: [C.charge] power.")
+		pcell.forceMove(get_turf(user))
+		pcell = C
+		user.drop_inv_item_to_loc(C, src)
+		playsound(src,'sound/machines/click.ogg', 25, 1)
+	else
+		..()
+
+/obj/item/plasmagun_powerpack/get_examine_text(mob/user)
+	. = ..()
+	if (pcell && get_dist(user, src) <= 1)
+		. += "A small gauge in the corner reads: Power: [pcell.charge] / [pcell.maxcharge]."
+
+/obj/item/plasmagun_powerpack/proc/drain_powerpack(drain = 0, /obj/item/cell/c)
+	var/actual_drain = (rand(drain/2,drain)/25)
+	if(c && C.charge > 0)
+		if(C.charge > actual_drain)
+			C.charge -= actual_drain
+		else
+			C.charge = 0
+			to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
+		return TRUE
+	if(!c || C.charge == 0)
+		to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
+		return FALSE
+	return FALSE
