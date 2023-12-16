@@ -121,7 +121,7 @@
 // so we don't need to override ready_in_chamber, which is what makes the bullet and puts it in the chamber var.
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/reload_into_chamber(mob/user)
 	charged = FALSE
-	in_chamber = FALSE // blackpilled again
+	in_chamber = null // blackpilled again
 	return null
 
 /datum/action/item_action/phased_plasma_infantry_gun_start_charge

@@ -106,14 +106,14 @@
 	QDEL_NULL(pcell)
 
 
-/obj/item/plasmagun_powerpack/attackby(/obj/item/A as obj, mob/user as mob)
-	if(istype(A,//obj/item/cell/hydrogen_fuel_cell))
+/obj/item/plasmagun_powerpack/attackby(obj/item/A as obj, mob/user as mob)
+	if(istype(A,/obj/item/cell/hydrogen_fuel_cell))
 		var/obj/item/cell/hydrogen_fuel_cell = A
 		visible_message("[user.name] swaps out the hydrogen fuel cell in the [src.name].","You swap out the hydrogen fuel cell in the [src] and drop the old one.")
-		to_chat(user, "The new cell contains: [C.charge] power.")
+		to_chat(user, "The new cell contains: [c.charge] power.")
 		pcell.forceMove(get_turf(user))
-		pcell = C
-		user.drop_inv_item_to_loc(C, src)
+		pcell = c
+		user.drop_inv_item_to_loc(c, src)
 		playsound(src,'sound/machines/click.ogg', 25, 1)
 	else
 		..()
@@ -123,16 +123,16 @@
 	if (pcell && get_dist(user, src) <= 1)
 		. += "A small gauge in the corner reads: Power: [pcell.charge] / [pcell.maxcharge]."
 
-/obj/item/plasmagun_powerpack/proc/drain_powerpack(drain = 0, /obj/item/cell/c)
+/obj/item/plasmagun_powerpack/proc/drain_plasmagun_powerpack(drain = 0, /obj/item/cell/hydrogen_fuel_cell)
 	var/actual_drain = (rand(drain/2,drain)/25)
-	if(c && C.charge > 0)
-		if(C.charge > actual_drain)
-			C.charge -= actual_drain
+	if(c && c.charge > 0)
+		if(c.charge > actual_drain)
+			c.charge -= actual_drain
 		else
-			C.charge = 0
+			c.charge = 0
 			to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
 		return TRUE
-	if(!c || C.charge == 0)
+	if(!c || c.charge == 0)
 		to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
 		return FALSE
 	return FALSE
