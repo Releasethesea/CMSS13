@@ -108,9 +108,9 @@
 
 /obj/item/plasmagun_powerpack/attackby(obj/item/A as obj, mob/user as mob)
 	if(istype(A,/obj/item/cell/hydrogen_fuel_cell))
-		var/obj/item/cell/pcell = A
+		var/obj/item/cell/hydrogen_fuel_cell = A
 		visible_message("[user.name] swaps out the hydrogen fuel cell in the [src.name].","You swap out the hydrogen fuel cell in the [src] and drop the old one.")
-		to_chat(user, "The new cell contains: [hydrogen_fuel_cell.charge] power.")
+		to_chat(user, "The new cell contains: [pcell.charge] power.")
 		pcell.forceMove(get_turf(user))
 		pcell = /obj/item/cell/hydrogen_fuel_cell
 		user.drop_inv_item_to_loc(hydrogen_fuel_cell, src)
