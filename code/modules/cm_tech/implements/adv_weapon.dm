@@ -182,97 +182,92 @@
 	icon = 'icons/obj/items/clothing/backpacks.dmi'
 	icon_state = "d_marinesatch_techi"
 	flags_atom = FPRINT|CONDUCT
-	flags_equip_slot = H.pockets
+	flags_equip_slot = SLOT_WAIST
 	w_class = SIZE_HUGE
 	var/obj/item/cell/pcell = null
 	var/reloading = 0
-	flags_inventory = PLASMAGUN_POWERPACK
 
 
-/obj/item/plasmagun_powerpack/Initialize(mapload, ...)
-	. = ..()
+/obj/item/plasmagun_powerpack/New()
+	..()
 	pcell = new /obj/item/cell/hydrogen_fuel_cell(src)
 
-/obj/item/plasmagun_powerpack/Destroy()
-	. = ..()
-	QDEL_NULL(pcell)
 
 
-/obj/item/plasmagun_powerpack/attackby(obj/item/A as obj, mob/user as mob)
-	if(istype(A,/obj/item/cell/hydrogen_fuel_cell))
-		var/obj/item/cell/hydrogen_fuel_cell = A
-		visible_message("[user.name] swaps out the hydrogen fuel cell in the [src.name].","You swap out the hydrogen fuel cell in the [src] and drop the old one.")
-		to_chat(user, "The new cell contains: [pcell.charge] power.")
+/obj/item/plasmagun_powerpack/attackby(var/obj/item/A as obj, mob/user as mob)
+	if(istype(A,/obj/item/cell))
+		var/obj/item/cell/C = A
+		visible_message("[user.name] swaps out the power cell in the [src.name].","You swap out the power cell in the [src] and drop the old one.")
+		to_chat(user, "The new cell contains: [C.charge] power.")
 		pcell.forceMove(get_turf(user))
-		pcell = /obj/item/cell/hydrogen_fuel_cell
-		user.drop_inv_item_to_loc(hydrogen_fuel_cell, src)
+		pcell = C
+		user.drop_inv_item_to_loc(C, src)
 		playsound(src,'sound/machines/click.ogg', 25, 1)
 	else
 		..()
 
-/obj/item/plasmagun_powerpack/get_examine_text(mob/user)
-	. = ..()
-	if (pcell && get_dist(user, src) <= 1)
-		. += "A small gauge in the corner reads: Power: [pcell.charge] / [pcell.maxcharge]."
+/obj/item/plasmagun_powerpack/examine(mob/user)
+	..()
+	if (get_dist(user, src) <= 1)
+		if(pcell)
+			to_chat(user, "A small gauge in the corner reads: Power: [pcell.charge] / [pcell.maxcharge].")
 
-/obj/item/plasmagun_powerpack/proc/drain_plasmagun_powerpack(drain = 0, obj/item/cell/hydrogen_fuel_cell)
-	var/actual_drain = (rand(drain/1000,drain)/25)
-	if(hydrogen_fuel_cell && hydrogen_fuel_cell.charge > 0)
-		if(hydrogen_fuel_cell.charge > actual_drain)
-			hydrogen_fuel_cell.charge -= actual_drain
+/obj/item/plasmagun_powerpack/proc/drain_powerpack(var/drain = 0, var/obj/item/cell/c)
+	var/actual_drain = (rand(drain/2,drain)/25)
+	if(c && c.charge > 0)
+		if(c.charge > actual_drain)
+			c.charge -= actual_drain
 		else
-			hydrogen_fuel_cell.charge = 0
+			c.charge = 0
 			to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
 		return TRUE
-	if(!hydrogen_fuel_cell || hydrogen_fuel_cell.charge == 0)
+	if(!c || c.charge == 0)
 		to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
 		return FALSE
 	return FALSE
+
+ /// for the gun///
 
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire(mob/living/user)
 	. = ..()
 	if(.)
-		if(!ishuman(user))
-			return FALSE
+		if(!ishuman(user)) return 0
 		var/mob/living/carbon/human/H = user
-		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_SMARTGUN) && !skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
-			to_chat(H, SPAN_WARNING("You don't seem to know how to use \the [src]..."))
-			return FALSE
-		if(requires_plasmagun_powerpack )
-			if(!H.wear_suit || !(H.wear_suit.flags_inventory & PLASMAGUN_POWERPACK))
-				to_chat(H, SPAN_WARNING("You need a harness suit to be able to fire [src]..."))
-				return FALSE
-		if(charged)
-			to_chat(H, SPAN_WARNING("You can't fire \the [src] with the feed cover open! (alt-click to close)"))
-			return FALSE
+		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
+			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+			return 0
+		if ( !istype(H.belt,/obj/item/plasmagun_powerpack))
+			click_empty(H)
+			return 0
+
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
-	if(!requires_plasmagun_powerpack)
-		return ..()
+	if(!powerpack)
+		if(!link_powerpack(user))
+			click_empty(user)
+			unlink_powerpack()
+			return
 
-	if(plasmagun_powerpack)
-		if(!requires_plasmagun_powerpack)
-			return ..()
-		if(drain_plasmagun_powerpack())
-			return ..()
 
-/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/drain_plasmagun_powerpack(override_drain)
-
-	var/actual_drain = (rand(drain / 2, drain) / 25)
-
-	if(override_drain)
-		actual_drain = (rand(override_drain / 2, override_drain) / 25)
-
-	if(plasmagun_powerpack && hydrogen_fuel_cell.charge > 0)
-		if(hydrogen_fuel_cell.charge > actual_drain)
-			hydrogen_fuel_cell.charge -= actual_drain
-		else
-			hydrogen_fuel_cell.charge = 0
-			to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
-			return FALSE
-		return TRUE
-	if(!plasmagun_powerpack || hydrogen_fuel_cell.charge == 0)
-		to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
-		return FALSE
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(/mob/user)
+	if(!QDELETED(user) && !QDELETED(user.back))
+		if(istype(user.back, /obj/item/plasmagun_powerpack))
+			powerpack = user.back
+			return TRUE
 	return FALSE
+
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/unlink_powerpack()
+	powerpack = null
+
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire(mob/living/user)
+	. = ..()
+	if(.)
+		if(!ishuman(user)) return 0
+		var/mob/living/carbon/human/H = user
+		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
+			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+			return 0
+		if ( !istype(H.back,/obj/item/plasmagun_powerpack))
+			click_empty(H)
+			return 0
