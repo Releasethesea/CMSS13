@@ -51,12 +51,8 @@
 	flags_gun_features = GUN_AUTO_EJECTOR|GUN_WIELDED_FIRING_ONLY
 	map_specific_decoration = FALSE
 	actions_types = list(/datum/action/item_action/phased_plasma_infantry_gun_start_charge, /datum/action/item_action/phased_plasma_infantry_gun_abort_charge)
-	var/obj/item/plasmagun_powerpack/hydrogen_fuel_cell = null
-	var/link_powerpack
 	var/drain = 1000
-	var/requires_plasmagun_powerpack
-	var/requires_battery = TRUE
-	var/requires_power = TRUE
+	var/powerpack = null
 
 	// Hellpullverizer ready or not??
 	var/charged = FALSE
@@ -182,97 +178,236 @@
 	icon = 'icons/obj/items/clothing/backpacks.dmi'
 	icon_state = "d_marinesatch_techi"
 	flags_atom = FPRINT|CONDUCT
-	flags_equip_slot = H.pockets
+	flags_equip_slot = SLOT_WAIST
 	w_class = SIZE_HUGE
 	var/obj/item/cell/pcell = null
 	var/reloading = 0
-	flags_inventory = PLASMAGUN_POWERPACK
 
 
-/obj/item/plasmagun_powerpack/Initialize(mapload, ...)
-	. = ..()
+/obj/item/plasmagun_powerpack/New()
+	..()
 	pcell = new /obj/item/cell/hydrogen_fuel_cell(src)
 
-/obj/item/plasmagun_powerpack/Destroy()
-	. = ..()
-	QDEL_NULL(pcell)
 
 
-/obj/item/plasmagun_powerpack/attackby(obj/item/A as obj, mob/user as mob)
-	if(istype(A,/obj/item/cell/hydrogen_fuel_cell))
-		var/obj/item/cell/hydrogen_fuel_cell = A
-		visible_message("[user.name] swaps out the hydrogen fuel cell in the [src.name].","You swap out the hydrogen fuel cell in the [src] and drop the old one.")
-		to_chat(user, "The new cell contains: [pcell.charge] power.")
+/obj/item/plasmagun_powerpack/attackby(var/obj/item/A as obj, mob/user as mob)
+	if(istype(A,/obj/item/cell))
+		var/obj/item/cell/C = A
+		visible_message("[user.name] swaps out the power cell in the [src.name].","You swap out the power cell in the [src] and drop the old one.")
+		to_chat(user, "The new cell contains: [C.charge] power.")
 		pcell.forceMove(get_turf(user))
-		pcell = /obj/item/cell/hydrogen_fuel_cell
-		user.drop_inv_item_to_loc(hydrogen_fuel_cell, src)
+		pcell = C
+		user.drop_inv_item_to_loc(C, src)
 		playsound(src,'sound/machines/click.ogg', 25, 1)
 	else
 		..()
 
-/obj/item/plasmagun_powerpack/get_examine_text(mob/user)
-	. = ..()
-	if (pcell && get_dist(user, src) <= 1)
-		. += "A small gauge in the corner reads: Power: [pcell.charge] / [pcell.maxcharge]."
+/obj/item/plasmagun_powerpack/examine(mob/user)
+	..()
+	if (get_dist(user, src) <= 1)
+		if(pcell)
+			to_chat(user, "A small gauge in the corner reads: Power: [pcell.charge] / [pcell.maxcharge].")
 
-/obj/item/plasmagun_powerpack/proc/drain_plasmagun_powerpack(drain = 0, obj/item/cell/hydrogen_fuel_cell)
-	var/actual_drain = (rand(drain/1000,drain)/25)
-	if(hydrogen_fuel_cell && hydrogen_fuel_cell.charge > 0)
-		if(hydrogen_fuel_cell.charge > actual_drain)
-			hydrogen_fuel_cell.charge -= actual_drain
+/obj/item/plasmagun_powerpack/proc/drain_powerpack(var/drain = 0, var/obj/item/cell/c)
+	var/actual_drain = (rand(drain/2,drain)/25)
+	if(c && c.charge > 0)
+		if(c.charge > actual_drain)
+			c.charge -= actual_drain
 		else
-			hydrogen_fuel_cell.charge = 0
+			c.charge = 0
 			to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
 		return TRUE
-	if(!hydrogen_fuel_cell || hydrogen_fuel_cell.charge == 0)
+	if(!c || c.charge == 0)
 		to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
 		return FALSE
 	return FALSE
+
+ /// for the gun///
 
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire(mob/living/user)
 	. = ..()
 	if(.)
-		if(!ishuman(user))
-			return FALSE
+		if(!ishuman(user)) return 0
 		var/mob/living/carbon/human/H = user
-		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_SMARTGUN) && !skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
-			to_chat(H, SPAN_WARNING("You don't seem to know how to use \the [src]..."))
-			return FALSE
-		if(requires_plasmagun_powerpack )
-			if(!H.wear_suit || !(H.wear_suit.flags_inventory & PLASMAGUN_POWERPACK))
-				to_chat(H, SPAN_WARNING("You need a harness suit to be able to fire [src]..."))
-				return FALSE
-		if(charged)
-			to_chat(H, SPAN_WARNING("You can't fire \the [src] with the feed cover open! (alt-click to close)"))
-			return FALSE
+		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
+			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+			return 0
+		if ( !istype(H.belt,/obj/item/plasmagun_powerpack))
+			click_empty(H)
+			return 0
+
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
-	if(!requires_plasmagun_powerpack)
-		return ..()
+	if(!powerpack)
+		if(!link_powerpack(user))
+			click_empty(user)
+			unlink_powerpack()
+			return
 
-	if(plasmagun_powerpack)
-		if(!requires_plasmagun_powerpack)
-			return ..()
-		if(drain_plasmagun_powerpack())
-			return ..()
 
-/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/drain_plasmagun_powerpack(override_drain)
-
-	var/actual_drain = (rand(drain / 2, drain) / 25)
-
-	if(override_drain)
-		actual_drain = (rand(override_drain / 2, override_drain) / 25)
-
-	if(plasmagun_powerpack && hydrogen_fuel_cell.charge > 0)
-		if(hydrogen_fuel_cell.charge > actual_drain)
-			hydrogen_fuel_cell.charge -= actual_drain
-		else
-			hydrogen_fuel_cell.charge = 0
-			to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
-			return FALSE
-		return TRUE
-	if(!plasmagun_powerpack || hydrogen_fuel_cell.charge == 0)
-		to_chat(usr, SPAN_WARNING("[src] emits a low power warning and immediately shuts down!"))
-		return FALSE
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(/mob/user)
+	if(!QDELETED(user) && !QDELETED(user.back))
+		if(istype(user.back, /obj/item/plasmagun_powerpack))
+			powerpack = user.back
+			return TRUE
 	return FALSE
+
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/unlink_powerpack()
+	powerpack = null
+
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire(mob/living/user)
+	. = ..()
+	if(.)
+		if(!ishuman(user)) return 0
+		var/mob/living/carbon/human/H = user
+		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
+			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+			return 0
+		if ( !istype(H.back,/obj/item/plasmagun_powerpack))
+			click_empty(H)
+			return 0
+
+
+/// code reference for the backpack if shouldnt do anything, should just help with stuff
+
+
+
+// /obj/item/weapon/gun/smartgun
+//	name = "\improper M56B smartgun"
+//	desc = "The actual firearm in the 4-piece M56B Smartgun System. Essentially a heavy, mobile machinegun.\nYou may toggle firing restrictions by using a special action."
+//	icon_state = "m56"
+//	item_state = "m56"
+
+//	fire_sound = "gun_smartgun"
+//	fire_rattle	= "gun_smartgun_rattle"
+//	reload_sound = 'sound/weapons/handling/gun_sg_reload.ogg'
+//	unload_sound = 'sound/weapons/handling/gun_sg_unload.ogg'
+//	current_mag = /obj/item/ammo_magazine/smartgun
+//	flags_equip_slot = NO_FLAGS
+//	w_class = SIZE_HUGE
+//	force = 20
+//	wield_delay = WIELD_DELAY_FAST
+//	aim_slowdown = SLOWDOWN_ADS_SPECIALIST
+//	var/powerpack = null
+//	ammo = /datum/ammo/bullet/smartgun
+//	var/datum/ammo/ammo_primary = /datum/ammo/bullet/smartgun //Toggled ammo type
+//	var/datum/ammo/ammo_secondary = /datum/ammo/bullet/smartgun/armor_piercing //Toggled ammo type
+//	var/iff_enabled = TRUE //Begin with the safety on.
+//	var/secondary_toggled = 0 //which ammo we use
+//	var/recoil_compensation = 0
+//	var/accuracy_improvement = 0
+//	var/auto_fire = 0
+//	var/motion_detector = 0
+//	var/drain = 11
+//	var/range = 7
+//	var/angle = 2
+//	var/list/angle_list = list(180,135,90,60,30)
+//	var/obj/item/device/motiondetector/sg/MD
+//	var/long_range_cooldown = 2
+//	var/recycletime = 120
+
+//	unacidable = 1
+//	indestructible = 1
+
+//	attachable_allowed = list(
+//						/obj/item/attachable/smartbarrel,
+//						/obj/item/attachable/burstfire_assembly,
+//						/obj/item/attachable/flashlight)
+
+//	flags_gun_features = GUN_AUTO_EJECTOR|GUN_SPECIALIST|GUN_WIELDED_FIRING_ONLY|GUN_HAS_FULL_AUTO
+//	gun_category = GUN_CATEGORY_HEAVY
+//	starting_attachment_types = list(/obj/item/attachable/smartbarrel)
+//	auto_retrieval_slot = WEAR_J_STORE
+
+
+// /obj/item/weapon/gun/smartgun/Initialize(mapload, ...)
+//	. = ..()
+//	ammo_primary = GLOB.ammo_list[ammo_primary]
+//	ammo_secondary = GLOB.ammo_list[ammo_secondary]
+//	MD = new(src)
+
+// /obj/item/weapon/gun/smartgun/set_gun_attachment_offsets()
+//	attachable_offset = list("muzzle_x" = 33, "muzzle_y" = 16,"rail_x" = 17, "rail_y" = 18, "under_x" = 22, "under_y" = 14, "stock_x" = 22, "stock_y" = 14)
+
+// /obj/item/weapon/gun/smartgun/set_gun_config_values()
+//	..()
+//	fire_delay = FIRE_DELAY_TIER_10
+//	burst_amount = BURST_AMOUNT_TIER_3
+//	burst_delay = FIRE_DELAY_TIER_9
+//	fa_delay = FIRE_DELAY_TIER_9
+//	fa_scatter_peak = FULL_AUTO_SCATTER_PEAK_TIER_6
+//	fa_max_scatter = SCATTER_AMOUNT_TIER_5
+//	if(accuracy_improvement)
+//		accuracy_mult += HIT_ACCURACY_MULT_TIER_2
+//	else
+//		accuracy_mult += HIT_ACCURACY_MULT_TIER_1
+//	if(recoil_compensation)
+//		scatter = SCATTER_AMOUNT_TIER_10
+//		recoil = RECOIL_OFF
+//	else
+//		scatter = SCATTER_AMOUNT_TIER_6
+//		recoil = RECOIL_AMOUNT_TIER_3
+//	burst_scatter_mult = SCATTER_AMOUNT_TIER_8
+//	damage_mult = BASE_BULLET_DAMAGE_MULT
+
+// /obj/item/weapon/gun/smartgun/set_bullet_traits()
+//	LAZYADD(traits_to_give, list(
+//		BULLET_TRAIT_ENTRY_ID("iff", /datum/element/bullet_trait_iff)
+//	))
+
+// /obj/item/weapon/gun/smartgun/examine(mob/user)
+//	..()
+//	var/rounds = 0
+//	if(current_mag && current_mag.current_rounds)
+//		rounds = current_mag.current_rounds
+//	var/message = "[rounds ? "Ammo counter shows [rounds] round\s remaining." : "It's dry."]"
+//	to_chat(user, message)
+//	to_chat(user, "The restriction system is [iff_enabled ? "<B>on</b>" : "<B>off</b>"].")
+
+// /obj/item/weapon/gun/smartgun/able_to_fire(mob/living/user)
+//	. = ..()
+//	if(.)
+//		if(!ishuman(user)) return 0
+//		var/mob/living/carbon/human/H = user
+//		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_SMARTGUN) && !skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
+//			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
+//			return 0
+//		if ( !istype(H.wear_suit,/obj/item/clothing/suit/storage/marine/smartgunner) || !istype(H.back,/obj/item/smartgun_powerpack))
+//			click_empty(H)
+//			return 0
+
+// /obj/item/weapon/gun/smartgun/delete_bullet(obj/item/projectile/projectile_to_fire, refund = 0)
+//	if(!current_mag)
+//		return
+//	qdel(projectile_to_fire)
+//	if(refund) current_mag.current_rounds++
+//	return 1
+
+
+// /obj/item/weapon/gun/smartgun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
+//	if(!powerpack)
+//		if(!link_powerpack(user))
+//			click_empty(user)
+//			unlink_powerpack()
+//			return
+//	if(powerpack)
+//		var/obj/item/smartgun_powerpack/pp = user.back
+//		if(istype(pp))
+//			var/obj/item/cell/c = pp.pcell
+//			var/d = drain
+//			if(flags_gun_features & GUN_BURST_ON)
+//				d = drain*burst_amount*1.5
+//			if(pp.drain_powerpack(d, c))
+//				..()
+
+
+// /obj/item/weapon/gun/smartgun/proc/link_powerpack(var/mob/user)
+//	if(!QDELETED(user) && !QDELETED(user.back))
+//		if(istype(user.back, /obj/item/smartgun_powerpack))
+//			powerpack = user.back
+//			return TRUE
+//	return FALSE
+
+///obj/item/weapon/gun/smartgun/proc/unlink_powerpack()
+// 	powerpack = null ///
