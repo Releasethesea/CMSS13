@@ -145,7 +145,6 @@
 	name = "\improper Phased-plasma Infantry Gun ammunition canister"
 	desc = "A magazine ammo for the poggers Railgun."
 	caliber = "1x1cm Cadmium Telluride pellets"
-	handful_state = "vulture_bullet"
 	icon_state = "cadcan" //basing this off of a devinart photo, no idea how accurate it is but you try making a canister of cadmium telluride pellets, its not that easy lmao
 	w_class = SIZE_LARGE
 	flags_magazine = AMMUNITION_CANNOT_REMOVE_BULLETS
@@ -185,7 +184,7 @@
 
 
 /obj/item/plasmagun_powerpack/New()
-	..()
+	. = ..()
 	pcell = new /obj/item/cell/hydrogen_fuel_cell(src)
 
 
@@ -230,9 +229,6 @@
 	if(.)
 		if(!ishuman(user)) return 0
 		var/mob/living/carbon/human/H = user
-		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
-			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
-			return 0
 		if ( !istype(H.belt,/obj/item/plasmagun_powerpack))
 			click_empty(H)
 			return 0
@@ -246,7 +242,7 @@
 			return
 
 
-/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(/mob/user)
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(var/mob/user)
 	if(!QDELETED(user) && !QDELETED(user.back))
 		if(istype(user.back, /obj/item/plasmagun_powerpack))
 			powerpack = user.back
