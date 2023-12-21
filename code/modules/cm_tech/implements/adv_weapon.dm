@@ -189,7 +189,7 @@
 
 
 
-/obj/item/plasmagun_powerpack/attackby(var/obj/item/A as obj, mob/user as mob)
+/obj/item/plasmagun_powerpack/attackby(obj/item/A as obj, mob/user as mob)
 	if(istype(A,/obj/item/cell))
 		var/obj/item/cell/C = A
 		visible_message("[user.name] swaps out the power cell in the [src.name].","You swap out the power cell in the [src] and drop the old one.")
@@ -207,7 +207,7 @@
 		if(pcell)
 			to_chat(user, "A small gauge in the corner reads: Power: [pcell.charge] / [pcell.maxcharge].")
 
-/obj/item/plasmagun_powerpack/proc/drain_powerpack(var/drain = 0, var/obj/item/cell/c)
+/obj/item/plasmagun_powerpack/proc/drain_powerpack(var/drain = 0, obj/item/cell/c)
 	var/actual_drain = (rand(drain/2,drain)/25)
 	if(c && c.charge > 0)
 		if(c.charge > actual_drain)
@@ -242,7 +242,7 @@
 			return
 
 
-/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(var/mob/user)
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(mob/user)
 	if(!QDELETED(user) && !QDELETED(user.back))
 		if(istype(user.back, /obj/item/plasmagun_powerpack))
 			powerpack = user.back
@@ -263,3 +263,10 @@
 		if ( !istype(H.back,/obj/item/plasmagun_powerpack))
 			click_empty(H)
 			return 0
+
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
+	if(!powerpack || (powerpack && user.back != powerpack))
+		if(!link_powerpack(user))
+			to_chat(user, SPAN_WARNING("You need a powerpack to be able to fire \the [src]..."))
+			unlink_powerpack()
+			return
