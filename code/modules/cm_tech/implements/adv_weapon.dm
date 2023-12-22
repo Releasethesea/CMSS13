@@ -258,12 +258,12 @@
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire(mob/living/user)
 	. = ..()
 	if(.)
-		if(!ishuman(user)) return 0
+		if(!ishuman(user))
+			return FALSE
 		var/mob/living/carbon/human/human_user = user
-		return 0
 		if(istype(human_user.belt, /obj/item/plasmagun_powerpack))
 			click_empty(human_user)
-			return 0
+			return FALSE
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
 	var/mob/living/carbon/human/human_user = user
