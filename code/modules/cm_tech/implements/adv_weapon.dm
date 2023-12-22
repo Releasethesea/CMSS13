@@ -58,25 +58,6 @@
 	var/charged = FALSE
 
 
-/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire()
-	return charged
-
-/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/start_charging(user)
-	playsound(user, 'sound/weapons/plasmaguncharge.ogg', 25, 0)
-	if (charged)
-		to_chat(user, SPAN_WARNING("Your Phased-plasma infantry Gun is already charged."))
-		return
-
-	to_chat(user, SPAN_WARNING("You start charging your Phased-plasma infantry Gun."))
-	if (!do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
-		to_chat(user, SPAN_WARNING("You stop charging your Phased-plasma infantry Gun."))
-		return
-
-	to_chat(user, SPAN_WARNING("You finish charging your Phased-plasma infantry Gun."))
-
-	charged = TRUE
-	return
-
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/on_enter_storage()
 	if (charged)
 		abort_charge()
@@ -225,8 +206,18 @@
 
  /// for the gun///
 
-
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire(mob/living/user)
+	. = ..()
+	if(.)
+		if(!ishuman(user))
+			return FALSE
+		var/mob/living/carbon/human/human_user = user
+		if(istype(human_user.belt, /obj/item/plasmagun_powerpack))
+			click_empty(human_user)
+			return FALSE
+		if(charged)
+			return FALSE
+
 	. = ..()
 	if(.)
 		if(!ishuman(user)) return 0
@@ -235,6 +226,21 @@
 			click_empty(H)
 			return 0
 
+/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/start_charging(user)
+	playsound(user, 'sound/weapons/plasmaguncharge.ogg', 25, 0)
+	if (charged)
+		to_chat(user, SPAN_WARNING("Your Phased-plasma infantry Gun is already charged."))
+		return
+
+	to_chat(user, SPAN_WARNING("You start charging your Phased-plasma infantry Gun."))
+	if (!do_after(user, 3 SECONDS, INTERRUPT_ALL, BUSY_ICON_HOSTILE))
+		to_chat(user, SPAN_WARNING("You stop charging your Phased-plasma infantry Gun."))
+		return
+
+	to_chat(user, SPAN_WARNING("You finish charging your Phased-plasma infantry Gun."))
+
+	charged = TRUE
+	return
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
 	if(!powerpack)
@@ -242,7 +248,6 @@
 			click_empty(user)
 			unlink_powerpack()
 			return
-
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(mob/user)
     if(!QDELETED(user) && !QDELETED(user.back) && ishuman(user))
@@ -255,16 +260,6 @@
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/unlink_powerpack()
 	powerpack = null
 
-/obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/able_to_fire(mob/living/user)
-	. = ..()
-	if(.)
-		if(!ishuman(user))
-			return FALSE
-		var/mob/living/carbon/human/human_user = user
-		if(istype(human_user.belt, /obj/item/plasmagun_powerpack))
-			click_empty(human_user)
-			return FALSE
-
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
 	var/mob/living/carbon/human/human_user = user
 	if(!powerpack || (powerpack && human_user.belt != powerpack))
@@ -272,3 +267,11 @@
 			to_chat(human_user, SPAN_WARNING("You need a powerpack to be able to fire \the [src]..."))
 			unlink_powerpack()
 			return
+
+	. = ..()
+	if(.)
+		if(!ishuman(user)) return 0
+		var/mob/living/carbon/human/H = user
+		if ( !istype(H.belt,/obj/item/plasmagun_powerpack))
+			click_empty(H)
+			return 0
