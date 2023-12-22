@@ -260,8 +260,7 @@
 	if(.)
 		if(!ishuman(user)) return 0
 		var/mob/living/carbon/human/human_user = user
-			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
-			return 0
+		return 0
 		if(istype(human_user.belt, /obj/item/plasmagun_powerpack))
 			click_empty(human_user)
 			return 0
