@@ -187,7 +187,9 @@
 	. = ..()
 	pcell = new /obj/item/cell/hydrogen_fuel_cell(src)
 
-
+/obj/item/plasmagun_powerpack/Destroy()
+	. = ..()
+	QDEL_NULL(pcell)
 
 /obj/item/plasmagun_powerpack/attackby(obj/item/A as obj, mob/user as mob)
 	if(istype(A,/obj/item/cell))
@@ -243,11 +245,12 @@
 
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/link_powerpack(mob/user)
-	if(!QDELETED(user) && !QDELETED(user.back))
-		if(istype(user.back, /obj/item/plasmagun_powerpack))
-			powerpack = user.back
-			return TRUE
-	return FALSE
+    if(!QDELETED(user) && !QDELETED(user.back) && ishuman(user))
+        var/mob/living/carbon/human/human_user = user
+        if(istype(human_user.belt, /obj/item/plasmagun_powerpack))
+            powerpack = human_user.belt
+            return TRUE
+    return FALSE
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/proc/unlink_powerpack()
 	powerpack = null
@@ -256,17 +259,17 @@
 	. = ..()
 	if(.)
 		if(!ishuman(user)) return 0
-		var/mob/living/carbon/human/H = user
-		if(!skillcheckexplicit(user, SKILL_SPEC_WEAPONS, SKILL_SPEC_ALL))
+		var/mob/living/carbon/human/human_user = user
 			to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
 			return 0
-		if ( !istype(H.back,/obj/item/plasmagun_powerpack))
-			click_empty(H)
+		if(istype(human_user.belt, /obj/item/plasmagun_powerpack))
+			click_empty(human_user)
 			return 0
 
 /obj/item/weapon/gun/rifle/phased_plasma_infantry_gun/Fire(atom/target, mob/living/user, params, reflex = 0, dual_wield)
-	if(!powerpack || (powerpack && user.back != powerpack))
-		if(!link_powerpack(user))
-			to_chat(user, SPAN_WARNING("You need a powerpack to be able to fire \the [src]..."))
+	var/mob/living/carbon/human/human_user = user
+	if(!powerpack || (powerpack && human_user.belt != powerpack))
+		if(!link_powerpack(human_user))
+			to_chat(human_user, SPAN_WARNING("You need a powerpack to be able to fire \the [src]..."))
 			unlink_powerpack()
 			return
