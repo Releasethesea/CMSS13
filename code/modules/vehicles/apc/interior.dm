@@ -38,7 +38,7 @@
 	unacidable = TRUE
 	unslashable = TRUE
 	breakable = FALSE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 /obj/structure/prop/vehicle/firing_port_weapon
 	name = "M56 FPW handle"

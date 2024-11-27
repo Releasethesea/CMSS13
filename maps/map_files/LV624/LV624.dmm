@@ -1796,7 +1796,9 @@
 /area/lv624/ground/river/east_river)
 "akh" = (
 /obj/item/trash/candy,
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /obj/structure/machinery/door_control{
 	id = "secure_outer_blast";
 	name = "Secure Outer Doors";
@@ -2715,7 +2717,9 @@
 /turf/open/floor/green/northwest,
 /area/lv624/lazarus/hydroponics)
 "aru" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/green/northwest,
 /area/lv624/lazarus/hydroponics)
 "arv" = (
@@ -3381,8 +3385,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /obj/item/clothing/shoes/yautja_flavor{
 	anchored = 1
@@ -3674,7 +3677,9 @@
 /turf/open/floor/whitepurple/northeast,
 /area/lv624/lazarus/fitness)
 "aww" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/whitepurplecorner/east,
 /area/lv624/lazarus/fitness)
 "awx" = (
@@ -4212,7 +4217,9 @@
 /turf/open/floor/vault2/west,
 /area/lv624/lazarus/robotics)
 "azc" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/vault2,
 /area/lv624/lazarus/robotics)
 "azd" = (
@@ -4603,7 +4610,9 @@
 	},
 /obj/structure/surface/table,
 /obj/effect/landmark/item_pool_spawner/survivor_ammo/buckshot,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/whitepurple/northeast,
 /area/lv624/lazarus/research)
 "aAS" = (
@@ -4611,7 +4620,9 @@
 /obj/item/toy/deck,
 /obj/item/storage/fancy/cigarettes/wypacket,
 /obj/effect/landmark/item_pool_spawner/survivor_ammo/buckshot,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/bluecorner,
 /area/lv624/lazarus/sleep_male)
 "aAU" = (
@@ -5270,7 +5281,9 @@
 /turf/open/floor/purple/northwest,
 /area/lv624/lazarus/sleep_female)
 "aDE" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 8
+	},
 /turf/open/floor/vault,
 /area/lv624/lazarus/quartstorage)
 "aDF" = (
@@ -5424,7 +5437,9 @@
 /obj/structure/machinery/light/small{
 	dir = 1
 	},
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 8
+	},
 /turf/open/floor/freezerfloor,
 /area/lv624/lazarus/toilet)
 "aEB" = (
@@ -5503,7 +5518,9 @@
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
 	},
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/chapel/north,
 /area/lv624/lazarus/chapel)
 "aEL" = (
@@ -5605,7 +5622,9 @@
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
 	},
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/whiteyellowfull/east,
 /area/lv624/lazarus/quart)
 "aFa" = (
@@ -6237,7 +6256,9 @@
 /obj/structure/surface/table,
 /obj/effect/landmark/crap_item,
 /obj/effect/landmark/item_pool_spawner/survivor_ammo/buckshot,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/white,
 /area/lv624/lazarus/main_hall)
 "aIi" = (
@@ -6686,7 +6707,9 @@
 /area/lv624/lazarus/yggdrasil)
 "aKq" = (
 /obj/structure/flora/jungle/vines/light_1,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/gm/grass/grass2,
 /area/lv624/lazarus/yggdrasil)
 "aKr" = (
@@ -7264,7 +7287,9 @@
 /turf/open/floor/red/southwest,
 /area/lv624/lazarus/security)
 "aNR" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/red,
 /area/lv624/lazarus/security)
 "aNS" = (
@@ -7374,7 +7399,9 @@
 /turf/open/gm/dirt,
 /area/lv624/ground/jungle/east_central_jungle)
 "aOy" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 8
+	},
 /turf/open/floor/cult,
 /area/lv624/lazarus/armory)
 "aOA" = (
@@ -7868,7 +7895,9 @@
 /turf/open/floor/barber/west,
 /area/lv624/lazarus/kitchen)
 "aQQ" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 8
+	},
 /turf/open/floor/bar,
 /area/lv624/lazarus/canteen)
 "aQX" = (
@@ -8159,7 +8188,9 @@
 /turf/open/floor/whiteyellowfull/east,
 /area/lv624/ground/caves/south_east_caves)
 "aSq" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 8
+	},
 /turf/open/floor/grimy,
 /area/lv624/lazarus/captain)
 "aSs" = (
@@ -8433,7 +8464,8 @@
 /turf/open/floor/brown/northwest,
 /area/lv624/lazarus/comms)
 "aTJ" = (
-/obj/structure/machinery/power/apc/power/north{
+/obj/structure/machinery/power/apc{
+	dir = 1;
 	start_charge = 15
 	},
 /turf/open/floor/delivery,
@@ -8518,7 +8550,9 @@
 /area/lv624/lazarus/kitchen)
 "aUc" = (
 /obj/structure/surface/rack,
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/freezerfloor,
 /area/lv624/lazarus/kitchen)
 "aUd" = (
@@ -8693,7 +8727,8 @@
 /turf/open/floor/greengrid,
 /area/lv624/lazarus/secure_storage)
 "aUR" = (
-/obj/structure/machinery/power/apc/power/north{
+/obj/structure/machinery/power/apc{
+	dir = 1;
 	start_charge = 200
 	},
 /turf/open/floor/greengrid,
@@ -9306,7 +9341,9 @@
 /area/lv624/ground/jungle/east_central_jungle)
 "aXs" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/delivery,
 /area/lv624/lazarus/engineering)
 "aXt" = (
@@ -10337,8 +10374,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /obj/item/clothing/shoes/yautja_flavor{
 	anchored = 1
@@ -11840,8 +11876,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /obj/item/clothing/suit/armor/yautja_flavor{
 	anchored = 1
@@ -12165,7 +12200,7 @@
 /turf/open/gm/dirt,
 /area/lv624/ground/caves/south_central_caves)
 "fqM" = (
-/obj/structure/machinery/power/apc/no_power/south,
+/obj/structure/machinery/power/apc/nocharge,
 /turf/open/floor/asteroidwarning/east,
 /area/lv624/ground/colony/telecomm/sw_lz2)
 "frV" = (
@@ -12304,7 +12339,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "fFZ" = (
-/obj/structure/machinery/power/apc/no_power/south,
+/obj/structure/machinery/power/apc/nocharge,
 /turf/open/floor/asteroidfloor/north,
 /area/lv624/ground/colony/telecomm/cargo)
 "fGn" = (
@@ -13371,11 +13406,6 @@
 /obj/structure/flora/bush/ausbushes/ppflowers,
 /turf/open/gm/dirtgrassborder/grassdirt_corner2/south_west,
 /area/lv624/ground/caves/sand_temple)
-"hUK" = (
-/obj/structure/flora/bush/ausbushes/lavendergrass,
-/obj/effect/landmark/lizard_spawn,
-/turf/open/gm/grass/grass1,
-/area/lv624/ground/barrens/south_eastern_jungle_barrens)
 "hWj" = (
 /turf/open/gm/coast/beachcorner/south_east,
 /area/lv624/ground/river/east_river)
@@ -13865,7 +13895,9 @@
 /turf/open/gm/grass/grass1,
 /area/lv624/ground/jungle/north_jungle)
 "jcb" = (
-/obj/structure/machinery/power/apc/no_power/east,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 4
+	},
 /turf/open/floor/purple/northwest,
 /area/lv624/lazarus/sleep_female)
 "jcn" = (
@@ -14263,7 +14295,9 @@
 /obj/structure/pipes/standard/simple/hidden/cyan{
 	dir = 4
 	},
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/grimy,
 /area/lv624/lazarus/hop)
 "jRm" = (
@@ -14317,8 +14351,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /turf/open/floor/sandstone/runed,
 /area/lv624/ground/barrens/south_eastern_barrens)
@@ -16000,8 +16033,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /turf/open/floor/sandstone/runed,
 /area/lv624/ground/barrens/south_eastern_barrens)
@@ -16927,10 +16959,6 @@
 "pcA" = (
 /turf/open/gm/dirtgrassborder/grassdirt_corner2/north_east,
 /area/lv624/ground/jungle/south_central_jungle)
-"pcL" = (
-/obj/effect/landmark/lizard_spawn,
-/turf/open/gm/dirt,
-/area/lv624/ground/jungle/south_west_jungle/ceiling)
 "pfl" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/chef,
@@ -16949,7 +16977,9 @@
 /turf/open/auto_turf/strata_grass/layer1,
 /area/lv624/ground/barrens/north_east_barrens)
 "pgf" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/whiteblue/north,
 /area/lv624/lazarus/medbay)
 "pgD" = (
@@ -17240,10 +17270,6 @@
 /obj/effect/landmark/crap_item,
 /turf/open/floor/dark,
 /area/lv624/lazarus/quartstorage)
-"pKC" = (
-/obj/effect/landmark/lizard_spawn,
-/turf/open/gm/dirtgrassborder/south,
-/area/lv624/ground/jungle/south_east_jungle)
 "pKS" = (
 /obj/structure/flora/jungle/vines/heavy,
 /obj/structure/flora/jungle/vines/light_2,
@@ -17571,8 +17597,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /turf/open/floor/corsat/squareswood/north,
 /area/lv624/ground/caves/sand_temple)
@@ -18850,8 +18875,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /turf/open/floor/corsat/squareswood/north,
 /area/lv624/ground/caves/sand_temple)
@@ -18971,8 +18995,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /obj/item/clothing/suit/armor/yautja_flavor{
 	anchored = 1
@@ -19008,14 +19031,6 @@
 	},
 /turf/open/gm/dirt,
 /area/lv624/ground/jungle/north_west_jungle)
-"tkN" = (
-/obj/effect/landmark/lizard_spawn,
-/turf/open/gm/grass/grass1,
-/area/lv624/ground/barrens/south_eastern_jungle_barrens)
-"tkS" = (
-/obj/effect/landmark/lizard_spawn,
-/turf/open/gm/dirt,
-/area/lv624/ground/jungle/south_east_jungle)
 "tlk" = (
 /obj/structure/flora/bush/ausbushes/reedbush,
 /turf/open/auto_turf/strata_grass/layer1,
@@ -19254,8 +19269,7 @@
 	anchored = 1
 	},
 /obj/item/clothing/mask/gas/yautja/damaged{
-	anchored = 1;
-	pixel_y = 10
+	anchored = 1
 	},
 /turf/open/gm/dirt,
 /area/lv624/ground/caves/sand_temple)
@@ -19629,10 +19643,6 @@
 /obj/structure/flora/bush/ausbushes/var3/fullgrass,
 /turf/open/auto_turf/strata_grass/layer1,
 /area/lv624/ground/caves/south_west_caves)
-"ury" = (
-/obj/effect/landmark/lizard_spawn,
-/turf/open/floor/whiteyellowfull/east,
-/area/lv624/ground/jungle/south_west_jungle/ceiling)
 "urR" = (
 /turf/open/floor/corsat/squareswood/north,
 /area/lv624/ground/caves/sand_temple)
@@ -20498,7 +20508,9 @@
 "whr" = (
 /obj/item/ammo_magazine/smg/mp5,
 /obj/item/ammo_magazine/smg/mp5,
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/whiteblue/northwest,
 /area/lv624/lazarus/corporate_dome)
 "whv" = (
@@ -23067,7 +23079,7 @@ aKb
 aKb
 lyz
 aWl
-pcL
+qBW
 aWO
 hMd
 aWl
@@ -23980,7 +23992,7 @@ auy
 aVS
 aWl
 aWO
-ury
+aWO
 aWO
 qBW
 aVS
@@ -59324,7 +59336,7 @@ lBw
 eTQ
 opS
 opS
-pKC
+gUq
 wpw
 lBw
 lBw
@@ -59778,7 +59790,7 @@ qjt
 wpw
 wpw
 eTQ
-tkS
+opS
 lnV
 qgA
 lBw
@@ -60144,7 +60156,7 @@ jxR
 uve
 uve
 uve
-tkN
+vty
 git
 vty
 moM
@@ -60602,7 +60614,7 @@ uve
 vty
 vty
 nED
-hUK
+glS
 vty
 uve
 uve

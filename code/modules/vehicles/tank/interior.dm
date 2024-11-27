@@ -14,7 +14,7 @@
 
 	unacidable = TRUE
 	unslashable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 	icon = 'icons/obj/vehicles/interiors/tank.dmi'
 	icon_state = "prop0"

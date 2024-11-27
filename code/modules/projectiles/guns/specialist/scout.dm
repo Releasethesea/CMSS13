@@ -7,7 +7,7 @@
 	icon_state = "m4ra_custom"
 	item_state = "m4ra_custom"
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = 1
 	accepted_ammo = list(
 		/obj/item/ammo_magazine/rifle/m4ra,
 		/obj/item/ammo_magazine/rifle/m4ra/ap,

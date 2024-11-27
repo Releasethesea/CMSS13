@@ -30,7 +30,7 @@
 	var/turf/dropoff_point
 
 /obj/structure/droppod/container/post_land()
-	explo_proof = TRUE
+	indestructible = TRUE
 	for(var/object in loc)
 		if(object == src)
 			continue
@@ -52,7 +52,7 @@
 		addtimer(CALLBACK(src, PROC_REF(recall)), return_time)
 
 	addtimer(CALLBACK(src, PROC_REF(open)), open_time)
-	explo_proof = FALSE
+	indestructible = FALSE
 
 /obj/structure/droppod/container/warn_turf(turf/T)
 	if(!stealth)
@@ -151,7 +151,7 @@
 	return ..()
 
 /obj/structure/droppod/container/ex_act(severity, direction)
-	if(!explo_proof)
+	if(!indestructible)
 		return ..()
 
 

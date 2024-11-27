@@ -243,6 +243,8 @@
 
 	if(isyautja(affected_mob) || (flags_embryo & FLAG_EMBRYO_PREDATOR))
 		new_xeno = new /mob/living/carbon/xenomorph/larva/predalien(affected_mob)
+		yautja_announcement(SPAN_YAUTJABOLDBIG("WARNING!\n\nAn abomination has been detected at [get_area_name(new_xeno)]. It is a stain upon our purity and is unfit for life. Exterminate it immediately.\n\nHeavy Armory unlocked."))
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_YAUTJA_ARMORY_OPENED)
 	else
 		new_xeno = new(affected_mob)
 
@@ -339,7 +341,7 @@
 		if(burstcount)
 			step(larva_embryo, pick(GLOB.cardinals))
 
-		if(GLOB.round_statistics && (ishuman(victim)) && (SSticker.current_state == GAME_STATE_PLAYING) && (ROUND_TIME > 1 MINUTES))
+		if(GLOB.round_statistics)
 			GLOB.round_statistics.total_larva_burst++
 		GLOB.larva_burst_by_hive[hive] = (GLOB.larva_burst_by_hive[hive] || 0) + 1
 		burstcount++

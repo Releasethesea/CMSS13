@@ -37,21 +37,15 @@
 
 	neuro_callback = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(apply_neuro))
 
-/proc/apply_neuro(mob/living/M, power, insta_neuro = FALSE, drain_stims = FALSE, drain_medchems = FALSE)
+/proc/apply_neuro(mob/living/M, power, insta_neuro)
 	if(skillcheck(M, SKILL_ENDURANCE, SKILL_ENDURANCE_MAX) && !insta_neuro)
 		M.visible_message(SPAN_DANGER("[M] withstands the neurotoxin!"))
 		return //endurance 5 makes you immune to weak neurotoxin
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(drain_stims)
-			for(var/datum/reagent/generated/stim in H.reagents.reagent_list)
-				H.reagents.remove_reagent(stim.id, power, TRUE)
 		if(H.chem_effect_flags & CHEM_EFFECT_RESIST_NEURO || H.species.flags & NO_NEURO)
 			H.visible_message(SPAN_DANGER("[M] shrugs off the neurotoxin!"))
 			return //species like zombies or synths are immune to neurotoxin
-		if(drain_medchems)
-			for(var/datum/reagent/medical/med in H.reagents.reagent_list)
-				H.reagents.remove_reagent(med.id, power, TRUE)
 
 	if(!isxeno(M))
 		if(insta_neuro)
@@ -95,10 +89,10 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(H.status_flags & XENO_HOST)
-			neuro_callback.Invoke(H, effect_power, TRUE, TRUE, TRUE)
+			neuro_callback.Invoke(H, effect_power, TRUE)
 			return
 
-	neuro_callback.Invoke(M, effect_power, FALSE, TRUE, TRUE)
+	neuro_callback.Invoke(M, effect_power, FALSE)
 
 /datum/ammo/xeno/toxin/medium //Spitter
 	name = "neurotoxic spatter"
@@ -116,7 +110,7 @@
 	max_range = 6 - 1
 
 /datum/ammo/xeno/toxin/queen/on_hit_mob(mob/M,obj/projectile/P)
-	neuro_callback.Invoke(M, effect_power, TRUE, FALSE, FALSE)
+	neuro_callback.Invoke(M, effect_power, TRUE)
 
 /datum/ammo/xeno/toxin/shotgun
 	name = "neurotoxic droplet"
@@ -162,6 +156,19 @@
 		var/mob/living/carbon/C = M
 		if(C.status_flags & XENO_HOST && HAS_TRAIT(C, TRAIT_NESTED) || C.stat == DEAD)
 			return FALSE
+	..()
+
+///HORDE MODE PROJECTILE DO NOT USE FOR ACTUAL XENOS
+/datum/ammo/xeno/acid/neuro
+	name = "acidic neurotoxin spit"
+	icon_state = "neurotoxin"
+	ping = "ping_x"
+	damage = 10
+
+/datum/ammo/xeno/acid/neuro/on_hit_mob(mob/hit_mob, obj/projectile/P)
+	if(ishuman(hit_mob))
+		hit_mob.visible_message(SPAN_DANGER("[hit_mob]'s movements are slowed."))
+		hit_mob.apply_effect(0.5, SLOW)
 	..()
 
 /datum/ammo/xeno/acid/spatter

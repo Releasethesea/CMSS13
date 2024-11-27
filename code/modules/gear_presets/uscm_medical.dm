@@ -36,12 +36,12 @@
 	)
 	assignment = JOB_CMO
 	rank = JOB_CMO
-	paygrades = list(PAY_SHORT_MO1 = JOB_PLAYTIME_TIER_0, PAY_SHORT_MO2 = JOB_PLAYTIME_TIER_1)
+	paygrade = PAY_SHORT_MO2
 	role_comm_title = "CMO"
 	skills = /datum/skills/CMO
 
-	minimap_icon = list("doctor")
-	minimap_background = "background_command"
+	minimap_icon = list("medic" = MINIMAP_ICON_COLOR_HEAD)
+	minimap_background = MINIMAP_ICON_BACKGROUND_CIC
 
 	utility_under = list(/obj/item/clothing/under/rank/chief_medical_officer)
 	utility_hat = list()
@@ -66,12 +66,11 @@
 
 	assignment = JOB_DOCTOR
 	rank = JOB_DOCTOR
-	paygrades = list(PAY_SHORT_MO1 = JOB_PLAYTIME_TIER_0)
+	paygrade = PAY_SHORT_MO1
 	role_comm_title = "Doc"
 	skills = /datum/skills/doctor
 
-	minimap_icon = list("doctor")
-	minimap_background = "background_medical"
+	minimap_icon = list("medic" = MINIMAP_ICON_COLOR_DOCTOR)
 
 /datum/equipment_preset/uscm_ship/uscm_medical/doctor/load_gear(mob/living/carbon/human/new_human)
 	var/back_item = /obj/item/storage/backpack/marine/satchel
@@ -105,12 +104,11 @@
 
 	assignment = JOB_NURSE
 	rank = JOB_NURSE
-	paygrades = list(PAY_SHORT_ME4 = JOB_PLAYTIME_TIER_0, PAY_SHORT_ME5 = JOB_PLAYTIME_TIER_1)
+	paygrade = PAY_SHORT_ME5
 	role_comm_title = "Nurse"
 	skills = /datum/skills/nurse
 
-	minimap_icon = list("nurse")
-	minimap_background = "background_shipside"
+	minimap_icon = list("medic")
 
 	dress_under = list(/obj/item/clothing/under/marine/dress/blues/senior)
 	dress_over = list(/obj/item/clothing/suit/storage/jacket/marine/dress/blues/nco)
@@ -128,6 +126,13 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/accessory/armband/nurse(new_human), WEAR_ACCESSORY)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/white(new_human), WEAR_FEET)
 
+
+/datum/equipment_preset/uscm_ship/uscm_medical/nurse/load_rank(mob/living/carbon/human/new_human)
+	if(new_human.client)
+		if(get_job_playtime(new_human.client, rank) < JOB_PLAYTIME_TIER_1)
+			return PAY_SHORT_ME3
+	return paygrade
+
 //*****************************************************************************************************/
 /datum/equipment_preset/uscm_ship/uscm_medical/researcher
 	name = "USCM Researcher"
@@ -135,12 +140,11 @@
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_MORGUE)
 	assignment = JOB_RESEARCHER
 	rank = JOB_RESEARCHER
-	paygrades = list(PAY_SHORT_MO1 = JOB_PLAYTIME_TIER_0)
+	paygrade = PAY_SHORT_MO1
 	role_comm_title = "Rsr"
 	skills = /datum/skills/researcher
 
 	minimap_icon = "researcher"
-	minimap_background = "background_medical"
 
 	utility_under = list(/obj/item/clothing/under/marine/officer/researcher)
 	utility_hat = list()

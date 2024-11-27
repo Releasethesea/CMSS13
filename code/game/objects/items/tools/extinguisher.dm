@@ -159,7 +159,7 @@
 		unpicked_targets -= TT
 		INVOKE_ASYNC(src, PROC_REF(release_liquid), TT, user)
 
-	if(istype(user.loc, /turf/open/space))
+	if(istype(user.loc, /turf/open/space) || (user.lastarea && user.lastarea.has_gravity == 0))
 		user.inertia_dir = get_dir(target, user)
 		step(user, user.inertia_dir)
 	return

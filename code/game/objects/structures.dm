@@ -46,7 +46,7 @@
 	..()
 
 /obj/structure/ex_act(severity, direction)
-	if(explo_proof)
+	if(indestructible)
 		return
 
 	if(src.health) //Prevents unbreakable objects from being destroyed

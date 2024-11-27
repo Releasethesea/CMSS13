@@ -4,7 +4,6 @@
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	layer = ITEM_LAYER
 	light_system = MOVABLE_LIGHT
-	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	/// this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/image/blood_overlay = null
 	var/randpixel = 6
@@ -163,11 +162,6 @@
 	var/ground_offset_x = 0
 	/// How much to offset the item randomly either way alongside Y visually
 	var/ground_offset_y = 0
-	/// bypass any species specific OnMob overlay blockers
-	var/force_overlays_on = FALSE
-
-	/// Special storages this item prioritizes
-	var/list/preferred_storage
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -213,15 +207,15 @@
 	switch(severity)
 		if(0 to EXPLOSION_THRESHOLD_LOW)
 			if(prob(5))
-				if(!explo_proof)
+				if(!indestructible)
 					visible_message(SPAN_DANGER(SPAN_UNDERLINE("\The [src] [msg]")))
 					deconstruct(FALSE)
 		if(EXPLOSION_THRESHOLD_LOW to EXPLOSION_THRESHOLD_MEDIUM)
 			if(prob(50))
-				if(!explo_proof)
+				if(!indestructible)
 					deconstruct(FALSE)
 		if(EXPLOSION_THRESHOLD_MEDIUM to INFINITY)
-			if(!explo_proof)
+			if(!indestructible)
 				visible_message(SPAN_DANGER(SPAN_UNDERLINE("\The [src] [msg]")))
 				deconstruct(FALSE)
 

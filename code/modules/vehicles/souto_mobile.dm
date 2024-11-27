@@ -27,7 +27,7 @@
 	health = 1000
 	locked = FALSE
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 /obj/vehicle/souto/super/explode()
 	for(var/mob/M as anything in viewers(7, src))

@@ -65,7 +65,9 @@
 /turf/open/floor/prison/redfull,
 /area/template_noop)
 "s" = (
-/obj/structure/machinery/power/apc/power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4
+	},
 /turf/open/floor/prison,
 /area/template_noop)
 "t" = (

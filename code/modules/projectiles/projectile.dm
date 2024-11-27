@@ -337,6 +337,12 @@
 
 	//Animate the visuals from starting position to new position
 
+	if(projectile_flags & PROJECTILE_SHRAPNEL) //there can be a LOT of shrapnel especially from a cluster OB, not important enough for the expense of an animate()
+		alpha = alpha_new
+		pixel_x = pixel_x_rel_new
+		pixel_y = pixel_y_rel_new
+		return
+
 	var/anim_time = delta_time * 0.1
 	animate(src, pixel_x = pixel_x_rel_new, pixel_y = pixel_y_rel_new, alpha = alpha_new, time = anim_time, flags = ANIMATION_END_NOW)
 
@@ -504,6 +510,10 @@
 	permutated |= L
 	if((ammo.flags_ammo_behavior & AMMO_XENO) && (isfacehugger(L) || L.stat == DEAD)) //xeno ammo is NEVER meant to hit or damage dead people. If you want to add a xeno ammo that DOES then make a new flag that makes it ignore this check.
 		return FALSE
+	if(ishordemodemob(firer) && ishordemodemob(L))
+		var/mob/living/xeno_owner = firer
+		if(xeno_owner.faction == L.faction)
+			return FALSE
 
 	var/hit_chance = L.get_projectile_hit_chance(src)
 

@@ -372,7 +372,7 @@
 
 /client/proc/cmd_mentor_say(msg as text)
 	set name = "MentorSay"
-	set category = "Admin.Mentor"
+	set category = "OOC"
 	set hidden = 0
 
 	if(!check_rights(R_MENTOR|R_MOD|R_ADMIN))
@@ -608,7 +608,7 @@
 	return
 
 /datum/admins/proc/imaginary_friend()
-	set category = "Admin.Mentor"
+	set category = "OOC.Mentor"
 	set name = "Imaginary Friend"
 
 	var/mob/user = usr

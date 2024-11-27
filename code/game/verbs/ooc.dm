@@ -7,9 +7,6 @@
 		to_chat(src, "Guests may not use OOC.")
 		return
 
-	if(!filter_message(src, msg))
-		return
-
 	msg = trim(strip_html(msg))
 	if(!msg) return
 
@@ -102,9 +99,6 @@
 	if(!mob) return
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use LOOC.")
-		return
-
-	if(!filter_message(src, msg))
 		return
 
 	msg = trim(strip_html(msg))

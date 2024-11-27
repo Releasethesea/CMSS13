@@ -334,7 +334,6 @@
 /obj/structure/surface/table,
 /obj/item/explosive/grenade/spawnergrenade/smartdisc,
 /obj/item/explosive/grenade/spawnergrenade/smartdisc,
-/obj/item/weapon/yautja/chained/combistick,
 /turf/open/floor/whitepurple/northeast,
 /area/lv624/lazarus/research)
 "ec" = (
@@ -375,7 +374,15 @@
 /area/lv624/lazarus/research)
 "Hj" = (
 /obj/effect/landmark/crap_item,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
+/turf/open/floor/whitepurple/northeast,
+/area/lv624/lazarus/research)
+"II" = (
+/obj/structure/surface/table,
+/obj/effect/landmark/crap_item,
+/obj/item/weapon/yautja/combistick,
 /turf/open/floor/whitepurple/northeast,
 /area/lv624/lazarus/research)
 "Lo" = (
@@ -616,7 +623,7 @@ al
 ab
 bb
 bk
-LE
+II
 ac
 bg
 "}

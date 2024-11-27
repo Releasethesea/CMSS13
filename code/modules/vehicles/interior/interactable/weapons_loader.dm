@@ -8,7 +8,7 @@
 	density = TRUE
 	unacidable = TRUE
 	unslashable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 	var/obj/vehicle/multitile/vehicle = null
 

@@ -1,3 +1,4 @@
+
 /mob/living/simple_animal/hostile/alien
 	name = "Drone"
 	var/caste_name = null
@@ -56,7 +57,7 @@
 	vis_contents += wound_icon_holder
 
 /mob/living/simple_animal/hostile/alien/proc/generate_name()
-	change_real_name(src, "[caste_name] (BD-[rand(1, 999)])")
+	change_real_name(src, "[caste_name] (XX-[rand(1, 999)])")
 
 /mob/living/simple_animal/hostile/alien/proc/handle_icon()
 	icon_state = "Normal [caste_name] Running"
@@ -126,8 +127,8 @@
 	. = ..()
 	if(P.damage)
 		var/splatter_dir = get_dir(P.starting, loc)//loc is the xeno getting hit, P.starting is the turf of where the projectile got spawned
-		new /obj/effect/bloodsplatter/xenosplatter(loc, splatter_dir)
-		if(prob(15))
+		new /obj/effect/temp_visual/dir_setting/bloodsplatter/xenosplatter(loc, splatter_dir)
+		if(prob(15) && stat != DEAD)
 			roar_emote()
 
 /mob/living/simple_animal/hostile/alien/AttackingTarget()
@@ -136,7 +137,7 @@
 		roar_emote()
 
 /mob/living/simple_animal/hostile/alien/proc/roar_emote()
-	visible_message("<B>The [name]</B> roars!")
+	visible_message("<B>[name]</B> roars!")
 	playsound(loc, "alien_roar", 40)
 
 /mob/living/simple_animal/hostile/alien/death(cause, gibbed, deathmessage = "lets out a waning guttural screech, green blood bubbling from its maw. The caustic acid starts melting the body away...")
@@ -178,7 +179,7 @@
 	old_x = -12
 
 // Still using old projectile code - commenting this out for now
-// /mob/living/simple_animal/hostile/alien/sentinel
+//  s/alien/sentinel
 // name = "alien sentinel"
 // icon_state = "Sentinel Running"
 // icon_living = "Sentinel Running"

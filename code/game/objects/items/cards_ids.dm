@@ -171,24 +171,24 @@
 	name = "corporate doctor badge"
 	desc = "A corporate holo-badge. It is fingerprint locked with clearance level 3 access. It is commonly held by corporate doctors."
 	icon_state = "clearance"
-	var/credits_to_give = 15 //gives the equivalent clearance access in credits
+	var/clearance_access = 3
 
 /obj/item/card/id/silver/clearance_badge/scientist
 	name = "corporate scientist badge"
 	desc = "A corporate holo-badge. It is fingerprint locked with clearance level 4 access. It is commonly held by corporate scientists."
-	credits_to_give = 27
+	clearance_access = 4
 
 /obj/item/card/id/silver/clearance_badge/cl
 	name = "corporate liaison badge"
 	desc = "A corporate holo-badge in unique corporate orange and white. It is fingerprint locked with clearance level 5 access. It is commonly held by corporate liaisons."
 	icon_state = "cl"
-	credits_to_give = 42
+	clearance_access = 5
 
 /obj/item/card/id/silver/clearance_badge/manager
 	name = "corporate manager badge"
 	desc = "A corporate holo-badge in standard corporate orange and white. It has a unique uncapped bottom. It is fingerprint locked with 5-X clearance level. Commonly held by corporate managers."
 	icon_state = "pmc"
-	credits_to_give = 47
+	clearance_access = 6
 
 /obj/item/card/id/pizza
 	name = "pizza guy badge"
@@ -377,7 +377,6 @@
 	icon_state = "dogtag_taken"
 	icon = 'icons/obj/items/card.dmi'
 	w_class = SIZE_TINY
-	var/list/fallen_references
 	var/list/fallen_names
 	var/list/fallen_blood_types
 	var/list/fallen_assgns
@@ -385,7 +384,6 @@
 /obj/item/dogtag/Initialize()
 	. = ..()
 
-	fallen_references = list()
 	fallen_names = list()
 	fallen_blood_types = list()
 	fallen_assgns = list()
@@ -396,7 +394,6 @@
 		to_chat(user, SPAN_NOTICE("You join the [length(fallen_names)>1 ? "tags":"two tags"] together."))
 		name = "information dog tags"
 		if(D.fallen_names)
-			fallen_references += D.fallen_references
 			fallen_names += D.fallen_names
 			fallen_blood_types += D.fallen_blood_types
 			fallen_assgns += D.fallen_assgns

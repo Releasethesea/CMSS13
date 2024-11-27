@@ -171,7 +171,7 @@ Class Procs:
 
 	. += "It does not appear to be working."
 	var/msg = get_repair_move_text(FALSE)
-	if(msg && skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
+	if(msg && skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_ENGI))
 		. += SPAN_WARNING("[msg]")
 
 /obj/structure/machinery/emp_act(severity)
@@ -182,9 +182,6 @@ Class Procs:
 
 
 /obj/structure/machinery/ex_act(severity)
-	if(explo_proof)
-		return
-
 	switch(severity)
 		if(0 to EXPLOSION_THRESHOLD_LOW)
 			if (prob(25))
@@ -366,13 +363,13 @@ Class Procs:
 	icon = 'icons/obj/structures/machinery/fuelpump.dmi'
 	icon_state = "fuelpump_off"
 	health = null
-	explo_proof = TRUE
+	indestructible = TRUE
 	density = TRUE
 	anchored = TRUE
 	unslashable = TRUE
 	unacidable = TRUE
 	wrenchable = FALSE
-
+	
 /obj/structure/machinery/fuelpump/ex_act(severity)
 	return
 

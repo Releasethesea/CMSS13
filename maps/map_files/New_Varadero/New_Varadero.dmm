@@ -279,7 +279,7 @@
 /area/varadero/interior/bunks)
 "alD" = (
 /obj/structure/filtration/coagulation_arm{
-	explo_proof = 1;
+	indestructible = 1;
 	layer = 2.1;
 	density = 0
 	},
@@ -635,7 +635,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /obj/structure/platform/kutjevo/smooth{
@@ -759,11 +759,17 @@
 /area/varadero/exterior/lz2_near)
 "aCY" = (
 /obj/effect/decal/cleanable/blood/oil,
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior/maintenance/north)
 "aDu" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/floor3,
 /area/varadero/interior/cargo)
 "aDF" = (
@@ -1086,7 +1092,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/auto_turf/sand_white/layer1,
@@ -1839,7 +1845,11 @@
 /turf/open/floor/shiva/greenfull/west,
 /area/varadero/interior/hall_SE)
 "bvE" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior/maintenance/research)
 "bvF" = (
@@ -2086,7 +2096,7 @@
 	layer = 2.99
 	},
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -2165,7 +2175,9 @@
 /obj/structure/machinery/light{
 	dir = 4
 	},
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/asteroidfloor/north,
 /area/varadero/interior/comms1)
 "bJH" = (
@@ -2422,7 +2434,9 @@
 /turf/open/shuttle/elevator/grating,
 /area/varadero/interior/records)
 "bSD" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior/comms2)
 "bSQ" = (
@@ -3032,7 +3046,11 @@
 /turf/open/auto_turf/sand_white/layer1,
 /area/varadero/interior_protected/vessel)
 "crC" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior/maintenance/security)
 "csb" = (
@@ -3090,7 +3108,11 @@
 /turf/open/floor/shiva/multi_tiles,
 /area/varadero/interior/electrical)
 "cud" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/yellow/west,
 /area/varadero/interior/electrical)
 "cug" = (
@@ -3304,7 +3326,10 @@
 /turf/open/floor/wood,
 /area/varadero/interior/library)
 "cGd" = (
-/obj/structure/machinery/power/apc/no_power/south,
+/obj/structure/machinery/power/apc{
+	pixel_y = -24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/green,
 /area/varadero/interior/mess)
 "cGx" = (
@@ -3677,7 +3702,7 @@
 /area/varadero/interior/oob)
 "cUN" = (
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -3990,7 +4015,11 @@
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior_protected/maintenance/south)
 "diK" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8;
+	pixel_x = -30;
+	start_charge = 0
+	},
 /obj/item/stack/sheet/wood,
 /obj/item/tool/kitchen/knife/butcher{
 	pixel_x = -7;
@@ -4461,7 +4490,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -5555,7 +5584,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/auto_turf/sand_white/layer1,
@@ -5665,7 +5694,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 3;
 	pixel_y = 15;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/river/shallow_ocean_shallow_ocean,
@@ -6689,7 +6718,11 @@
 /turf/open/floor/shiva/yellow/west,
 /area/varadero/interior/hall_NW)
 "fpe" = (
-/obj/structure/machinery/power/apc/no_power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4;
+	pixel_x = 24;
+	start_charge = 0
+	},
 /turf/open/floor/wood,
 /area/varadero/interior/library)
 "fpf" = (
@@ -6737,7 +6770,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 10;
 	pixel_y = 2;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -7180,7 +7213,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /obj/structure/platform/kutjevo/smooth{
@@ -7232,7 +7265,11 @@
 /turf/open/gm/grass/grass1/weedable,
 /area/varadero/interior_protected/caves/central)
 "fPq" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/exterior/eastbeach)
 "fPy" = (
@@ -7527,7 +7564,11 @@
 /turf/open/auto_turf/sand_white/layer1,
 /area/varadero/exterior/pontoon_beach)
 "gan" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/green/west,
 /area/varadero/interior/court)
 "gar" = (
@@ -7595,7 +7636,7 @@
 	layer = 2.99
 	},
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -7603,7 +7644,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -15;
 	pixel_y = 16;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/coast/beachcorner/south_west,
@@ -7861,7 +7902,9 @@
 /turf/open/floor/wood,
 /area/varadero/interior/research)
 "gkw" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/exterior/comms4)
 "gkx" = (
@@ -8320,7 +8363,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/auto_turf/sand_white/layer1,
@@ -8854,7 +8897,11 @@
 /turf/open/floor/shiva/floor3,
 /area/varadero/interior/hall_N)
 "hcz" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24;
+	start_charge = 0
+	},
 /turf/open/floor/asteroidfloor/north,
 /area/varadero/exterior/lz1_near)
 "hcI" = (
@@ -8889,7 +8936,11 @@
 /area/varadero/interior/mess)
 "heu" = (
 /obj/item/device/flashlight/lamp/tripod,
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24;
+	start_charge = 0
+	},
 /turf/open/auto_turf/sand_white/layer1,
 /area/varadero/interior/caves/north_research)
 "hfn" = (
@@ -8928,7 +8979,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/river/shallow_ocean_shallow_ocean,
@@ -10805,7 +10856,7 @@
 /obj/item/device/flashlight/slime{
 	mouse_opacity = 0;
 	invisibility = 1;
-	explo_proof = 1;
+	indestructible = 1;
 	alpha = 0
 	},
 /turf/open/gm/coast/beachcorner2/north_west,
@@ -11267,7 +11318,11 @@
 /turf/open/gm/dirt,
 /area/varadero/exterior/pontoon_beach)
 "iZT" = (
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24;
+	start_charge = 0
+	},
 /obj/item/shard{
 	icon_state = "medium"
 	},
@@ -11310,7 +11365,11 @@
 /turf/open/floor/shiva/yellow/east,
 /area/varadero/interior/technical_storage)
 "jcB" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/shiva/purple/north,
 /area/varadero/interior/research)
@@ -11470,7 +11529,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/river/ocean/deep_ocean,
@@ -11514,7 +11573,11 @@
 /turf/open/gm/dirt,
 /area/varadero/exterior/eastbeach)
 "jjl" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /obj/structure/filingcabinet{
 	density = 0;
 	icon_state = "chestdrawer";
@@ -12055,7 +12118,11 @@
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior/maintenance/research)
 "jGz" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/white,
 /area/varadero/interior/toilets)
 "jGA" = (
@@ -12994,7 +13061,11 @@
 /turf/open/floor/shiva/greenfull/west,
 /area/varadero/interior/hall_SE)
 "kuE" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/auto_turf/sand_white/layer1,
 /area/varadero/interior_protected/maintenance/south)
 "kuO" = (
@@ -13592,7 +13663,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 2;
 	pixel_y = 15;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	layer = 4.1
 	},
@@ -13873,7 +13944,11 @@
 /turf/open/gm/coast/beachcorner/north_east,
 /area/varadero/interior/caves/east)
 "ldJ" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/wood/wood_broken3,
 /area/varadero/interior/hall_SE)
 "leF" = (
@@ -14430,7 +14505,7 @@
 	id = "undergroundhangarsouth";
 	name = "South Dock Door";
 	pixel_x = -24;
-	explo_proof = 1
+	indestructible = 1
 	},
 /turf/open/floor/plating/icefloor/warnplate,
 /area/varadero/interior/maintenance/north)
@@ -14582,7 +14657,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 10;
 	pixel_y = 22;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	layer = 4.1
 	},
@@ -15209,7 +15284,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -10;
 	pixel_y = 2;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -16338,7 +16413,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/auto_turf/sand_white/layer1,
@@ -16599,7 +16674,11 @@
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior/maintenance/research)
 "neU" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/floor3,
 /area/varadero/interior/hall_N)
 "nfk" = (
@@ -16672,7 +16751,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -17003,7 +17082,11 @@
 /turf/open/floor/shiva/yellow/north,
 /area/varadero/interior/technical_storage)
 "nBl" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/yellowfull/west,
 /area/varadero/interior/disposals)
 "nBD" = (
@@ -17360,7 +17443,6 @@
 /obj/item/reagent_container/food/drinks/bottle/whiskey,
 /obj/item/reagent_container/food/drinks/bottle/wine,
 /obj/item/reagent_container/food/drinks/bottle/pwine,
-/obj/item/storage/box/stompers,
 /turf/open/floor/wood,
 /area/varadero/interior/research)
 "nPG" = (
@@ -17443,7 +17525,11 @@
 /turf/open/gm/dirt/desert3,
 /area/varadero/interior/maintenance/north)
 "nRP" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /obj/item/cell/high,
 /turf/open/floor/shiva/yellow/north,
 /area/varadero/interior/technical_storage)
@@ -17548,7 +17634,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 10;
 	pixel_y = 22;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	layer = 4.1
 	},
@@ -17690,7 +17776,7 @@
 	name = "South Dock Door";
 	pixel_x = -32;
 	pixel_y = -18;
-	explo_proof = 1
+	indestructible = 1
 	},
 /turf/open/floor/plating/icefloor/warnplate/north,
 /area/varadero/exterior/lz1_near)
@@ -17918,7 +18004,11 @@
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/interior/maintenance/security)
 "ola" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/plating/icefloor/asteroidplating,
 /area/varadero/exterior/lz2_near)
 "olD" = (
@@ -18285,7 +18375,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/auto_turf/sand_white/layer1,
@@ -18395,7 +18485,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 10;
 	pixel_y = 2;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -18766,7 +18856,11 @@
 /turf/open/auto_turf/sand_white/layer1,
 /area/varadero/exterior/lz1_near)
 "oWr" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/wood,
 /area/varadero/interior/administration)
 "oWs" = (
@@ -19725,15 +19819,15 @@
 	pixel_x = 4;
 	pixel_y = 10
 	},
-/obj/item/tool/soap/weyland_yutani{
+/obj/item/tool/soap/nanotrasen{
 	pixel_x = 3;
 	pixel_y = 7
 	},
-/obj/item/tool/soap/weyland_yutani{
+/obj/item/tool/soap/nanotrasen{
 	pixel_x = 2;
 	pixel_y = 11
 	},
-/obj/item/tool/soap/weyland_yutani{
+/obj/item/tool/soap/nanotrasen{
 	desc = "Teetering at the brink! A life's thread, about to be cut short.";
 	pixel_x = 5;
 	pixel_y = 15
@@ -20634,7 +20728,7 @@
 	id = "undergroundhangarwest";
 	name = "West Dock Door";
 	pixel_x = 3;
-	explo_proof = 1
+	indestructible = 1
 	},
 /turf/closed/wall/r_wall/unmeltable,
 /area/varadero/exterior/lz1_near)
@@ -20644,7 +20738,7 @@
 /area/varadero/interior/maintenance/north)
 "qqR" = (
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -20657,7 +20751,7 @@
 	layer = 2.99
 	},
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -20964,7 +21058,11 @@
 /turf/open/floor/wood,
 /area/varadero/interior/research)
 "qBR" = (
-/obj/structure/machinery/power/apc/no_power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4;
+	pixel_x = 24;
+	start_charge = 0
+	},
 /turf/open/floor/carpet,
 /area/varadero/interior/chapel)
 "qBU" = (
@@ -21434,7 +21532,11 @@
 /turf/open/floor/shiva/yellow,
 /area/varadero/interior/comms3)
 "qSJ" = (
-/obj/structure/machinery/power/apc/no_power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4;
+	pixel_x = 24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/floor3,
 /area/varadero/interior/morgue)
 "qSR" = (
@@ -21454,7 +21556,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt/desert1,
@@ -21861,7 +21963,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -10;
 	pixel_y = 2;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -22516,7 +22618,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -22701,7 +22803,11 @@
 /turf/open/floor/asteroidfloor/north,
 /area/varadero/exterior/lz1_near)
 "rSI" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /obj/structure/filingcabinet{
 	density = 0;
 	icon_state = "chestdrawer";
@@ -22903,7 +23009,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 10;
 	pixel_y = 22;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	layer = 4.1
 	},
@@ -23766,7 +23872,11 @@
 /turf/open/floor/shiva/purple,
 /area/varadero/interior/research)
 "sDQ" = (
-/obj/structure/machinery/power/apc/no_power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4;
+	pixel_x = 24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/wred/east,
 /area/varadero/interior/medical)
 "sDZ" = (
@@ -23959,7 +24069,7 @@
 /obj/item/device/flashlight/slime{
 	mouse_opacity = 0;
 	invisibility = 1;
-	explo_proof = 1;
+	indestructible = 1;
 	alpha = 0
 	},
 /turf/open/gm/river/shallow_ocean_shallow_ocean,
@@ -24408,8 +24518,7 @@
 	},
 /obj/item/clothing/mask/yautja_flavor{
 	anchored = 1;
-	unacidable = 0;
-	pixel_y = 10
+	unacidable = 0
 	},
 /turf/open/floor/corsat/squareswood/north,
 /area/varadero/interior_protected/caves/digsite)
@@ -24589,7 +24698,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -10;
 	pixel_y = 2;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -25717,14 +25826,22 @@
 /turf/open/auto_turf/sand_white/layer1,
 /area/varadero/interior_protected/vessel)
 "umA" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/red/north,
 /area/varadero/interior/security)
 "umO" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/structure/machinery/power/apc/no_power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8;
+	pixel_x = -24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/floor3,
 /area/varadero/interior/hall_NW)
 "umT" = (
@@ -25813,7 +25930,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -25936,7 +26053,10 @@
 /turf/open/floor/wood,
 /area/varadero/interior/hall_SE)
 "uuv" = (
-/obj/structure/machinery/power/apc/no_power/south,
+/obj/structure/machinery/power/apc{
+	pixel_y = -24;
+	start_charge = 0
+	},
 /turf/open/floor/white,
 /area/varadero/interior/laundry)
 "uuN" = (
@@ -27292,7 +27412,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 10;
 	pixel_y = 2;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -27499,7 +27619,7 @@
 	layer = 2.99
 	},
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -27507,7 +27627,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -15;
 	pixel_y = 5;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/coast/south,
@@ -27619,7 +27739,7 @@
 /area/varadero/interior/maintenance/security)
 "vKv" = (
 /obj/structure/window/framed/colony/reinforced/hull{
-	explo_proof = 1
+	indestructible = 1
 	},
 /turf/open/floor/plating/icefloor,
 /area/varadero/interior/maintenance/north)
@@ -28122,7 +28242,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = 10;
 	pixel_y = 2;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -28169,7 +28289,7 @@
 "wcb" = (
 /obj/structure/blocker/invisible_wall/water,
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -28288,7 +28408,7 @@
 	layer = 2.99
 	},
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -28312,7 +28432,7 @@
 "wfR" = (
 /obj/structure/blocker/invisible_wall/water,
 /obj/structure/prop/rock/brown{
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1;
 	name = "sturdy rock(s)";
 	desc = "A solidified collection of local minerals. When melted, becomes a substance best known as lava. These look particularly durable."
@@ -28926,7 +29046,7 @@
 	id = "undergroundhangarwest";
 	name = "West Dock Door";
 	pixel_x = 8;
-	explo_proof = 1
+	indestructible = 1
 	},
 /obj/structure/sign/safety/bulkhead_door,
 /turf/closed/wall/r_wall/unmeltable,
@@ -28946,7 +29066,11 @@
 /area/varadero/interior/cargo)
 "wGs" = (
 /obj/effect/landmark/hunter_primary,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 24;
+	start_charge = 0
+	},
 /turf/open/floor/shiva/yellowfull/west,
 /area/varadero/interior/comms3)
 "wGQ" = (
@@ -30429,7 +30553,7 @@
 /obj/item/lightstick/red/spoke/planted{
 	pixel_x = -1;
 	pixel_y = 9;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/gm/dirt,
@@ -30795,7 +30919,7 @@
 /area/varadero/interior_protected/caves/digsite)
 "ygn" = (
 /obj/structure/catwalk{
-	explo_proof = 1
+	indestructible = 1
 	},
 /turf/open/gm/river/desert/deep/no_slowdown,
 /area/varadero/interior/maintenance/north)

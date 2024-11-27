@@ -1,6 +1,5 @@
-import { useState } from 'react';
-
 import { useBackend } from '../backend';
+import { useState } from 'react';
 import {
   Box,
   Button,
@@ -108,6 +107,7 @@ export const XenomorphExtractor = () => {
                                 onClick={() =>
                                   act('produce', {
                                     ref: upgrades.ref,
+                                    vari: upgrades.vari,
                                   })
                                 }
                               >

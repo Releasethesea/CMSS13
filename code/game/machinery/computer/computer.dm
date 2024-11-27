@@ -12,6 +12,7 @@
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = FALSE //Set to true if computer needs to do /process()
 	var/deconstructible = TRUE
+	var/exproof = 0
 
 /obj/structure/machinery/computer/Initialize()
 	. = ..()
@@ -36,7 +37,7 @@
 
 
 /obj/structure/machinery/computer/ex_act(severity)
-	if(explo_proof)
+	if(exproof)
 		return
 	switch(severity)
 		if(0 to EXPLOSION_THRESHOLD_LOW)
@@ -55,7 +56,7 @@
 			return
 
 /obj/structure/machinery/computer/bullet_act(obj/projectile/Proj)
-	if(explo_proof)
+	if(exproof)
 		visible_message("[Proj] ricochets off [src]!")
 		return 0
 	else
@@ -98,7 +99,7 @@
 		if(!deconstructible)
 			to_chat(user, SPAN_WARNING("You can't figure out how to deconstruct [src]..."))
 			return
-		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
+		if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_ENGI))
 			to_chat(user, SPAN_WARNING("You don't know how to deconstruct [src]..."))
 			return
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 25, 1)

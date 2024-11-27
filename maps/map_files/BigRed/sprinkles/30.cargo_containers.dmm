@@ -310,7 +310,9 @@
 /turf/open/floor/bot/north,
 /area/bigredv2/outside/cargo)
 "bk" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "bm" = (

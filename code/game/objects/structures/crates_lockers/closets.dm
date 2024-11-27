@@ -5,7 +5,6 @@
 	icon_state = "closed"
 	density = TRUE
 	layer = BELOW_OBJ_LAYER
-	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 	var/icon_closed = "closed"
 	var/icon_opened = "open"
 	var/opened = 0
@@ -128,8 +127,6 @@
 			var/obj/item/explosive/plastic/P = I
 			if(P.active)
 				continue
-		if(istype(I, /obj/item/phone))
-			continue
 		var/item_size = ceil(I.w_class / 2)
 		if(stored_units + item_size > storage_capacity)
 			continue

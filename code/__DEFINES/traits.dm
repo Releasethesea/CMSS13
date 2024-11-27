@@ -232,17 +232,18 @@
 /// If the mob is able to use the vulture rifle or spotting scope
 #define TRAIT_VULTURE_USER "t_vulture_user"
 /// If the mob is currently loading a tutorial
-#define TRAIT_IN_TUTORIAL "t_in_tutorial"
+#define TRAIT_IN_TUTORIAL "t_IN_TUTORIAL"
 /// If the mob is cloaked in any form
 #define TRAIT_CLOAKED "t_cloaked"
-/// If the mob claimed a specialist set from a vendor
-#define TRAIT_SPEC_VENDOR "t_spec_vendor"
-/// If the mob claimed a specialist set from a kit
-#define TRAIT_SPEC_KIT "t_spec_kit"
-/// What spec set the mob has claimed, if any
-#define TRAIT_SPEC(spec_type) "t_spec_[spec_type]"
 /// If the mob won't drop items held in face slot when downed
 #define TRAIT_IRON_TEETH "t_iron_teeth"
+
+// -- horde mode perks --
+#define TRAIT_PERK_JUGGERNAUT "t_p_juggernaut"
+#define TRAIT_PERK_SPEED "t_p_speed"
+#define TRAIT_PERK_EXPLOSIVE_RESISTANCE "t_p_explosive_resistance"
+#define TRAIT_PERK_REVIVE "t_p_revive"
+#define TRAIT_PERK_GUNNUT "t_p_gunnut"
 
 // -- ability traits --
 /// Xenos with this trait cannot have plasma transfered to them
@@ -251,8 +252,6 @@
 #define TRAIT_ABILITY_OVIPOSITOR "t_ability_ovipositor"
 /// Used for burrowed mobs, prevent's SG/sentrys/claymores from autofiring
 #define TRAIT_ABILITY_BURROWED "t_ability_burrowed"
-/// Xenos with this trait can toggle long sight while resting.
-#define TRAIT_ABILITY_SIGHT_IGNORE_REST "t_ability_sight_ignore_rest"
 
 //-- item traits --
 // TOOL TRAITS
@@ -323,8 +322,6 @@ GLOBAL_LIST_INIT(mob_traits, list(
 	TRAIT_ABILITY_BURROWED,
 	TRAIT_VULTURE_USER,
 	TRAIT_IN_TUTORIAL,
-	TRAIT_SPEC_KIT,
-	TRAIT_SPEC_VENDOR,
 ))
 
 /*
@@ -364,9 +361,9 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		"TRAIT_CANNOT_EAT" = TRAIT_CANNOT_EAT,
 		"TRAIT_VULTURE_USER" = TRAIT_VULTURE_USER,
 		"TRAIT_CLOAKED" = TRAIT_CLOAKED,
-		"TRAIT_SPEC_KIT" = TRAIT_SPEC_KIT,
-		"TRAIT_SPEC_VENDOR" = TRAIT_SPEC_VENDOR,
 	),
+//	/mob/living/carbon/human = list(
+//	),
 	/mob/living/carbon/xenomorph = list(
 		"TRAIT_ABILITY_NO_PLASMA_TRANSFER" = TRAIT_ABILITY_NO_PLASMA_TRANSFER,
 		"TRAIT_ABILITY_OVIPOSITOR" = TRAIT_ABILITY_OVIPOSITOR,
@@ -428,8 +425,6 @@ GLOBAL_LIST(trait_name_map)
 #define TRAIT_SOURCE_SPECIES "t_s_species"
 ///Status trait coming from the hive.
 #define TRAIT_SOURCE_HIVE "t_s_hive"
-///Status trait coming from xeno strains.
-#define TRAIT_SOURCE_STRAIN "t_s_strain"
 ///Status trait coming from being buckled.
 #define TRAIT_SOURCE_BUCKLE "t_s_buckle"
 ///Status trait coming from being assigned as [acting] squad leader.
@@ -509,3 +504,5 @@ GLOBAL_LIST(trait_name_map)
 #define HACKED_TRAIT "hacked"
 /// traits from chloroform usage
 #define CHLOROFORM_TRAIT "chloroform"
+/// traits from horde mode perks
+#define PERK_TRAIT "perk"

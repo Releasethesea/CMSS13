@@ -12,20 +12,6 @@
 	var/generate_points = TRUE
 	var/omnisentry_price_scale = 100
 	var/omnisentry_price = 300
-	var/list/datum/build_queue_entry/build_queue = list()
-
-/datum/build_queue_entry
-	var/item
-	var/cost
-
-/datum/build_queue_entry/New(item, cost)
-	src.item = item
-	src.cost = cost
-
-/obj/structure/machinery/part_fabricator/get_examine_text(mob/user)
-	. = ..()
-	to_chat(user, build_queue ? "It has [length(build_queue)] items in the queue" : "the build queue is empty")
-
 
 /obj/structure/machinery/part_fabricator/New()
 	..()
@@ -41,22 +27,9 @@
 	return
 
 /obj/structure/machinery/part_fabricator/dropship/ui_data(mob/user)
-	var/index = 1
-	var/list/build_queue_formatted = list()
-	for(var/datum/build_queue_entry/entry in build_queue)
-		var/obj/structure/build_item = entry.item
-		build_queue_formatted += list(list(
-			"name" = build_item.name,
-			"cost" = entry.cost,
-			"index" = index
-		))
-
-		index += 1
-
 	return list(
 		"points" = get_point_store(),
-		"omnisentrygun_price" = omnisentry_price,
-		"BuildQueue" = build_queue_formatted
+		"omnisentrygun_price" = omnisentry_price
 	)
 
 /obj/structure/machinery/part_fabricator/power_change()
@@ -67,69 +40,46 @@
 /obj/structure/machinery/part_fabricator/process()
 	if(SSticker.current_state < GAME_STATE_PLAYING)
 		return
-
+	if(stat & NOPOWER)
+		icon_state = "drone_fab_nopower"
+		return
+	if(busy)
+		icon_state = "drone_fab_active"
+		return
+	else
+		icon_state = "drone_fab_idle"
 	if(generate_points)
 		add_to_point_store()
 
-	process_build_queue()
-
-	update_icon()
-
-/obj/structure/machinery/part_fabricator/proc/process_build_queue()
-	if(stat & NOPOWER)
-		return
-
-	if(busy)
-		return
-
-	if(length(build_queue))
-		busy = TRUE
-		var/datum/build_queue_entry/entry = build_queue[1]
-
-		var/is_omnisentry = ispath(entry.item, /obj/structure/ship_ammo/sentry)
-
-		if((is_omnisentry && get_point_store() < omnisentry_price) || get_point_store() < entry.cost)
-			if(!TIMER_COOLDOWN_CHECK(src, COOLDOWN_PRINTER_ERROR))
-				balloon_alert_to_viewers("out of points - printing paused!")
-				visible_message(SPAN_WARNING("[src] flashes a warning light."))
-				TIMER_COOLDOWN_START(src, COOLDOWN_PRINTER_ERROR, 20 SECONDS)
-			busy = FALSE
-			return
-
-		if(is_omnisentry)
-			spend_point_store(omnisentry_price)
-			omnisentry_price += omnisentry_price_scale
-		else
-			spend_point_store(entry.cost)
-
-		visible_message(SPAN_NOTICE("[src] starts printing something."))
-		addtimer(CALLBACK(src, PROC_REF(produce_part), entry), 3 SECONDS)
-
 /obj/structure/machinery/part_fabricator/proc/build_part(part_type, cost, mob/user)
-	set waitfor = FALSE
-	if(stat & NOPOWER)
-		return
-
-	if(ispath(part_type, /obj/structure/ship_ammo/sentry))
+	set waitfor = 0
+	if(stat & NOPOWER) return
+	if(ispath(part_type,/obj/structure/ship_ammo/sentry))
 		cost = omnisentry_price
-
 	if(get_point_store() < cost)
 		to_chat(user, SPAN_WARNING("You don't have enough points to build that."))
 		return
+	visible_message(SPAN_NOTICE("[src] starts printing something."))
+	spend_point_store(cost)
+	if(ispath(part_type,/obj/structure/ship_ammo/sentry))
+		omnisentry_price += omnisentry_price_scale
+	icon_state = "drone_fab_active"
+	busy = TRUE
+	addtimer(CALLBACK(src, PROC_REF(do_build_part), part_type), 10 SECONDS)
 
-	build_queue += new /datum/build_queue_entry(part_type, cost)
-
-/obj/structure/machinery/part_fabricator/proc/produce_part(datum/build_queue_entry/entry)
-	build_queue.Remove(entry)
-
+/obj/structure/machinery/part_fabricator/proc/do_build_part(part_type)
 	busy = FALSE
 	playsound(src, 'sound/machines/hydraulics_1.ogg', 40, 1)
-	new entry.item(get_step(src, SOUTHEAST))
+	new part_type(get_step(src, SOUTHEAST))
 	icon_state = "drone_fab_idle"
 
 /obj/structure/machinery/part_fabricator/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
+		return
+
+	if(busy)
+		to_chat(usr, SPAN_WARNING("The [name] is busy. Please wait for completion of previous operation."))
 		return
 
 	var/mob/user = ui.user
@@ -146,7 +96,7 @@
 				return
 			cost = initial(produce.point_cost)
 			build_part(produce, cost, user)
-			return TRUE
+			return
 
 		else
 			var/obj/structure/ship_ammo/produce = (typesof(/obj/structure/ship_ammo))[index]
@@ -155,24 +105,7 @@
 				return
 			cost = initial(produce.point_cost)
 			build_part(produce, cost, user)
-			return TRUE
-
-	if(action == "cancel")
-		var/index = params["index"]
-
-		if(length(build_queue))
-			if(index == null || index > length(build_queue))
-				return
-
-			if(busy && index == 1)
-				to_chat(user, SPAN_WARNING("Cannot cancel currently produced item."))
-				return
-
-			var/datum/build_queue_entry/entry = build_queue[index]
-
-			build_queue.Remove(entry)
-			add_to_point_store(entry.cost)
-			return TRUE
+			return
 
 	else
 		log_admin("Bad topic: [user] may be trying to HREF exploit [src]")
@@ -189,17 +122,6 @@
 	if(!ui)
 		ui = new(user, src, "PartFabricator", "Part Fabricator")
 		ui.open()
-
-/obj/structure/machinery/part_fabricator/update_icon()
-	. = ..()
-	if(stat & NOPOWER)
-		icon_state = "drone_fab_nopower"
-		return
-	if(busy)
-		icon_state = "drone_fab_active"
-		return
-
-	icon_state = "drone_fab_idle"
 
 /obj/structure/machinery/part_fabricator/dropship
 	name = "dropship part fabricator"
@@ -301,7 +223,7 @@
 	var/thing_to_recycle = powerloader_clamp_used.loaded
 	to_chat(user, SPAN_WARNING("You start recycling \the [powerloader_clamp_used.loaded]!"))
 	playsound(loc, 'sound/machines/hydraulics_1.ogg', 40, 1)
-	if(!user || !do_after(user, (3 SECONDS) * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE, powerloader_clamp_used.loaded, INTERRUPT_ALL))
+	if(!user || !do_after(user, (7 SECONDS) * user.get_skill_duration_multiplier(SKILL_ENGINEER), INTERRUPT_ALL|BEHAVIOR_IMMOBILE, BUSY_ICON_HOSTILE, powerloader_clamp_used.loaded, INTERRUPT_ALL))
 		to_chat(user, SPAN_NOTICE("You stop recycling \the [thing_to_recycle]."))
 		return
 	if(istype(powerloader_clamp_used.loaded, /obj/structure/ship_ammo/sentry))
@@ -327,7 +249,7 @@
 	generate_points = FALSE
 
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 /obj/structure/machinery/part_fabricator/tank/get_point_store()
 	return GLOB.supply_controller.tank_points

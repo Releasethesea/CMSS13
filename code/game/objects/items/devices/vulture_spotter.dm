@@ -5,7 +5,7 @@
 	item_state = "electronic"
 	flags_atom = FPRINT|CONDUCT
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 	/// A weakref to the corresponding rifle
 	var/datum/weakref/bound_rifle
 
@@ -27,7 +27,7 @@
 	item_state = "electronic"
 	flags_atom = FPRINT|CONDUCT
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 /obj/item/device/vulture_spotter_tripod/get_examine_text(mob/user)
 	. = ..()

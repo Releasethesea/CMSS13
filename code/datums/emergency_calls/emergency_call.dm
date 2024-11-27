@@ -224,15 +224,11 @@
 
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/datum/emergency_call, spawn_candidates), quiet_launch, announce_incoming, override_spawn_loc), 30 SECONDS)
 
-/datum/emergency_call/proc/remove_nonqualifiers(list/datum/mind/candidates_list)
-	return candidates_list //everyone gets selected on 99% of distress beacons.
-
 /datum/emergency_call/proc/spawn_candidates(quiet_launch = FALSE, announce_incoming = TRUE, override_spawn_loc)
 	if(SSticker.mode)
 		SSticker.mode.picked_calls -= src
 
 	SEND_SIGNAL(src, COMSIG_ERT_SETUP)
-	candidates = remove_nonqualifiers(candidates)
 
 	if(length(candidates) < mob_min && !spawn_max_amount)
 		message_admins("Aborting distress beacon, not enough candidates: found [length(candidates)].")
@@ -272,7 +268,7 @@
 	if(announce_incoming)
 		marine_announcement(dispatch_message, "Distress Beacon", 'sound/AI/distressreceived.ogg', logging = ARES_LOG_SECURITY) //Announcement that the Distress Beacon has been answered, does not hint towards the chosen ERT
 
-	message_admins("Distress beacon: [src.name] finalized, setting up candidates. [hostility? "[SPAN_WARNING("(THEY ARE HOSTILE)")]":"(they are friendly)"].")
+	message_admins("Distress beacon: [src.name] finalized, setting up candidates.")
 
 	//Let the deadchat know what's up since they are usually curious
 	for(var/mob/dead/observer/M in GLOB.observer_list)
@@ -324,7 +320,7 @@
 
 
 	if(spawn_max_amount && i < mob_max)
-		for(var/c in i to mob_max - 1)
+		for(var/c in i to mob_max)
 			create_member(null, override_spawn_loc)
 
 	candidates = list()

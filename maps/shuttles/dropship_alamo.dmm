@@ -56,12 +56,12 @@
 /area/shuttle/drop1/sulaco)
 "dU" = (
 /obj/structure/machinery/door_control{
-	name = "Dropship Lockdown";
-	pixel_y = -19;
 	id = "dropship_alamo";
-	throw_range = 15;
+	name = "Dropship Lockdown";
 	normaldoorcontrol = 3;
-	req_one_access_txt = "3;22"
+	pixel_y = -19;
+	req_one_access_txt = "3;22";
+	throw_range = 15
 	},
 /turf/open/shuttle/dropship/light_grey_single_wide_left_to_right,
 /area/shuttle/drop1/sulaco)
@@ -111,9 +111,6 @@
 /area/shuttle/drop1/sulaco)
 "jz" = (
 /obj/structure/shuttle/part/dropship1/transparent/middle_right_wing,
-/obj/structure/machinery/light/dropship/green{
-	dir = 4
-	},
 /turf/template_noop,
 /area/shuttle/drop1/sulaco)
 "mb" = (
@@ -152,9 +149,6 @@
 /area/shuttle/drop1/sulaco)
 "oW" = (
 /obj/structure/shuttle/part/dropship1/transparent/middle_left_wing,
-/obj/structure/machinery/light/dropship/red{
-	dir = 8
-	},
 /turf/template_noop,
 /area/shuttle/drop1/sulaco)
 "po" = (
@@ -343,10 +337,10 @@
 /obj/structure/machinery/computer/dropship_weapons/dropship1,
 /obj/structure/transmitter/rotary{
 	name = "Alamo Telephone";
-	pixel_x = 11;
-	pixel_y = 16;
 	phone_category = "Dropship";
-	phone_id = "Alamo"
+	phone_id = "Alamo";
+	pixel_x = 11;
+	pixel_y = 16
 	},
 /obj/structure/blocker/invisible_wall,
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
@@ -417,9 +411,6 @@
 /area/shuttle/drop1/sulaco)
 "Me" = (
 /obj/structure/shuttle/part/dropship1/left_inner_wing_connector,
-/obj/structure/machinery/light/dropship/blue{
-	dir = 4
-	},
 /turf/template_noop,
 /area/shuttle/drop1/sulaco)
 "MP" = (
@@ -494,9 +485,6 @@
 /area/shuttle/drop1/sulaco)
 "Ta" = (
 /obj/structure/shuttle/part/dropship1/right_inner_wing_connector,
-/obj/structure/machinery/light/dropship/blue{
-	dir = 8
-	},
 /turf/template_noop,
 /area/shuttle/drop1/sulaco)
 "Te" = (
@@ -600,8 +588,8 @@
 /area/shuttle/drop1/sulaco)
 "XI" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/dropshiprear/dropshipside/ds1{
-	dir = 2;
-	id = "port_door"
+	id = "port_door";
+	dir = 2
 	},
 /turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
 /area/shuttle/drop1/sulaco)

@@ -14,7 +14,6 @@
 		TRAIT_FOREIGN_BIO,
 		TRAIT_DEXTROUS,
 		TRAIT_EMOTE_CD_EXEMPT,
-		TRAIT_IRON_TEETH,
 	)
 	unarmed_type = /datum/unarmed_attack/punch/strong
 	secondary_unarmed_type = /datum/unarmed_attack/bite/strong
@@ -24,8 +23,7 @@
 	flesh_color = "#907E4A"
 	speech_sounds = list('sound/voice/pred_click1.ogg', 'sound/voice/pred_click2.ogg')
 	speech_chance = 100
-	death_message = "lets out a final bellowing cry, falling motionless and lifeless soon after..."
-	death_sound = "pred_death"
+	death_message = "clicks in agony and falls still, motionless and completely lifeless..."
 	darksight = 5
 	default_lighting_alpha = LIGHTING_PLANE_ALPHA_YAUTJA
 	flags_sight = SEE_MOBS
@@ -33,7 +31,7 @@
 	total_health = 175 //more health than regular humans
 	timed_hug = FALSE
 
-	bloodsplatter_type = /obj/effect/bloodsplatter/yautjasplatter
+	bloodsplatter_type = /obj/effect/temp_visual/dir_setting/bloodsplatter/yautjasplatter
 
 	heat_level_1 = 500
 	heat_level_2 = 700

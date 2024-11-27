@@ -13,7 +13,7 @@
 
 	unacidable = TRUE
 	unslashable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 	var/list/role_restriction = list(JOB_TANK_CREW, JOB_WO_CREWMAN, JOB_UPP_CREWMAN, JOB_PMC_CREWMAN)
 

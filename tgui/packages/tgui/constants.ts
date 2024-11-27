@@ -149,27 +149,27 @@ export const RADIO_CHANNELS = [
   {
     name: 'UPP CMD',
     freq: 1252,
-    color: '#4a768f',
+    color: '#8f4a4b',
   },
   {
     name: 'UPP ENG',
     freq: 1253,
-    color: '#8c5223',
+    color: '#8f4a4b',
   },
   {
     name: 'UPP MED',
     freq: 1254,
-    color: '#159e73',
+    color: '#8f4a4b',
   },
   {
     name: 'UPP CCT',
     freq: 1255,
-    color: '#b3222e',
+    color: '#8f4a4b',
   },
   {
     name: 'UPP KDO',
     freq: 1259,
-    color: '#789e18',
+    color: '#8f4a4b',
   },
   {
     name: 'CLF',
@@ -179,22 +179,22 @@ export const RADIO_CHANNELS = [
   {
     name: 'CLF CMD',
     freq: 1272,
-    color: '#4a768f',
+    color: '#8e83ca',
   },
   {
     name: 'CLF ENG',
     freq: 1273,
-    color: '#8c5223',
+    color: '#8e83ca',
   },
   {
     name: 'CLF MED',
     freq: 1274,
-    color: '#159e73',
+    color: '#8e83ca',
   },
   {
     name: 'CLF CCT',
     freq: 1275,
-    color: '#b3222e',
+    color: '#8e83ca',
   },
   {
     name: 'LSTN BUG A',

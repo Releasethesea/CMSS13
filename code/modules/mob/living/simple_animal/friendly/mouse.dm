@@ -32,9 +32,8 @@
 /mob/living/simple_animal/mouse/Life(delta_time)
 	..()
 	if(!stat && prob(speak_chance))
-		FOR_DVIEW(var/mob/M, world.view, src, HIDE_INVISIBLE_OBSERVER)
+		for(var/mob/M in view())
 			M << 'sound/effects/mousesqueek.ogg'
-		FOR_DVIEW_END
 
 	if(!ckey && stat == CONSCIOUS && prob(0.5))
 		set_stat(UNCONSCIOUS)

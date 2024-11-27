@@ -385,11 +385,9 @@
 		to_chat(usr, SPAN_WARNING("You have moved a table too recently."))
 		return FALSE
 
-	FOR_DOVIEW(var/mob/living/mob_behind_table, 0, src, HIDE_INVISIBLE_OBSERVER)
+	for(var/mob/living/mob_behind_table in oview(src, 0))
 		to_chat(usr, SPAN_WARNING("[mob_behind_table] is in the way of [src]."))
-		FOR_DVIEW_END
 		return FALSE
-	FOR_DVIEW_END
 
 	var/list/directions = list()
 	if(direction)
@@ -491,6 +489,20 @@
 	REMOVE_TRAIT(src, TRAIT_TABLE_FLIPPING, TRAIT_SOURCE_FLIP_TABLE)
 
 	return TRUE
+
+/obj/structure/surface/table/uninteractable
+	reinforced = TRUE
+	climbable = FALSE
+	breakable = TRUE
+	unacidable = TRUE
+	unslashable = TRUE
+	indestructible = TRUE
+
+/obj/structure/surface/table/uninteractable/ex_act(severity, direction)
+	return
+
+/obj/structure/surface/table/uninteractable/bullet_act(obj/projectile/bullet)
+	bullet_ping(bullet)
 
 /*
  * Wooden tables

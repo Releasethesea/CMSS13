@@ -453,10 +453,6 @@
 		to_chat(user, SPAN_WARNING("You'll need some adequate repair material in your other hand to patch up [src]!"))
 		return FALSE
 
-	if(material.amount < nailgun.material_per_repair)
-		to_chat(user, SPAN_WARNING("You'll need more adequate repair material in your other hand to patch up [src]!"))
-		return FALSE
-
 	var/repair_value = 0
 	for(var/validSheetType in repair_materials)
 		if(validSheetType == material.sheettype)
@@ -473,7 +469,7 @@
 		return FALSE
 
 	if(!material || (material != user.l_hand && material != user.r_hand) || material.amount <= 0)
-		to_chat(user, SPAN_WARNING("You seem to have misplaced the repair material!"))
+		to_chat(user, SPAN_WARNING("You seems to have misplaced the repair material!"))
 		return FALSE
 
 	if(!nailgun.in_chamber || !nailgun.current_mag || nailgun.current_mag.current_rounds < 3)
@@ -483,7 +479,7 @@
 	update_health(-repair_value*maxhealth)
 	to_chat(user, SPAN_WARNING("You nail [material] to [src], restoring some of its integrity!"))
 	update_damage_state()
-	material.use(nailgun.material_per_repair)
+	material.use(1)
 	nailgun.current_mag.current_rounds -= 3
 	nailgun.in_chamber = null
 	nailgun.load_into_chamber()

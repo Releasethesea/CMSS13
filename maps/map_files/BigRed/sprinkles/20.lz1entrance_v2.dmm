@@ -67,7 +67,7 @@
 /obj/item/stack/rods,
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/mars,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "dx" = (
 /turf/open/mars/mars_dirt_9,
@@ -89,44 +89,22 @@
 	},
 /turf/open/floor/darkgreen2,
 /area/bigredv2/outside/space_port)
-"et" = (
-/obj/item/trash/popcorn{
-	pixel_y = 9
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
-/area/bigredv2/outside/nw)
-"fA" = (
-/obj/effect/decal/strata_decals/grime/grime4,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
-/area/bigredv2/outside/nw)
-"fT" = (
+"es" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement12,
-/area/bigredv2/outside/space_port)
+/turf/open/floor/asteroidwarning/east,
+/area/bigredv2/outside/nw)
 "gh" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/nw)
 "gi" = (
 /obj/structure/cargo_container/wy/right,
-/turf/open/floor/asteroidwarning/east,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "gp" = (
 /obj/structure/surface/table,
 /obj/item/paper_bin,
 /turf/open/floor/darkgreen2/southeast,
 /area/bigredv2/outside/space_port)
-"gD" = (
-/obj/structure/pipes/standard/simple/hidden/green{
-	dir = 4
-	},
-/turf/open/asphalt/cement,
-/area/bigredv2/outside/space_port)
-"ic" = (
-/obj/effect/decal/strata_decals/grime/grime1{
-	dir = 4
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
-/area/bigredv2/outside/nw)
 "iM" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/dark,
@@ -141,8 +119,12 @@
 /obj/structure/fence,
 /turf/open/mars_cave/mars_dirt_4,
 /area/bigredv2/outside/nw)
+"jL" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning,
+/area/bigredv2/outside/space_port)
 "lf" = (
-/turf/open/asphalt/cement/cement2,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/space_port)
 "lM" = (
 /turf/open/floor/darkgreen2,
@@ -152,29 +134,16 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/space_port)
-"mV" = (
-/obj/effect/decal/strata_decals/grime/grime2,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached9,
-/area/bigredv2/outside/nw)
 "na" = (
 /obj/structure/largecrate,
 /turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/space_port)
-"ob" = (
-/obj/effect/decal/strata_decals/grime/grime2{
-	dir = 4
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
-/area/bigredv2/outside/nw)
-"qi" = (
-/obj/structure/pipes/standard/simple/hidden/green,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
-/area/bigredv2/outside/nw)
 "qA" = (
 /obj/structure/pipes/standard/simple/hidden/green,
-/turf/open/asphalt/cement_sunbleached,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "qL" = (
 /obj/structure/surface/table,
@@ -183,8 +152,7 @@
 /area/bigredv2/outside/space_port)
 "qY" = (
 /obj/structure/pipes/standard/simple/hidden/green,
-/obj/effect/decal/strata_decals/grime/grime4,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "sC" = (
 /obj/structure/pipes/standard/simple/hidden/green,
@@ -196,20 +164,17 @@
 /area/bigredv2/outside/nw)
 "ta" = (
 /obj/effect/landmark/crap_item,
-/turf/open/asphalt/cement/cement9,
-/area/bigredv2/outside/space_port)
-"tv" = (
 /turf/open/floor/asteroidwarning/northeast,
-/area/bigredv2/outside/nw)
+/area/bigredv2/outside/space_port)
 "uh" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/nw)
 "uu" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
-/turf/open/asphalt/cement/cement1/north,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/space_port)
 "uF" = (
 /obj/structure/pipes/standard/simple/hidden/green{
@@ -219,27 +184,20 @@
 /area/bigredv2/outside/space_port)
 "ve" = (
 /obj/structure/lz_sign/solaris_sign,
-/turf/open/mars_cave/mars_dirt_4,
-/area/bigredv2/outside/nw)
-"vv" = (
-/obj/item/trash/hotdog{
-	pixel_x = -12;
-	pixel_y = -11
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "vN" = (
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "vW" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "wu" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 5
 	},
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "wD" = (
 /obj/structure/surface/table,
@@ -251,7 +209,7 @@
 /obj/structure/pipes/standard/manifold/hidden/green{
 	dir = 1
 	},
-/turf/open/asphalt/cement,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/space_port)
 "wU" = (
 /obj/structure/machinery/disposal,
@@ -267,10 +225,6 @@
 "xn" = (
 /turf/open/floor/darkgreen2/west,
 /area/bigredv2/outside/space_port)
-"xy" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/mars/mars_dirt_12,
-/area/bigredv2/outside/nw)
 "xB" = (
 /obj/structure/surface/table,
 /obj/effect/landmark/crap_item,
@@ -283,13 +237,6 @@
 "yI" = (
 /turf/open/floor/darkgreen2/north,
 /area/bigredv2/outside/space_port)
-"zc" = (
-/obj/item/trash/cigbutt{
-	pixel_x = -6;
-	pixel_y = -9
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached2,
-/area/bigredv2/outside/nw)
 "zi" = (
 /obj/structure/pipes/vents/pump{
 	dir = 8
@@ -297,7 +244,7 @@
 /turf/open/floor/dark,
 /area/bigredv2/outside/space_port)
 "Ar" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "Az" = (
 /obj/structure/noticeboard{
@@ -307,11 +254,11 @@
 /area/bigredv2/outside/space_port)
 "AJ" = (
 /obj/structure/pipes/standard/simple/hidden/green,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/nw)
 "Bc" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/space_port)
 "Bs" = (
 /turf/open/floor/dark,
@@ -327,21 +274,19 @@
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
-"Ce" = (
-/obj/structure/pipes/standard/simple/hidden/green,
-/turf/open/asphalt/cement/cement12,
-/area/bigredv2/outside/space_port)
 "CD" = (
 /obj/structure/cargo_container/kelland/left,
 /turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
-"DD" = (
-/turf/open/asphalt/cement/cement15,
-/area/bigredv2/outside/space_port)
+"CI" = (
+/obj/effect/landmark/crap_item,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning/west,
+/area/bigredv2/outside/nw)
 "Fd" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/nw)
 "Fw" = (
 /turf/open/mars/mars_dirt_13,
@@ -357,15 +302,11 @@
 /obj/item/stack/sheet/metal,
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/mars,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
-"GU" = (
-/obj/structure/pipes/standard/simple/hidden/green,
-/turf/open/asphalt/cement,
-/area/bigredv2/outside/space_port)
 "Hu" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement14,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/space_port)
 "Hz" = (
 /obj/structure/surface/rack,
@@ -376,10 +317,6 @@
 /obj/structure/bed/chair/office/dark,
 /turf/open/floor/dark,
 /area/bigredv2/outside/space_port)
-"IL" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
-/area/bigredv2/outside/nw)
 "Je" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/landmark/corpsespawner/engineer,
@@ -387,26 +324,6 @@
 /area/bigredv2/outside/space_port)
 "Jt" = (
 /turf/open/mars/mars_dirt_12,
-/area/bigredv2/outside/nw)
-"JE" = (
-/obj/structure/pipes/standard/simple/hidden/green{
-	dir = 4
-	},
-/turf/open/asphalt/cement/cement3,
-/area/bigredv2/outside/space_port)
-"JY" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
-/area/bigredv2/outside/nw)
-"Kn" = (
-/obj/effect/decal/strata_decals/grime/grime4,
-/turf/open/asphalt/cement_sunbleached,
-/area/bigredv2/outside/nw)
-"Ku" = (
-/obj/item/trash/cigbutt{
-	pixel_x = 7;
-	pixel_y = 7
-	},
-/turf/open/asphalt/cement_sunbleached,
 /area/bigredv2/outside/nw)
 "KV" = (
 /turf/open/floor/asteroidwarning/southwest,
@@ -433,11 +350,7 @@
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 10
 	},
-/turf/open/asphalt/cement_sunbleached,
-/area/bigredv2/outside/nw)
-"Ox" = (
-/obj/effect/decal/strata_decals/grime/grime3,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "OM" = (
 /obj/structure/pipes/standard/simple/hidden/green{
@@ -452,12 +365,8 @@
 "OT" = (
 /obj/item/stack/rods,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/mars,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
-"OX" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement3,
-/area/bigredv2/outside/space_port)
 "QI" = (
 /turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/space_port)
@@ -467,36 +376,23 @@
 	},
 /turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/space_port)
-"Rt" = (
-/turf/open/floor/asteroidwarning/southeast,
-/area/bigredv2/outside/nw)
+"RG" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/template_noop,
+/area/template_noop)
 "Sg" = (
 /obj/structure/fence,
 /turf/open/mars/mars_dirt_3,
 /area/bigredv2/outside/nw)
-"St" = (
-/obj/item/trash/waffles{
-	pixel_x = -6;
-	pixel_y = 10
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
-/area/bigredv2/outside/nw)
 "Sw" = (
 /turf/open/mars/mars_dirt_11,
 /area/bigredv2/outside/nw)
-"TC" = (
-/obj/item/trash/cigbutt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
-/area/bigredv2/outside/nw)
 "TD" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "TP" = (
-/turf/open/asphalt/cement/cement12,
-/area/bigredv2/outside/space_port)
-"TW" = (
-/turf/open/asphalt/cement,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/space_port)
 "Uv" = (
 /obj/structure/pipes/standard/simple/hidden/green{
@@ -508,16 +404,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/darkgreen2,
 /area/bigredv2/outside/space_port)
-"UY" = (
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/asphalt/cement_sunbleached,
-/area/bigredv2/outside/nw)
-"Vh" = (
-/obj/effect/decal/strata_decals/grime/grime1{
-	dir = 1
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
-/area/bigredv2/outside/nw)
 "Vi" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/mars_cave/mars_dirt_4,
@@ -537,10 +423,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/mars/mars_dirt_11,
 /area/bigredv2/outside/nw)
-"XF" = (
-/obj/effect/decal/strata_decals/grime/grime3,
-/turf/open/asphalt/cement_sunbleached,
-/area/bigredv2/outside/nw)
 "XL" = (
 /turf/open/mars/mars_dirt_14,
 /area/bigredv2/outside/nw)
@@ -559,22 +441,10 @@
 /obj/structure/largecrate,
 /turf/open/floor/asteroidwarning/northwest,
 /area/bigredv2/outside/nw)
-"Yf" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached9,
-/area/bigredv2/outside/nw)
-"Yw" = (
-/obj/effect/decal/strata_decals/grime/grime2{
-	dir = 8
-	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
-/area/bigredv2/outside/nw)
 "Yz" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement,
-/area/bigredv2/outside/space_port)
-"YG" = (
-/turf/open/asphalt/cement/cement1/north,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/space_port)
 "YX" = (
 /obj/structure/machinery/landinglight/ds1/delaythree{
@@ -585,12 +455,6 @@
 "Zq" = (
 /obj/structure/machinery/vending/cigarette/colony,
 /turf/open/floor/darkgreen2/northeast,
-/area/bigredv2/outside/space_port)
-"ZJ" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached15,
-/area/bigredv2/outside/nw)
-"ZP" = (
-/turf/open/asphalt/cement/cement4,
 /area/bigredv2/outside/space_port)
 
 (1,1,1) = {"
@@ -609,7 +473,7 @@ by
 bY
 bY
 bY
-bY
+RG
 bY
 bY
 bi
@@ -627,20 +491,20 @@ Fw
 Sw
 Xi
 Sw
-Yf
-Fd
 bY
 bY
-Fd
-ZJ
+RG
+bY
+bY
+bY
 bi
 "}
 (3,1,1) = {"
 ac
 ac
 lf
-JE
-Hu
+Uv
+jL
 ac
 ac
 Sw
@@ -650,7 +514,7 @@ jv
 jv
 bT
 bT
-JY
+FW
 Ar
 bi
 bi
@@ -659,9 +523,9 @@ bi
 (4,1,1) = {"
 ac
 QI
-ZP
+lf
 lW
-fT
+jL
 na
 ac
 Vi
@@ -680,8 +544,8 @@ bi
 (5,1,1) = {"
 ad
 QI
-ZP
-gD
+lf
+Uv
 TP
 QI
 ac
@@ -702,18 +566,18 @@ bi
 ae
 yp
 Bc
-gD
+Uv
 TP
 na
 ac
-xc
+KV
 Vi
 jv
 FW
 WW
 sD
 bT
-JY
+FW
 Ar
 by
 bi
@@ -727,14 +591,14 @@ lW
 TP
 QI
 ac
-xc
+Ar
 jv
 jv
-tv
+FW
 gi
-Rt
+Ar
 bT
-JY
+FW
 Ar
 bi
 bi
@@ -745,41 +609,41 @@ ac
 WZ
 Bc
 lW
-TW
-OX
+QI
 Hu
-zc
-fA
-IL
-IL
+Hu
+vN
 gh
-ob
+gh
+Mv
+CI
+gh
 gh
 vN
 vN
 gh
-vv
+gh
 gh
 "}
 (9,1,1) = {"
 ad
 QI
-ZP
+lf
 wP
-GU
+sC
 Yz
-Ce
-qi
+sC
+qY
 qA
-qA
-qA
+qY
+qY
 wu
 vN
-XF
 vN
 vN
 vN
-XF
+vN
+vN
 vW
 "}
 (10,1,1) = {"
@@ -787,15 +651,15 @@ ad
 QI
 ta
 uu
-YG
-YG
-DD
-mV
-Yw
-Fd
+Wu
+Wu
+Wu
+vW
+es
+es
 vN
 BT
-vW
+vN
 Fd
 Fd
 Fd
@@ -814,9 +678,9 @@ ac
 ve
 jv
 jv
-JY
+FW
 BT
-Vh
+Ar
 jv
 xc
 xc
@@ -832,10 +696,10 @@ OM
 aP
 aP
 ac
-xc
+Ar
 xc
 jv
-uh
+FW
 BT
 Ar
 jv
@@ -853,16 +717,16 @@ iV
 xn
 xB
 ac
-xy
+Ar
 Jt
 xc
-JY
+FW
 BT
-vW
+vN
 gh
 gh
-ic
-Ox
+gh
+gh
 gh
 gh
 "}
@@ -875,13 +739,13 @@ It
 en
 ac
 OT
-by
+bi
 dL
-JY
+FW
 BT
 vN
-Kn
-UY
+vN
+vN
 vN
 vN
 vN
@@ -895,10 +759,10 @@ Bs
 wV
 qL
 ai
-by
-by
+TD
+bi
 dL
-St
+FW
 Nj
 qY
 AJ
@@ -919,7 +783,7 @@ ai
 GQ
 bi
 cS
-et
+FW
 vN
 Ar
 jv
@@ -937,12 +801,12 @@ Je
 Bs
 Uw
 ai
-by
-by
+Ar
+bi
 cS
-JY
-Ku
-TC
+FW
+vN
+Ar
 jv
 dx
 bi
@@ -961,7 +825,7 @@ ac
 dq
 bi
 cS
-JY
+FW
 vN
 Ar
 Sg
@@ -979,12 +843,12 @@ XU
 cB
 gp
 ac
-by
+TD
 bi
 cS
-JY
+FW
 vN
-Vh
+Ar
 Sg
 bi
 bi

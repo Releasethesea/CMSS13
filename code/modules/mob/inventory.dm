@@ -164,7 +164,8 @@
 	if(pickup_recent_item_on_turf(user_turf))
 		return
 
-	for(var/turf/nearby_turf in orange(1, src))
+	var/range_list = orange(1, src)
+	for(var/turf/nearby_turf in range_list)
 		if(pickup_recent_item_on_turf(nearby_turf))
 			return
 

@@ -120,7 +120,7 @@
 	var/reading_time = 10
 	var/objective_type = /datum/cm_objective/document
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = 1
 	is_objective = TRUE
 	ground_offset_x = 9
 	ground_offset_y = 8

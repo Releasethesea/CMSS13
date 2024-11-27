@@ -23,14 +23,6 @@
 	sharp = TRUE
 	edge = TRUE
 
-/datum/unarmed_attack/bite/synthetic
-	attack_verb = list("gnash", "chew", "munch", "crunch")
-	attack_sound = 'sound/weapons/alien_bite1.ogg'
-	shredding = FALSE
-	damage = 35
-	sharp = TRUE
-	edge = TRUE
-
 /datum/unarmed_attack/bite/is_usable(mob/living/carbon/human/user)
 	if(!user.melee_allowed)
 		return FALSE

@@ -1,11 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aH" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement12,
-/area/bigredv2/outside/filtration_cave_cas)
 "aM" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement2,
+/turf/open/floor/asteroidwarning/northwest,
 /area/bigredv2/outside/filtration_cave_cas)
 "aN" = (
 /obj/structure/surface/table/almayer,
@@ -36,8 +32,7 @@
 /turf/open/floor/greengrid,
 /area/bigred/ground/security)
 "gr" = (
-/obj/effect/decal/strata_decals/grime/grime2,
-/turf/open/asphalt/cement/cement3,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/filtration_cave_cas)
 "hz" = (
 /obj/structure/machinery/door/airlock/almayer/security/glass/colony{
@@ -51,6 +46,10 @@
 /obj/structure/blocker/forcefield/multitile_vehicles,
 /turf/open/mars_cave/mars_cave_2,
 /area/bigredv2/outside/filtration_cave_cas)
+"iN" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning/east,
+/area/bigredv2/outside/se)
 "kd" = (
 /obj/structure/surface/table/almayer,
 /obj/structure/transmitter/colony_net/rotary{
@@ -64,7 +63,8 @@
 /turf/closed/wall/solaris/reinforced,
 /area/bigred/ground/security)
 "nY" = (
-/turf/open/asphalt/cement/cement3,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/filtration_cave_cas)
 "oT" = (
 /turf/closed/wall/solaris/reinforced,
@@ -73,7 +73,8 @@
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/turf/open/asphalt/cement/cement2,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning/northwest,
 /area/bigredv2/outside/filtration_cave_cas)
 "pV" = (
 /obj/structure/surface/table/almayer,
@@ -86,7 +87,7 @@
 /turf/open/floor,
 /area/bigred/ground/security)
 "qS" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/se)
 "rD" = (
 /obj/structure/machinery/camera/autoname{
@@ -99,7 +100,11 @@
 /turf/open/floor/greengrid,
 /area/bigred/ground/security)
 "sd" = (
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1;
+	pixel_y = 28;
+	start_charge = 0
+	},
 /turf/open/floor,
 /area/bigred/ground/security)
 "tV" = (
@@ -153,44 +158,37 @@
 	},
 /turf/open/floor,
 /area/bigred/ground/security)
-"xw" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement3,
-/area/bigredv2/outside/filtration_cave_cas)
 "An" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/asphalt/cement/cement1/north,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/filtration_cave_cas)
 "AY" = (
 /turf/open/floor,
 /area/bigred/ground/security)
 "DT" = (
-/turf/open/asphalt/cement/cement4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/filtration_cave_cas)
 "Es" = (
-/turf/open/asphalt/cement/cement14,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning/southwest,
 /area/bigredv2/outside/filtration_cave_cas)
 "Fv" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/filtration_cave_cas)
 "Gi" = (
-/turf/open/asphalt/cement/cement9,
+/obj/effect/landmark/crap_item,
+/turf/open/floor/asteroidwarning/northeast,
 /area/bigredv2/outside/filtration_cave_cas)
 "HM" = (
 /obj/item/tool/warning_cone,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached9,
+/turf/open/floor/asteroidwarning/northeast,
 /area/bigredv2/outside/se)
 "IS" = (
 /obj/structure/filingcabinet,
 /turf/open/floor/greengrid,
 /area/bigred/ground/security)
-"KD" = (
-/obj/effect/decal/cleanable/generic,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement/cement1/north,
-/area/bigredv2/outside/filtration_cave_cas)
 "KO" = (
 /obj/item/trash/sosjerky,
 /obj/effect/decal/cleanable/dirt,
@@ -199,7 +197,7 @@
 "Lw" = (
 /obj/effect/landmark/hunter_primary,
 /obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/asphalt/cement/cement9,
+/turf/open/floor/asteroidwarning/northeast,
 /area/bigredv2/outside/filtration_cave_cas)
 "LX" = (
 /obj/structure/machinery/light{
@@ -209,16 +207,20 @@
 /turf/open/floor,
 /area/bigred/ground/security)
 "Mo" = (
-/turf/open/asphalt/cement/cement12,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/filtration_cave_cas)
 "Mq" = (
 /obj/structure/surface/table/almayer,
 /turf/open/floor/greengrid,
 /area/bigred/ground/security)
+"MT" = (
+/turf/open/floor/asteroidwarning/southwest,
+/area/bigredv2/outside/filtration_cave_cas)
 "Nv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/blocker/forcefield/multitile_vehicles,
-/turf/open/asphalt/cement/cement15,
+/turf/open/floor/asteroidwarning/southeast,
 /area/bigredv2/outside/filtration_cave_cas)
 "NQ" = (
 /obj/structure/largecrate,
@@ -232,10 +234,12 @@
 /turf/open/floor,
 /area/bigred/ground/security)
 "On" = (
-/turf/open/asphalt/cement,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/filtration_cave_cas)
 "Ot" = (
-/turf/open/asphalt/cement/cement15,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning/southeast,
 /area/bigredv2/outside/filtration_cave_cas)
 "Pf" = (
 /obj/effect/decal/cleanable/blood,
@@ -243,7 +247,7 @@
 /turf/open/floor,
 /area/bigred/ground/security)
 "Pg" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached15,
+/turf/open/floor/asteroidwarning/southeast,
 /area/bigredv2/outside/se)
 "PS" = (
 /turf/open/mars,
@@ -263,13 +267,16 @@
 /area/bigred/ground/security)
 "Rv" = (
 /obj/item/tool/warning_cone,
-/turf/open/asphalt/cement/cement4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/filtration_cave_cas)
 "RA" = (
 /obj/structure/machinery/light{
 	dir = 1
 	},
-/turf/open/asphalt/cement/cement4,
+/turf/open/floor/asteroidwarning/north,
+/area/bigredv2/outside/filtration_cave_cas)
+"Sc" = (
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/filtration_cave_cas)
 "Sr" = (
 /obj/structure/machinery/camera/autoname{
@@ -283,12 +290,6 @@
 /obj/structure/window/framed/solaris/reinforced,
 /turf/open/floor/plating,
 /area/bigred/ground/security)
-"Tw" = (
-/obj/effect/decal/strata_decals/grime/grime2{
-	dir = 1
-	},
-/turf/open/asphalt/cement/cement3,
-/area/bigredv2/outside/filtration_cave_cas)
 "Vn" = (
 /obj/structure/surface/table/almayer,
 /obj/item/ashtray/bronze,
@@ -300,16 +301,15 @@
 /turf/open/floor,
 /area/bigred/ground/security)
 "XS" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/filtration_cave_cas)
 "XX" = (
-/obj/effect/landmark/crap_item,
-/turf/open/asphalt/cement/cement1/north,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/filtration_cave_cas)
 "Ya" = (
 /obj/structure/machinery/camera/autoname,
-/turf/open/asphalt/cement/cement4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/filtration_cave_cas)
 "Yo" = (
 /obj/structure/surface/rack,
@@ -323,11 +323,6 @@
 	},
 /turf/open/floor/greengrid,
 /area/bigred/ground/security)
-"Zn" = (
-/obj/effect/decal/cleanable/generic,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement,
-/area/bigredv2/outside/filtration_cave_cas)
 "ZK" = (
 /obj/effect/landmark/crap_item,
 /obj/structure/machinery/light{
@@ -339,7 +334,7 @@
 (1,1,1) = {"
 PS
 HM
-qS
+iN
 qS
 Pg
 kX
@@ -371,7 +366,7 @@ Qo
 (3,1,1) = {"
 oT
 pI
-xw
+gr
 nY
 Es
 SF
@@ -387,7 +382,7 @@ Qo
 (4,1,1) = {"
 oT
 Gi
-KD
+XX
 XX
 Ot
 SF
@@ -419,9 +414,9 @@ Qo
 (6,1,1) = {"
 oT
 aM
-Tw
 gr
-Es
+gr
+MT
 kX
 kX
 kX
@@ -435,7 +430,7 @@ Qo
 (7,1,1) = {"
 oT
 Ya
-On
+XS
 On
 Mo
 kX
@@ -467,9 +462,9 @@ Qo
 (9,1,1) = {"
 oT
 Fv
+On
 XS
-XS
-Mo
+Sc
 ve
 uk
 uk
@@ -483,9 +478,9 @@ Qo
 (10,1,1) = {"
 oT
 RA
-On
-Zn
-Mo
+XS
+XS
+Sc
 kX
 AY
 Pf
@@ -499,9 +494,9 @@ Qo
 (11,1,1) = {"
 oT
 Rv
-On
 XS
-aH
+On
+Mo
 kX
 vH
 ZK

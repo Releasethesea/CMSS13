@@ -79,11 +79,10 @@
 				listening += C
 
 	//pass on the message to objects that can hear us.
-	FOR_DVIEW(var/obj/O, message_range, src, HIDE_INVISIBLE_OBSERVER)
+	for (var/obj/O in view(message_range, src))
 		spawn (0)
 			if (O)
 				O.hear_talk(src, message) //O.hear_talk(src, message, verb, speaking)
-	FOR_DVIEW_END
 
 	var/list/eavesdropping = hearers(eavesdropping_range, src)
 	eavesdropping -= src

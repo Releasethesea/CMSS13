@@ -3,7 +3,7 @@
 	uses_special_name = TRUE
 	languages = ALL_SYNTH_LANGUAGES
 	skills = /datum/skills/synthetic
-	paygrades = list(PAY_SHORT_SYN = JOB_PLAYTIME_TIER_0)
+	paygrade = PAY_SHORT_SYN
 
 	minimap_icon = "synth"
 
@@ -41,9 +41,8 @@
 	idtype = /obj/item/card/id/gold
 	assignment = JOB_SYNTH
 	rank = "Synthetic"
+	paygrade = PAY_SHORT_SYN
 	role_comm_title = "Syn"
-
-	minimap_icon = "synth"
 
 /datum/equipment_preset/synth/uscm/load_gear(mob/living/carbon/human/new_human)
 	var/back_item = /obj/item/storage/backpack/marine/satchel
@@ -66,6 +65,7 @@
 	idtype = /obj/item/card/id/gold
 	assignment = JOB_SYNTH
 	rank = "Synthetic"
+	paygrade = PAY_SHORT_SYN
 	role_comm_title = "Syn"
 
 /datum/equipment_preset/synth/uscm/councillor/load_gear(mob/living/carbon/human/new_human)
@@ -91,7 +91,7 @@
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/head/beret/cm(new_human), WEAR_HEAD)
 	new_human.equip_to_slot_or_del(new /obj/item/device/radio/headset/almayer/mcom/synth(new_human), WEAR_L_EAR)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/under/rank/synthetic(new_human), WEAR_BODY)
-	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/jacket/marine/RO(new_human), WEAR_JACKET)
+	new_human.equip_to_slot_or_del(new /obj/item/clothing/suit/storage/RO(new_human), WEAR_JACKET)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/shoes/marine/knife(new_human), WEAR_FEET)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/belt/utility/full(new_human), WEAR_WAIST)
 	new_human.equip_to_slot_or_del(new /obj/item/clothing/gloves/yellow(new_human), WEAR_HANDS)
@@ -166,6 +166,7 @@
 	var/obj/item/clothing/under/uniform = new_human.w_uniform
 	if(istype(uniform))
 		uniform.has_sensor = UNIFORM_HAS_SENSORS
+		uniform.sensor_faction = FACTION_COLONIST
 	return ..()
 
 /datum/equipment_preset/synth/survivor/medical_synth
@@ -436,7 +437,6 @@
 	name = "Survivor - Synthetic - CMB Synth"
 	idtype = /obj/item/card/id/deputy
 	role_comm_title = "CMB Syn"
-	minimap_background = "background_cmb"
 	equipment_to_spawn = list(
 		WEAR_HEAD = /obj/item/clothing/head/CMB,
 		WEAR_L_EAR = /obj/item/device/radio/headset/distress/CMB/limited,
@@ -461,7 +461,6 @@
 	name = "Survivor - Synthetic - Corporate Security Synth"
 	idtype = /obj/item/card/id/silver/cl
 	role_comm_title = "WY Syn"
-	minimap_background = "background_pmc"
 	equipment_to_spawn = list(
 		WEAR_HEAD = /obj/item/clothing/head/soft/sec/corp,
 		WEAR_L_EAR = /obj/item/device/radio/headset/distress/WY,
@@ -486,7 +485,6 @@
 	name = "Survivor - Synthetic - Corporate Protection Synth"
 	idtype = /obj/item/card/id/pmc
 	role_comm_title = "WY Syn"
-	minimap_background = "background_pmc"
 	equipment_to_spawn = list(
 		WEAR_HEAD = /obj/item/clothing/head/helmet/marine/veteran/pmc,
 		WEAR_L_EAR = /obj/item/device/radio/headset/distress/pmc/hvh,
@@ -533,7 +531,6 @@
 	name = "Survivor - Synthetic - Interstellar Commerce Commission Synthetic"
 	idtype = /obj/item/card/id/silver/cl
 	role_comm_title = "ICC Syn"
-	minimap_background = "background_cmb"
 	equipment_to_spawn = list(
 		WEAR_L_EAR = /obj/item/device/radio/headset/distress/CMB/limited,
 		WEAR_R_EAR = /obj/item/tool/pen/clicky,
@@ -579,11 +576,8 @@
 	faction_group = list(FACTION_MARINE)
 	assignment = JOB_WORKING_JOE
 	rank = JOB_WORKING_JOE
-
-	minimap_icon = "joe"
-
 	skills = /datum/skills/working_joe
-	languages = list(LANGUAGE_ENGLISH, LANGUAGE_APOLLO, LANGUAGE_RUSSIAN, LANGUAGE_JAPANESE, LANGUAGE_GERMAN, LANGUAGE_SCANDINAVIAN, LANGUAGE_SPANISH, LANGUAGE_CHINESE)
+	languages = list(LANGUAGE_ENGLISH, LANGUAGE_APOLLO, LANGUAGE_RUSSIAN, LANGUAGE_JAPANESE, LANGUAGE_GERMAN, LANGUAGE_SPANISH, LANGUAGE_CHINESE)
 	/// Used to set species when loading race
 	var/joe_type = SYNTH_WORKING_JOE
 
@@ -766,7 +760,7 @@
 	rank = JOB_COLONIST
 	skills = /datum/skills/infiltrator_synthetic
 	idtype = /obj/item/card/id/lanyard
-	paygrades = list(PAY_SHORT_CIV = JOB_PLAYTIME_TIER_0)
+	paygrade = PAY_SHORT_CIV
 
 /datum/equipment_preset/synth/infiltrator/New()
 	. = ..()

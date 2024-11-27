@@ -4,7 +4,7 @@
 	desc = "A console built to facilitate Working Joes and their operation, allowing for simple allocation of resources."
 	icon = 'icons/obj/structures/machinery/ares.dmi'
 	icon_state = "console"
-	explo_proof = TRUE
+	exproof = TRUE
 
 	/// The ID used to link all devices.
 	var/datum/ares_link/link

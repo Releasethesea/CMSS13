@@ -5,7 +5,7 @@
 	/// Species that can use this emote.
 	var/list/species_type_allowed_typecache = list(/datum/species/human, /datum/species/synthetic, /datum/species/yautja)
 	/// Species that can't use this emote.
-	var/list/species_type_blacklist_typecache = list(/datum/species/monkey, /datum/species/synthetic/synth_k9)
+	var/list/species_type_blacklist_typecache = list(/datum/species/monkey)
 
 /datum/emote/living/carbon/human/New()
 	. = ..()

@@ -94,8 +94,6 @@
 	name = "stun pistol bullet"
 	sound_override = null
 
-	accuracy = HIT_ACCURACY_TIER_4
-
 // Used by M1911, Deagle and KT-42
 /datum/ammo/bullet/pistol/heavy
 	name = "heavy pistol bullet"
@@ -182,12 +180,12 @@
 	headshot_state = HEADSHOT_OVERLAY_MEDIUM
 	debilitate = list(0,0,0,0,0,0,0,2)
 
-	effective_range_max = 6
+	effective_range_max = 3
 	accuracy = HIT_ACCURACY_TIER_4
 	damage = 45
 	penetration= ARMOR_PENETRATION_TIER_6
 	shrapnel_chance = SHRAPNEL_CHANCE_TIER_2
-	damage_falloff = DAMAGE_FALLOFF_TIER_6
+	damage_falloff = DAMAGE_FALLOFF_TIER_6 //"VP78 - the only pistol viable as a primary."-Vampmare, probably.
 
 /datum/ammo/bullet/pistol/squash/toxin
 	name = "toxic squash-head pistol bullet"

@@ -30,7 +30,8 @@
 	icon_state = "floor"
 
 /turf/open/floor/strata/grey_multi_tiles
-	icon_state = "grey_multi_tiles"
+	color = "#5e5d5d"
+	icon_state = "multi_tiles"
 
 /turf/open/floor/strata/grey_multi_tiles/southwest
 	dir = SOUTHWEST
@@ -63,9 +64,6 @@
 /turf/open/floor/strata/blue4/north
 	dir = NORTH
 
-/turf/open/floor/strata/blue4/east
-	dir = EAST
-
 /turf/open/floor/strata/red3
 	icon_state = "red3"
 
@@ -92,9 +90,6 @@
 
 /turf/open/floor/strata/blue3
 	icon_state = "blue3"
-
-/turf/open/floor/strata/blue3/southwest
-	dir = SOUTHWEST
 
 /turf/open/floor/strata/blue3/east
 	dir = EAST

@@ -168,7 +168,9 @@
 /area/lv624/lazarus/fitness)
 "Be" = (
 /obj/effect/decal/remains/human,
-/obj/structure/machinery/power/apc/no_power/north,
+/obj/structure/machinery/power/apc/nocharge{
+	dir = 1
+	},
 /turf/open/floor/whitepurplecorner/east,
 /area/lv624/lazarus/fitness)
 "Ei" = (

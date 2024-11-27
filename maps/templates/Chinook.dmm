@@ -1,4 +1,10 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 4
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "ac" = (
 /obj/structure/machinery/door/airlock/multi_tile/almayer/medidoor{
 	dir = 2;
@@ -35,6 +41,9 @@
 "ai" = (
 /turf/open/floor/almayer_hull/outerhull_dir/southwest,
 /area/space)
+"ak" = (
+/turf/open/shuttle/dropship/light_grey_bottom_right,
+/area/adminlevel/chinook/shuttle/unpowered)
 "al" = (
 /turf/open/floor/almayer_hull,
 /area/space)
@@ -182,6 +191,9 @@
 	},
 /turf/open/floor/almayer/plating/northeast,
 /area/adminlevel/chinook/sec)
+"aL" = (
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "aM" = (
 /obj/structure/machinery/vending/snack,
 /turf/open/floor/almayer,
@@ -564,6 +576,11 @@
 	},
 /turf/open/floor/wood,
 /area/adminlevel/chinook)
+"bM" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan_rightengine"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "bN" = (
 /obj/structure/desertdam/decals/road_edge{
 	icon_state = "road_edge_decal3";
@@ -809,6 +826,11 @@
 	},
 /turf/open/floor/wood,
 /area/adminlevel/chinook)
+"cO" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan22"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "cQ" = (
 /obj/structure/sign/poster{
 	pixel_y = 32
@@ -863,6 +885,11 @@
 /obj/item/bedsheet/medical,
 /turf/open/floor/almayer/sterile_green,
 /area/adminlevel/chinook/offices)
+"da" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan2"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "db" = (
 /obj/structure/machinery/photocopier,
 /obj/structure/machinery/light{
@@ -941,9 +968,11 @@
 /turf/open/floor/almayer/cargo,
 /area/adminlevel/chinook/cargo)
 "do" = (
-/obj/docking_port/stationary/emergency_response/chinook_port,
-/turf/open/floor/plating,
-/area/adminlevel/chinook/shuttle)
+/turf/closed/shuttle/ert{
+	icon_state = "leftengine_1";
+	opacity = 0
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "dp" = (
 /obj/item/reagent_container/food/drinks/bottle/whiskey{
 	pixel_x = 5;
@@ -1482,6 +1511,11 @@
 /obj/structure/machinery/iv_drip,
 /turf/open/floor/almayer/sterile_green_side/east,
 /area/adminlevel/chinook/medical)
+"ft" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan3"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "fu" = (
 /obj/structure/window/framed/almayer/hull,
 /turf/open/floor/plating,
@@ -1897,6 +1931,9 @@
 	},
 /turf/open/floor/prison/kitchen,
 /area/adminlevel/chinook/event)
+"hc" = (
+/turf/open/shuttle/dropship/light_grey_top_right,
+/area/adminlevel/chinook/shuttle/unpowered)
 "hd" = (
 /obj/structure/largecrate/random,
 /obj/item/circuitboard/airlock,
@@ -2102,6 +2139,11 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/almayer/test_floor5,
 /area/adminlevel/chinook/cryo)
+"hR" = (
+/turf/closed/shuttle/ert{
+	icon_state = "rightengine_3"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "hS" = (
 /obj/structure/surface/rack,
 /obj/effect/spawner/random/attachment,
@@ -2195,6 +2237,9 @@
 	},
 /turf/open/floor/kutjevo/plate,
 /area/adminlevel/chinook/event)
+"im" = (
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "in" = (
 /obj/structure/stairs/perspective{
 	icon_state = "p_stair_ew_full_cap";
@@ -2285,6 +2330,11 @@
 /obj/structure/platform_decoration,
 /turf/open/floor/kutjevo,
 /area/adminlevel/chinook/event)
+"iE" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan21"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "iF" = (
 /obj/structure/sign/prop2{
 	pixel_y = 30
@@ -2473,10 +2523,6 @@
 /obj/structure/platform/stair_cut/alt,
 /turf/open/floor/almayer/plating/northeast,
 /area/adminlevel/chinook/engineering)
-"jq" = (
-/obj/docking_port/stationary/emergency_response/idle_port1,
-/turf/closed/wall/almayer/white,
-/area/adminlevel/chinook/medical)
 "jr" = (
 /obj/structure/cargo_container/arious/right,
 /turf/open/floor/corsat/squares,
@@ -4507,6 +4553,11 @@
 /obj/structure/machinery/cm_vending/sorted/medical,
 /turf/open/floor/almayer/sterile_green_side/north,
 /area/adminlevel/chinook/medical)
+"rv" = (
+/turf/closed/shuttle/ert{
+	icon_state = "rightengine_2"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "rw" = (
 /obj/structure/platform_decoration{
 	dir = 1
@@ -4661,6 +4712,9 @@
 /obj/structure/surface/table/reinforced/black,
 /turf/open/floor/kutjevo,
 /area/adminlevel/chinook/offices)
+"sj" = (
+/turf/open/shuttle/dropship/light_grey_bottom_left,
+/area/adminlevel/chinook/shuttle/unpowered)
 "sk" = (
 /obj/structure/machinery/cm_vending/sorted/boozeomat,
 /turf/open/floor/almayer/plate,
@@ -5122,6 +5176,11 @@
 	},
 /turf/open/floor/almayer,
 /area/adminlevel/chinook/offices)
+"tY" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan1"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "tZ" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -5338,7 +5397,7 @@
 "uR" = (
 /obj/structure/machinery/floodlight/landing,
 /turf/open/floor/plating,
-/area/adminlevel/chinook/shuttle)
+/area/adminlevel/chinook/shuttle/unpowered)
 "uS" = (
 /obj/structure/desertdam/decals/road_edge{
 	pixel_x = 2;
@@ -5413,7 +5472,7 @@
 /turf/open/floor/almayer/silver,
 /area/adminlevel/chinook)
 "ve" = (
-/obj/structure/machinery/cryopod/no_store/right,
+/obj/structure/machinery/cryopod/right,
 /turf/open/floor/almayer/cargo,
 /area/adminlevel/chinook/cryo)
 "vf" = (
@@ -5677,6 +5736,12 @@
 	},
 /turf/open/floor/wood,
 /area/adminlevel/chinook)
+"wn" = (
+/turf/closed/shuttle/ert{
+	icon_state = "leftengine_2";
+	opacity = 0
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "wo" = (
 /obj/structure/machinery/light{
 	dir = 1
@@ -6023,6 +6088,12 @@
 	},
 /turf/open/floor/almayer/red/north,
 /area/adminlevel/chinook/offices)
+"xQ" = (
+/turf/closed/shuttle/ert{
+	icon_state = "leftengine_3";
+	opacity = 0
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "xR" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "pottedplant_21"
@@ -6180,7 +6251,7 @@
 /turf/open/floor/corsat/squares,
 /area/adminlevel/chinook/cargo)
 "yM" = (
-/obj/structure/machinery/cryopod/no_store,
+/obj/structure/machinery/cryopod,
 /obj/structure/machinery/light{
 	dir = 1
 	},
@@ -6305,6 +6376,13 @@
 	},
 /turf/open/floor/almayer/red/north,
 /area/adminlevel/chinook/sec)
+"zk" = (
+/obj/structure/prop/pred_flight{
+	icon_state = "syndishuttle";
+	name = "shuttle control console"
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "zl" = (
 /turf/open/floor/almayer/sterile_green_side/north,
 /area/adminlevel/chinook/offices)
@@ -6318,6 +6396,11 @@
 	},
 /turf/open/floor/almayer/red,
 /area/adminlevel/chinook/sec)
+"zn" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan23"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "zp" = (
 /obj/structure/surface/table/reinforced/black,
 /obj/item/paper_bin/uscm{
@@ -6338,6 +6421,12 @@
 	},
 /turf/open/floor/carpet,
 /area/adminlevel/chinook/event)
+"zs" = (
+/obj/structure/machinery/door/airlock/almayer/generic{
+	dir = 2
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "zt" = (
 /obj/structure/surface/table/reinforced/black,
 /obj/item/clothing/head/drillhat{
@@ -6351,6 +6440,11 @@
 "zw" = (
 /turf/open/floor/wood,
 /area/adminlevel/chinook/event)
+"zy" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan27"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "zC" = (
 /turf/open/floor/almayer,
 /area/adminlevel/chinook/engineering)
@@ -6410,6 +6504,11 @@
 	},
 /turf/open/floor/kutjevo/tan,
 /area/adminlevel/chinook/event)
+"zN" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan5"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "zO" = (
 /obj/structure/machinery/door_control{
 	id = "chinook_tcomms";
@@ -6462,6 +6561,10 @@
 /obj/structure/machinery/recharger,
 /turf/open/floor/almayer/red/southwest,
 /area/adminlevel/chinook/offices)
+"Ab" = (
+/obj/structure/machinery/door/airlock/almayer/generic,
+/turf/open/shuttle/dropship/light_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "Ac" = (
 /obj/structure/surface/table/almayer,
 /obj/effect/spawner/random/toolbox,
@@ -6854,6 +6957,11 @@
 "BK" = (
 /turf/open/floor/almayer/orange/northeast,
 /area/adminlevel/chinook/engineering)
+"BL" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan_leftengine"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "BN" = (
 /obj/structure/machinery/body_scanconsole{
 	dir = 8
@@ -6924,6 +7032,9 @@
 	},
 /turf/open/floor/wood,
 /area/adminlevel/chinook)
+"Ca" = (
+/turf/open/shuttle/dropship/light_grey_top_left,
+/area/adminlevel/chinook/shuttle/unpowered)
 "Cd" = (
 /obj/structure/surface/table/reinforced/black,
 /obj/item/storage/fancy/cigar{
@@ -7086,7 +7197,7 @@
 /turf/open/floor/almayer/plating/northeast,
 /area/adminlevel/chinook/engineering)
 "CS" = (
-/obj/structure/machinery/cryopod/no_store,
+/obj/structure/machinery/cryopod,
 /turf/open/floor/almayer/sterile_green,
 /area/adminlevel/chinook/medical)
 "CT" = (
@@ -7314,6 +7425,11 @@
 	},
 /turf/open/floor/carpet,
 /area/adminlevel/chinook/offices)
+"DI" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan25"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "DL" = (
 /obj/structure/surface/table/almayer,
 /obj/effect/spawner/random/tool,
@@ -7353,7 +7469,7 @@
 /turf/open/floor/corsat/squares,
 /area/adminlevel/chinook/offices)
 "DT" = (
-/obj/structure/machinery/cryopod/no_store,
+/obj/structure/machinery/cryopod,
 /obj/structure/machinery/light{
 	dir = 8
 	},
@@ -8477,6 +8593,10 @@
 	},
 /turf/open/floor/kutjevo/plate,
 /area/adminlevel/chinook)
+"IU" = (
+/obj/structure/bed/chair/dropship/passenger,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "IW" = (
 /obj/structure/machinery/door/poddoor/almayer/open{
 	dir = 4;
@@ -8586,6 +8706,9 @@
 /obj/structure/bed/chair/wheelchair,
 /turf/open/floor/almayer/plate,
 /area/adminlevel/chinook/medical)
+"Jv" = (
+/turf/closed/shuttle/ert,
+/area/adminlevel/chinook/shuttle/unpowered)
 "Jx" = (
 /obj/structure/surface/rack,
 /turf/open/floor/almayer/red/north,
@@ -8642,7 +8765,7 @@
 /turf/open/floor/carpet,
 /area/adminlevel/chinook/sec)
 "JH" = (
-/obj/structure/machinery/cryopod/no_store,
+/obj/structure/machinery/cryopod,
 /obj/structure/machinery/light,
 /turf/open/floor/almayer/sterile_green,
 /area/adminlevel/chinook/medical)
@@ -8709,6 +8832,11 @@
 /obj/item/clothing/under/shorts/grey,
 /turf/open/floor/almayer/plate,
 /area/adminlevel/chinook)
+"JT" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan20"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "JU" = (
 /obj/structure/platform_decoration,
 /turf/open/floor/almayer/plating/northeast,
@@ -8732,6 +8860,11 @@
 	},
 /turf/open/floor/almayer/plating/northeast,
 /area/adminlevel/chinook/cargo)
+"Ka" = (
+/turf/closed/shuttle/ert{
+	icon_state = "rightengine_1"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "Kd" = (
 /obj/structure/stairs/perspective{
 	icon_state = "p_stair_full"
@@ -9077,6 +9210,12 @@
 	},
 /turf/open/floor/almayer/ai_floors,
 /area/adminlevel/chinook/offices)
+"Lr" = (
+/obj/structure/bed/chair/dropship/passenger{
+	dir = 8
+	},
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "Ls" = (
 /obj/structure/machinery/iv_drip,
 /turf/open/floor/almayer/sterile_green_corner,
@@ -9342,6 +9481,9 @@
 	},
 /turf/open/floor/carpet,
 /area/adminlevel/chinook/sec)
+"Mu" = (
+/turf/open/shuttle/dropship/light_grey_single_wide_left_to_right,
+/area/adminlevel/chinook/shuttle/unpowered)
 "Mv" = (
 /obj/effect/spawner/random/tool,
 /obj/item/clothing/gloves/marine/insulated,
@@ -9600,6 +9742,11 @@
 /obj/structure/machinery/cm_vending/sorted/tech/electronics_storage,
 /turf/open/floor/almayer/orange/west,
 /area/adminlevel/chinook/engineering)
+"NB" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan9"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "NC" = (
 /obj/structure/closet/secure_closet/chemical,
 /turf/open/floor/almayer/sterile_green_side/west,
@@ -10138,10 +10285,14 @@
 	name = "\improper Chinook Shuttle Airlock"
 	},
 /turf/open/floor/almayer/plating/northeast,
-/area/adminlevel/chinook/shuttle)
+/area/adminlevel/chinook/shuttle/unpowered)
 "PM" = (
 /turf/open/floor/almayer/green/west,
 /area/adminlevel/chinook)
+"PO" = (
+/obj/structure/surface/rack,
+/turf/open/shuttle/dropship/medium_grey_single_wide_up_to_down,
+/area/adminlevel/chinook/shuttle/unpowered)
 "PP" = (
 /turf/open/floor/almayer/green,
 /area/adminlevel/chinook)
@@ -10161,6 +10312,11 @@
 	},
 /turf/open/floor/almayer/green/east,
 /area/adminlevel/chinook)
+"PU" = (
+/turf/closed/shuttle/ert{
+	icon_state = "stan8"
+	},
+/area/adminlevel/chinook/shuttle/unpowered)
 "PV" = (
 /obj/structure/window/framed/almayer/hull,
 /turf/open/floor/plating,
@@ -10566,10 +10722,6 @@
 	},
 /obj/structure/prop/invuln/fusion_reactor,
 /turf/open/floor/almayer/plating/northeast,
-/area/adminlevel/chinook/engineering)
-"Ru" = (
-/obj/docking_port/stationary/emergency_response/idle_port3,
-/turf/open/floor/almayer/orange,
 /area/adminlevel/chinook/engineering)
 "Rw" = (
 /obj/structure/machinery/disposal,
@@ -11021,7 +11173,7 @@
 /turf/open/floor/almayer/cargo,
 /area/adminlevel/chinook/engineering)
 "TD" = (
-/obj/structure/machinery/cryopod/no_store/right,
+/obj/structure/machinery/cryopod/right,
 /obj/structure/machinery/light{
 	dir = 4
 	},
@@ -11645,6 +11797,9 @@
 	},
 /turf/open/floor/almayer/plating/northeast,
 /area/adminlevel/chinook/sec)
+"Wh" = (
+/turf/closed/wall/almayer/outer,
+/area/adminlevel/chinook/shuttle/unpowered)
 "Wi" = (
 /obj/structure/bed/chair/comfy{
 	dir = 4
@@ -11732,7 +11887,7 @@
 /turf/open/floor/almayer/green/southeast,
 /area/adminlevel/chinook)
 "WB" = (
-/obj/structure/machinery/cryopod/no_store,
+/obj/structure/machinery/cryopod,
 /turf/open/floor/almayer/cargo,
 /area/adminlevel/chinook/cryo)
 "WD" = (
@@ -11932,7 +12087,7 @@
 /area/adminlevel/chinook)
 "Xl" = (
 /turf/open/floor/plating,
-/area/adminlevel/chinook/shuttle)
+/area/adminlevel/chinook/shuttle/unpowered)
 "Xm" = (
 /obj/structure/window/framed/almayer/hull,
 /turf/open/floor/plating,
@@ -19466,7 +19621,7 @@ UK
 bz
 jI
 pp
-Ru
+RM
 XH
 df
 df
@@ -20735,7 +20890,7 @@ Iv
 Zc
 Iv
 Iv
-jq
+Iv
 Iv
 KI
 Iv
@@ -25570,17 +25725,17 @@ Br
 Xl
 Xl
 Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
+JT
+Jv
+Ab
+Jv
+Jv
+Jv
+Ab
+Jv
+BL
+xQ
+wn
 do
 Xl
 Xl
@@ -25697,18 +25852,18 @@ Br
 Xl
 Xl
 Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
+iE
+PO
+im
+ab
+ab
+ab
+im
+PO
+PU
+Jv
+Jv
+tY
 Xl
 Xl
 hM
@@ -25823,19 +25978,19 @@ Mh
 Br
 Xl
 Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
+JT
+cO
+Ca
+aL
+aL
+aL
+aL
+aL
+sj
+im
+im
+im
+zs
 Xl
 Xl
 hM
@@ -25950,19 +26105,19 @@ Br
 Br
 Xl
 Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
+zy
+zk
+Mu
+IU
+IU
+IU
+IU
+IU
+Mu
+aL
+aL
+aL
+da
 Xl
 Xl
 hM
@@ -26077,19 +26232,19 @@ mu
 Br
 Xl
 Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
+DI
+zn
+hc
+aL
+aL
+aL
+aL
+aL
+ak
+im
+im
+im
+zs
 Xl
 Xl
 hM
@@ -26205,18 +26360,18 @@ Br
 Xl
 Xl
 Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
+iE
+PO
+im
+Lr
+Lr
+Lr
+im
+PO
+NB
+zN
+zN
+ft
 Xl
 Xl
 hM
@@ -26332,18 +26487,18 @@ Br
 Xl
 Xl
 Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
-Xl
+DI
+zN
+Ab
+zN
+zN
+zN
+Ab
+zN
+bM
+hR
+rv
+Ka
 Xl
 Xl
 hM
@@ -26583,7 +26738,7 @@ Se
 yy
 kk
 Br
-tC
+Wh
 PL
 PL
 PL
@@ -26599,7 +26754,7 @@ PL
 PL
 PL
 PL
-tC
+Wh
 tC
 af
 oi

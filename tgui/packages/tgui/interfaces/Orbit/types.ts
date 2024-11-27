@@ -25,7 +25,6 @@ export type OrbitData = {
   npcs: Observable[];
   vehicles: Observable[];
   escaped: Observable[];
-  in_thunderdome: Observable[];
   icons?: string[];
 };
 
@@ -35,13 +34,11 @@ export type Observable = {
   icon?: string;
   job?: string;
   background_color?: string;
-  background_icon?: string;
   full_name: string;
   nickname?: string;
   orbiters?: number;
   ref: string;
   hivenumber: string;
-  area_name: string;
 };
 
 export type SquadObservable = {

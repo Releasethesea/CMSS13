@@ -135,7 +135,7 @@
 	health = 500000
 
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 	invisibility = 101
 
 	alpha = 0

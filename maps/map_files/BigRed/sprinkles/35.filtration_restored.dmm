@@ -94,7 +94,7 @@
 /turf/open/floor/darkyellow2/east,
 /area/bigredv2/outside/filtration_plant)
 "dS" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached15,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/se)
 "dV" = (
 /obj/effect/decal/cleanable/dirt,
@@ -126,7 +126,7 @@
 /turf/open/floor/darkyellow2,
 /area/bigredv2/outside/filtration_plant)
 "iw" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/se)
 "iZ" = (
 /turf/open/floor/delivery,
@@ -332,9 +332,6 @@
 	},
 /turf/open/mars_cave/mars_cave_7,
 /area/bigredv2/outside/filtration_cave_cas)
-"wo" = (
-/turf/open/asphalt/cement_sunbleached,
-/area/bigredv2/outside/se)
 "wL" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
@@ -362,7 +359,7 @@
 /area/bigredv2/outside/filtration_plant)
 "yU" = (
 /obj/item/tool/warning_cone,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/se)
 "zD" = (
 /obj/structure/surface/table,
@@ -390,9 +387,6 @@
 	},
 /turf/open/floor/dark,
 /area/bigredv2/outside/filtration_plant)
-"Bd" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
-/area/bigredv2/outside/se)
 "Bt" = (
 /obj/structure/cryofeed,
 /turf/open/floor/bluegrid/bcircuitoff,
@@ -412,9 +406,6 @@
 	},
 /turf/open/floor/darkyellow2/southwest,
 /area/bigredv2/outside/filtration_plant)
-"Ce" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
-/area/bigredv2/outside/se)
 "Cy" = (
 /turf/open/floor/darkyellowcorners2/north,
 /area/bigredv2/outside/filtration_plant)
@@ -498,7 +489,7 @@
 /turf/open/floor/dark,
 /area/bigredv2/outside/filtration_plant)
 "IX" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/se)
 "Jc" = (
 /obj/structure/closet/firecloset/full,
@@ -576,9 +567,6 @@
 	},
 /turf/open/floor/darkyellow2/northeast,
 /area/bigredv2/outside/filtration_plant)
-"OG" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached2,
-/area/bigredv2/outside/se)
 "OX" = (
 /obj/structure/machinery/computer3/server/rack,
 /obj/effect/decal/warning_stripes{
@@ -649,7 +637,7 @@
 /turf/open/mars_cave/mars_cave_2,
 /area/bigredv2/outside/filtration_cave_cas)
 "UB" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached14,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/se)
 "UD" = (
 /obj/structure/pipes/standard/simple/hidden/green{
@@ -1175,10 +1163,10 @@ Uq
 Uq
 "}
 (17,1,1) = {"
-OG
-Bd
-Bd
-Bd
+UB
+UB
+UB
+UB
 UB
 aY
 QM
@@ -1203,10 +1191,10 @@ Uq
 "}
 (18,1,1) = {"
 yU
-wo
-wo
-wo
-iw
+UB
+UB
+UB
+UB
 Vr
 Jq
 Jq
@@ -1230,10 +1218,10 @@ Uq
 "}
 (19,1,1) = {"
 IX
-wo
-wo
-wo
-iw
+UB
+UB
+UB
+UB
 Vr
 Jq
 Jq
@@ -1257,10 +1245,10 @@ Uq
 "}
 (20,1,1) = {"
 IX
-wo
-wo
-wo
-iw
+UB
+UB
+UB
+UB
 Vr
 Vm
 Vm
@@ -1284,9 +1272,9 @@ Uq
 "}
 (21,1,1) = {"
 IX
-wo
-wo
-Ce
+UB
+UB
+dS
 dS
 aY
 nu
@@ -1310,8 +1298,8 @@ Uq
 Uq
 "}
 (22,1,1) = {"
-wo
-wo
+UB
+UB
 iw
 LU
 uE
@@ -1337,8 +1325,8 @@ Uq
 Uq
 "}
 (23,1,1) = {"
-wo
-wo
+UB
+UB
 iw
 uE
 bK
@@ -1364,8 +1352,8 @@ Uq
 Uq
 "}
 (24,1,1) = {"
-wo
-wo
+UB
+UB
 iw
 uE
 bK

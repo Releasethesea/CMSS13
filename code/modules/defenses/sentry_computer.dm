@@ -308,7 +308,7 @@
 	. = ..()
 	if(!on)
 		return UI_CLOSE
-	if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
+	if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_ENGI))
 		return UI_UPDATE
 
 
@@ -383,7 +383,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!skillcheck(usr, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
+	if(!skillcheck(usr, SKILL_ENGINEER, SKILL_ENGINEER_ENGI))
 		to_chat(usr, SPAN_WARNING("You are not authorised to configure the sentry."))
 		return
 	if(params["index"])

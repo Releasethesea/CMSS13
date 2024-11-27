@@ -388,23 +388,20 @@
 			if(loc && !loc.Adjacent(L.loc))
 				now_pushing = FALSE
 				return
+			var/oldloc = loc
+			var/oldLloc = L.loc
 
-			if(!(L.pass_flags.flags_pass & PASS_MOB_THRU)) //if they already pass through mob thi stuff is unnecessary
+			L.add_temp_pass_flags(PASS_MOB_THRU)
+			add_temp_pass_flags(PASS_MOB_THRU)
 
-				var/oldloc = loc
-				var/oldLloc = L.loc
+			L.Move(oldloc)
+			Move(oldLloc)
 
-				L.add_temp_pass_flags(PASS_MOB_THRU)
-				add_temp_pass_flags(PASS_MOB_THRU)
+			remove_temp_pass_flags(PASS_MOB_THRU)
+			L.remove_temp_pass_flags(PASS_MOB_THRU)
 
-				L.Move(oldloc)
-				Move(oldLloc)
-
-				remove_temp_pass_flags(PASS_MOB_THRU)
-				L.remove_temp_pass_flags(PASS_MOB_THRU)
-
-				now_pushing = FALSE
-				return
+			now_pushing = FALSE
+			return
 
 	now_pushing = FALSE
 

@@ -39,6 +39,10 @@
 	//and display them
 	add_to_all_mob_huds()
 
+/mob/living/carbon/human/Initialize(mapload, new_species)
+	. = ..()
+	register_human_init_signals()
+
 /mob/living/carbon/human/initialize_pain()
 	if(species)
 		return species.initialize_pain(src)
@@ -132,11 +136,32 @@
 		if(SShijack.sd_unlocked)
 			. += "Self Destruct Status: [SShijack.get_sd_eta()]"
 
+	for(var/list/player as anything in SShorde_mode.current_players)
+		if(player["mob"] == src)
+			var/list/perk_list = list()
+			if(HAS_TRAIT(src, TRAIT_PERK_JUGGERNAUT))
+				perk_list += "Juggernaut"
+			if(HAS_TRAIT(src, TRAIT_PERK_SPEED))
+				perk_list += "Speed"
+			if(HAS_TRAIT(src, TRAIT_PERK_EXPLOSIVE_RESISTANCE))
+				perk_list += "Explosive Resistance"
+			if(HAS_TRAIT(src, TRAIT_PERK_REVIVE))
+				perk_list += "Revive"
+			if(HAS_TRAIT(src, TRAIT_PERK_GUNNUT))
+				perk_list += "Gun Nut"
+			. += "Points: [player["points"]]"
+			. += "Wave: [SShorde_mode.round]"
+			if(length(perk_list))
+				var/perk_list_text = perk_list.Join(", ")
+				. += "Perks: [perk_list_text]"
+
+			break
+
 /mob/living/carbon/human/ex_act(severity, direction, datum/cause_data/cause_data)
-	if(body_position == LYING_DOWN && direction)
+	if(body_position == LYING_DOWN)
 		severity *= EXPLOSION_PRONE_MULTIPLIER
-
-
+	if(HAS_TRAIT(src, TRAIT_PERK_EXPLOSIVE_RESISTANCE))
+		severity *= 0.10
 
 	var/b_loss = 0
 	var/f_loss = 0
@@ -156,33 +181,34 @@
 		create_shrapnel(oldloc, rand(5, 9), direction, 45, /datum/ammo/bullet/shrapnel/light/human/var2, last_damage_data)
 		return
 
-	if(!HAS_TRAIT(src, TRAIT_EAR_PROTECTION))
+	if(!HAS_TRAIT(src, TRAIT_EAR_PROTECTION) || !HAS_TRAIT(src, TRAIT_PERK_EXPLOSIVE_RESISTANCE))
 		ear_damage += severity * 0.15
 		AdjustEarDeafness(severity * 0.5)
 
 	/// Reduces effects by armor value.
 	var/bomb_armor_mult = ((CLOTHING_ARMOR_HARDCORE - bomb_armor) * 0.01)
 
-	if(severity >= 30)
-		flash_eyes(flash_timer = 4 SECONDS * bomb_armor_mult)
+	if(!HAS_TRAIT(src, TRAIT_PERK_EXPLOSIVE_RESISTANCE))
+		if(severity >= 30)
+			flash_eyes(flash_timer = 4 SECONDS * bomb_armor_mult)
 
-	// Stuns are multiplied by 1 reduced by their medium armor value. So a medium of 30 would mean a 30% reduction.
-	var/knockdown_value = severity * 0.1
-	var/knockdown_minus_armor = min(knockdown_value * bomb_armor_mult, 1 SECONDS)
-	var/obj/item/item1 = get_active_hand()
-	var/obj/item/item2 = get_inactive_hand()
-	apply_effect(floor(knockdown_minus_armor), WEAKEN)
-	apply_effect(floor(knockdown_minus_armor), STUN) // Remove this to let people crawl after an explosion. Funny but perhaps not desirable.
-	var/knockout_value = damage * 0.1
-	var/knockout_minus_armor = min(knockout_value * bomb_armor_mult * 0.5, 0.5 SECONDS) // the KO time is halved from the knockdown timer. basically same stun time, you just spend less time KO'd.
-	apply_effect(floor(knockout_minus_armor), PARALYZE)
-	apply_effect(floor(knockout_minus_armor) * 2, DAZE)
-	explosion_throw(severity, direction)
+		// Stuns are multiplied by 1 reduced by their medium armor value. So a medium of 30 would mean a 30% reduction.
+		var/knockdown_value = severity * 0.1
+		var/knockdown_minus_armor = min(knockdown_value * bomb_armor_mult, 1 SECONDS)
+		var/obj/item/item1 = get_active_hand()
+		var/obj/item/item2 = get_inactive_hand()
+		apply_effect(floor(knockdown_minus_armor), WEAKEN)
+		apply_effect(floor(knockdown_minus_armor), STUN) // Remove this to let people crawl after an explosion. Funny but perhaps not desirable.
+		var/knockout_value = damage * 0.1
+		var/knockout_minus_armor = min(knockout_value * bomb_armor_mult * 0.5, 0.5 SECONDS) // the KO time is halved from the knockdown timer. basically same stun time, you just spend less time KO'd.
+		apply_effect(floor(knockout_minus_armor), PARALYZE)
+		apply_effect(floor(knockout_minus_armor) * 2, DAZE)
+		explosion_throw(severity, direction)
 
-	if(item1 && isturf(item1.loc))
-		item1.explosion_throw(severity, direction)
-	if(item2 && isturf(item2.loc))
-		item2.explosion_throw(severity, direction)
+		if(item1 && isturf(item1.loc))
+			item1.explosion_throw(severity, direction)
+		if(item2 && isturf(item2.loc))
+			item2.explosion_throw(severity, direction)
 
 	if(damage >= 0)
 		b_loss += damage * 0.5
@@ -238,18 +264,18 @@
 /mob/living/carbon/human/attack_animal(mob/living/M as mob)
 	if(M.melee_damage_upper == 0)
 		M.emote("[M.friendly] [src]")
-	else
-		if(M.attack_sound)
-			playsound(loc, M.attack_sound, 25, 1)
-		for(var/mob/O in viewers(src, null))
-			O.show_message(SPAN_DANGER("<B>[M]</B> [M.attacktext] [src]!"), SHOW_MESSAGE_VISIBLE)
-		last_damage_data = create_cause_data(initial(M.name), M)
-		M.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [key_name(src)]</font>")
-		src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [key_name(M)]</font>")
-		var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
-		var/dam_zone = pick("chest", "l_hand", "r_hand", "l_leg", "r_leg")
-		var/obj/limb/affecting = get_limb(rand_zone(dam_zone))
-		apply_damage(damage, BRUTE, affecting)
+		return
+	if(M.attack_sound)
+		playsound(loc, M.attack_sound, 25, 1)
+	for(var/mob/O in viewers(src, null))
+		O.show_message(SPAN_DANGER("<B>[M]</B> [M.attacktext] [src]!"), SHOW_MESSAGE_VISIBLE)
+	last_damage_data = create_cause_data(initial(M.name), M)
+	M.attack_log += text("\[[time_stamp()]\] <font color='red'>attacked [key_name(src)]</font>")
+	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [key_name(M)]</font>")
+	var/damage = rand(M.melee_damage_lower, M.melee_damage_upper)
+	var/dam_zone = pick("chest", "l_hand", "r_hand", "l_leg", "r_leg")
+	var/obj/limb/affecting = get_limb(rand_zone(dam_zone))
+	apply_damage(damage, BRUTE, affecting)
 
 
 /mob/living/carbon/human/proc/implant_loyalty(mob/living/carbon/human/M, override = FALSE) // Won't override by default.
@@ -408,7 +434,6 @@
 							DT.dogtag_taken = TRUE
 							DT.icon_state = "dogtag_taken"
 							var/obj/item/dogtag/D = new(loc)
-							D.fallen_references = list(DT.registered_ref)
 							D.fallen_names = list(DT.registered_name)
 							D.fallen_assgns = list(DT.assignment)
 							D.fallen_blood_types = list(DT.blood_type)
@@ -944,11 +969,6 @@
 
 	..()
 
-/// Returns whether this person has a broken heart but is otherwise revivable
-/mob/living/carbon/human/proc/is_heart_broken()
-	var/datum/internal_organ/heart/heart = internal_organs_by_name["heart"]
-	return heart && heart.organ_status >= ORGAN_BROKEN && check_tod() && is_revivable(ignore_heart = TRUE)
-
 /mob/living/carbon/human/proc/is_lung_ruptured()
 	var/datum/internal_organ/lungs/L = internal_organs_by_name["lungs"]
 	return L && L.organ_status >= ORGAN_BRUISED
@@ -959,6 +979,7 @@
 	if(L && !L.organ_status >= ORGAN_BRUISED)
 		src.custom_pain("You feel a stabbing pain in your chest!", 1)
 		L.damage = L.min_bruised_damage
+
 
 /mob/living/carbon/human/get_visible_implants(class = 0)
 	var/list/visible_objects = list()
@@ -1043,7 +1064,7 @@
 	show_browser(src, dat, "Crew Manifest", "manifest", "size=400x750")
 
 /mob/living/carbon/human/verb/view_objective_memory()
-	set name = "View intel objectives"
+	set name = "View objectives"
 	set category = "IC"
 
 	if(!mind)
@@ -1064,7 +1085,7 @@
 		to_chat(src, "The game appears to have misplaced your mind datum.")
 		return
 
-	if(!skillcheck(usr, SKILL_RESEARCH, SKILL_RESEARCH_TRAINED) || !(FACTION_MARINE in get_id_faction_group()))
+	if(!skillcheck(usr, SKILL_RESEARCH, SKILL_RESEARCH_TRAINED) || faction != FACTION_MARINE && !(faction in FACTION_LIST_WY))
 		to_chat(usr, SPAN_WARNING("You have no access to the [MAIN_SHIP_NAME] research network."))
 		return
 
@@ -1398,8 +1419,7 @@
 		if(user.get_limb(cur_hand).status & LIMB_DESTROYED)
 			to_chat(user, SPAN_WARNING("You cannot remove splints without a hand."))
 			return
-		var/is_splint = FALSE
-		for(var/bodypart in list("l_leg","r_leg","l_arm","r_arm","r_hand","l_hand","r_foot","l_foot","chest","head","groin")) //check for any splints before do_after
+		for(var/bodypart in list("l_leg","r_leg","l_arm","r_arm","r_hand","l_hand","r_foot","l_foot","chest","head","groin"))
 			var/obj/limb/l = target.get_limb(bodypart)
 			if(l && (l.status & LIMB_SPLINTED))
 				if(user == target)
@@ -1409,31 +1429,13 @@
 					if((bodypart in list("r_arm", "r_hand")) && (cur_hand == "r_hand"))
 						same_arm_side = TRUE
 						continue
-				is_splint = TRUE
-				break
+				to_splint.Add(l)
 
 		var/msg = "" // Have to use this because there are issues with the to_chat macros and text macros and quotation marks
-		if(is_splint)
+		if(length(to_splint))
 			if(do_after(user, HUMAN_STRIP_DELAY * user.get_skill_duration_multiplier(SKILL_MEDICAL), INTERRUPT_ALL, BUSY_ICON_GENERIC, target, INTERRUPT_MOVED, BUSY_ICON_GENERIC))
 				var/can_reach_splints = TRUE
 				var/amount_removed = 0
-				for(var/bodypart in list("l_leg","r_leg","l_arm","r_arm","r_hand","l_hand","r_foot","l_foot","chest","head","groin")) // make sure the splints still exist before removing
-					var/obj/limb/target_limb = target.get_limb(bodypart)
-					if(target_limb && (target_limb.status & LIMB_SPLINTED))
-						if(user == target)
-							if((bodypart in list("l_arm", "l_hand")) && (cur_hand == "l_hand"))
-								same_arm_side = TRUE
-								continue
-							if((bodypart in list("r_arm", "r_hand")) && (cur_hand == "r_hand"))
-								same_arm_side = TRUE
-								continue
-						to_splint += target_limb
-				if(!length(to_splint))
-					if(same_arm_side)
-						to_chat(user, SPAN_WARNING("You need to use the opposite hand to remove the splints on your arm and hand!"))
-					else
-						to_chat(user, SPAN_WARNING("There are no splints to remove."))
-					return
 				if(wear_suit && istype(wear_suit,/obj/item/clothing/suit/space))
 					var/obj/item/clothing/suit/space/suit = target.wear_suit
 					if(LAZYLEN(suit.supporting_limbs))
@@ -1509,8 +1511,6 @@
 /mob/living/carbon/human/synthetic/second/Initialize(mapload)
 	. = ..(mapload, SYNTH_GEN_TWO)
 
-/mob/living/carbon/human/synthetic/synth_k9/Initialize(mapload)
-	. = ..(mapload, SYNTH_K9)
 
 /mob/living/carbon/human/resist_fire()
 	if(isyautja(src))
@@ -1701,7 +1701,8 @@
 		INVOKE_ASYNC(src, PROC_REF(dizzy_process))
 
 /proc/setup_human(mob/living/carbon/human/target, mob/new_player/new_player, is_late_join = FALSE)
-	new_player.spawning = TRUE
+	if(isnewplayer(new_player))
+		new_player.spawning = TRUE
 	new_player.close_spawn_windows()
 	new_player.client.prefs.copy_all_to(target, new_player.job, is_late_join)
 

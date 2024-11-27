@@ -67,16 +67,18 @@
 		return
 	var/mob/living/carbon/human/H = owner
 	if(H.selected_ability == src)
-		to_chat(H, "You will no longer use [name] with [H.get_ability_mouse_name()].")
+		to_chat(H, "You will no longer use [name] with \
+			[H.client && H.client.prefs && H.client.prefs.toggle_prefs & TOGGLE_MIDDLE_MOUSE_CLICK ? "middle-click" : "shift-click"].")
 		button.icon_state = "template"
-		H.set_selected_ability(null)
+		H.selected_ability = null
 	else
-		to_chat(H, "You will now use [name] with [H.get_ability_mouse_name()].")
+		to_chat(H, "You will now use [name] with \
+			[H.client && H.client.prefs && H.client.prefs.toggle_prefs & TOGGLE_MIDDLE_MOUSE_CLICK ? "middle-click" : "shift-click"].")
 		if(H.selected_ability)
 			H.selected_ability.button.icon_state = "template"
-			H.set_selected_ability(null)
+			H.selected_ability = null
 		button.icon_state = "template_on"
-		H.set_selected_ability(src)
+		H.selected_ability = src
 
 /datum/action/item_action/specialist/aimed_shot/can_use_action()
 	var/mob/living/carbon/human/H = owner
@@ -313,7 +315,7 @@
 	icon_state = "m42a"
 	item_state = "m42a"
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = 1
 
 	fire_sound = 'sound/weapons/gun_sniper.ogg'
 	current_mag = /obj/item/ammo_magazine/sniper
@@ -367,7 +369,7 @@
 	icon_state = "xm43e1"
 	item_state = "xm43e1"
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = 1
 	aiming_time = 2 SECONDS
 	aimed_shot_cooldown_delay = 4.5 SECONDS
 	var/focused_fire_counter = 0

@@ -427,7 +427,7 @@
 /turf/open/floor/almayer/silver,
 /area/adminlevel/ert_station)
 "op" = (
-/obj/structure/machinery/cryopod/no_store,
+/obj/structure/machinery/cryopod,
 /obj/structure/sign/safety/cryo{
 	pixel_x = 36
 	},
@@ -757,6 +757,10 @@
 	},
 /turf/open/space/transit/east/shuttlespace_ew3,
 /area/space)
+"xG" = (
+/obj/structure/machinery/hologram/holopad,
+/turf/open/floor/carpet,
+/area/centcom/living)
 "xJ" = (
 /obj/effect/step_trigger/teleporter/random{
 	affect_ghosts = 1;
@@ -2207,7 +2211,7 @@ hp
 hp
 hp
 hp
-hp
+kx
 "}
 (2,1,1) = {"
 aa
@@ -3566,7 +3570,7 @@ hp
 hp
 hp
 hp
-kx
+hp
 hp
 hp
 hp
@@ -9712,7 +9716,7 @@ ds
 eE
 eY
 eY
-eY
+xG
 eY
 eY
 eY

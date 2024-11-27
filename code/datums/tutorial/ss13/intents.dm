@@ -4,7 +4,6 @@
 	icon_state = "intents"
 	tutorial_id = "ss13_intents_1"
 	tutorial_template = /datum/map_template/tutorial/s7x7
-	required_tutorial = "ss13_basic_1"
 
 // START OF SCRIPTING
 

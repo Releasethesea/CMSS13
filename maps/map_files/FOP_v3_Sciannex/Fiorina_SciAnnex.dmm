@@ -14,11 +14,13 @@
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/tumor/servers)
 "aaq" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/organic/grass/astroturf,
 /area/fiorina/tumor/fiberbush)
 "aar" = (
-/obj/structure/machinery/power/apc/power/south,
+/obj/structure/machinery/power/apc,
 /turf/open/floor/almayer,
 /area/fiorina/tumor/ship)
 "aas" = (
@@ -26,7 +28,9 @@
 	dir = 1;
 	pixel_y = 21
 	},
-/obj/structure/machinery/power/apc/power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8
+	},
 /turf/open/floor/wood,
 /area/fiorina/station/security/wardens)
 "aaR" = (
@@ -532,7 +536,9 @@
 /turf/open/floor/plating/prison,
 /area/fiorina/station/central_ring)
 "ast" = (
-/obj/structure/machinery/power/apc/power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4
+	},
 /turf/open/floor/plating/prison,
 /area/fiorina/station/telecomm/lz2_maint)
 "asz" = (
@@ -691,7 +697,9 @@
 /turf/open/floor/prison/whitegreen/southwest,
 /area/fiorina/station/medbay)
 "ayG" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/prison/yellow/northwest,
 /area/fiorina/station/disco)
 "ayH" = (
@@ -845,7 +853,7 @@
 /turf/open/floor/prison/floor_plate,
 /area/fiorina/station/telecomm/lz1_cargo)
 "aFp" = (
-/obj/structure/machinery/defenses/tesla_coil/premade/smart{
+/obj/structure/machinery/defenses/tesla_coil{
 	faction_group = list("CLF")
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2576,7 +2584,7 @@
 /obj/structure/machinery/portable_atmospherics/hydroponics{
 	draw_warnings = 0;
 	health = null;
-	explo_proof = 1;
+	indestructible = 1;
 	unacidable = 1
 	},
 /turf/open/floor/greengrid,
@@ -2615,7 +2623,7 @@
 /area/fiorina/station/power_ring)
 "bTI" = (
 /obj/structure/machinery/door/poddoor/almayer/locked{
-	explo_proof = 1;
+	indestructible = 1;
 	name = "launch bay door"
 	},
 /turf/open/floor/plating/prison,
@@ -2738,11 +2746,11 @@
 "cbE" = (
 /obj/structure/flora/pottedplant{
 	icon_state = "pottedplant_22";
-	explo_proof = 1
+	indestructible = 1
 	},
 /obj/item/clothing/head/that{
 	anchored = 1;
-	explo_proof = 1;
+	indestructible = 1;
 	pixel_y = 7
 	},
 /turf/open/floor/plating/prison,
@@ -6592,7 +6600,9 @@
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/station/security/wardens)
 "eZi" = (
-/obj/structure/machinery/power/apc/power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8
+	},
 /turf/open/floor/prison,
 /area/fiorina/station/telecomm/lz1_tram)
 "eZr" = (
@@ -7357,7 +7367,7 @@
 /turf/open/floor/prison/bluefull,
 /area/fiorina/station/power_ring)
 "fEY" = (
-/obj/structure/machinery/power/apc/power/south,
+/obj/structure/machinery/power/apc,
 /turf/open/floor/delivery,
 /area/fiorina/station/power_ring)
 "fFv" = (
@@ -7579,7 +7589,9 @@
 /turf/open/floor/prison/blue/north,
 /area/fiorina/station/power_ring)
 "fPl" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/prison/yellow/north,
 /area/fiorina/station/lowsec)
 "fPB" = (
@@ -7900,7 +7912,9 @@
 /turf/open/floor/prison/floor_plate,
 /area/fiorina/station/security)
 "gaQ" = (
-/obj/structure/machinery/power/apc/power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4
+	},
 /turf/open/floor/prison,
 /area/fiorina/station/security)
 "gbf" = (
@@ -10156,7 +10170,9 @@
 /turf/open/floor/prison/floor_plate,
 /area/fiorina/station/medbay)
 "hIX" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/prison/green/north,
 /area/fiorina/station/chapel)
 "hJo" = (
@@ -10258,7 +10274,7 @@
 /turf/open/floor/plating/prison,
 /area/fiorina/station/park)
 "hPq" = (
-/obj/structure/machinery/power/apc/power/south,
+/obj/structure/machinery/power/apc,
 /turf/open/floor/prison/blue_plate/east,
 /area/fiorina/station/botany)
 "hPu" = (
@@ -11873,7 +11889,7 @@
 /turf/closed/wall/r_wall/prison_unmeltable,
 /area/fiorina/station/central_ring)
 "iYJ" = (
-/obj/structure/machinery/power/apc/power/south,
+/obj/structure/machinery/power/apc,
 /turf/open/floor/prison/greenfull/east,
 /area/fiorina/tumor/civres)
 "iYQ" = (
@@ -13502,7 +13518,7 @@
 /area/fiorina/tumor/ice_lab)
 "knY" = (
 /obj/structure/machinery/door/poddoor/almayer/locked{
-	explo_proof = 1;
+	indestructible = 1;
 	name = "launch bay door"
 	},
 /turf/open/floor/prison/cell_stripe/east,
@@ -13958,7 +13974,7 @@
 /turf/open/floor/prison/whitepurple/west,
 /area/fiorina/station/research_cells)
 "kGo" = (
-/obj/structure/machinery/power/apc/power/south,
+/obj/structure/machinery/power/apc,
 /turf/open/floor/prison/whitepurple,
 /area/fiorina/station/research_cells)
 "kGB" = (
@@ -15742,7 +15758,7 @@
 /obj/structure/machinery/shower{
 	pixel_y = 13
 	},
-/obj/item/tool/soap/weyland_yutani,
+/obj/item/tool/soap/nanotrasen,
 /turf/open/floor/prison/kitchen/southwest,
 /area/fiorina/tumor/civres)
 "lWy" = (
@@ -16325,7 +16341,7 @@
 	name = "launch track"
 	},
 /obj/structure/machinery/door/poddoor/almayer/locked{
-	explo_proof = 1;
+	indestructible = 1;
 	name = "launch bay door"
 	},
 /turf/open/floor/plating/prison,
@@ -17500,7 +17516,9 @@
 "nqL" = (
 /obj/structure/surface/rack,
 /obj/item/reagent_container/spray/cleaner,
-/obj/structure/machinery/power/apc/power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4
+	},
 /turf/open/floor/plating/prison,
 /area/fiorina/maintenance)
 "nqN" = (
@@ -18483,7 +18501,9 @@
 /turf/open/floor/plating/prison,
 /area/fiorina/maintenance)
 "obE" = (
-/obj/structure/machinery/power/apc/no_power/south,
+/obj/structure/machinery/power/apc{
+	start_charge = 0
+	},
 /turf/open/floor/prison,
 /area/fiorina/station/flight_deck)
 "obI" = (
@@ -18603,7 +18623,9 @@
 /turf/open/floor/plating/prison,
 /area/fiorina/station/power_ring)
 "ofQ" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/fiorina/station/central_ring)
 "oga" = (
@@ -18926,7 +18948,7 @@
 /turf/open/floor/prison/bluecorner,
 /area/fiorina/station/power_ring)
 "ooF" = (
-/obj/structure/machinery/power/apc/power/south,
+/obj/structure/machinery/power/apc,
 /turf/open/floor/wood,
 /area/fiorina/station/park)
 "ooO" = (
@@ -24191,7 +24213,7 @@
 /turf/open/floor/prison/whitegreencorner/east,
 /area/fiorina/station/medbay)
 "sBO" = (
-/obj/structure/machinery/power/apc/power/south,
+/obj/structure/machinery/power/apc,
 /turf/open/floor/prison/whitegreenfull/southwest,
 /area/fiorina/station/medbay)
 "sBW" = (
@@ -25435,7 +25457,7 @@
 /area/fiorina/station/chapel)
 "tsc" = (
 /obj/structure/machinery/door/poddoor/almayer/locked{
-	explo_proof = 1;
+	indestructible = 1;
 	name = "launch bay door"
 	},
 /obj/structure/monorail{
@@ -27139,7 +27161,9 @@
 /turf/open/floor/prison/darkyellowfull2/east,
 /area/fiorina/lz/near_lzI)
 "uNG" = (
-/obj/structure/machinery/power/apc/power/north,
+/obj/structure/machinery/power/apc{
+	dir = 1
+	},
 /turf/open/floor/prison,
 /area/fiorina/lz/near_lzII)
 "uNI" = (
@@ -28123,7 +28147,7 @@
 /area/fiorina/station/park)
 "vxz" = (
 /obj/structure/machinery/door/poddoor/almayer/locked{
-	explo_proof = 1;
+	indestructible = 1;
 	name = "launch bay door"
 	},
 /turf/open/floor/prison/cell_stripe/west,
@@ -28178,7 +28202,7 @@
 /area/fiorina/lz/near_lzI)
 "vzB" = (
 /obj/structure/machinery/door/poddoor/almayer/locked{
-	explo_proof = 1;
+	indestructible = 1;
 	name = "launch bay door"
 	},
 /turf/open/floor/plating/prison,
@@ -29541,7 +29565,9 @@
 /turf/open/floor/prison/floor_plate,
 /area/fiorina/station/lowsec)
 "wFM" = (
-/obj/structure/machinery/power/apc/power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8
+	},
 /turf/open/floor/prison/floor_plate/southwest,
 /area/fiorina/station/telecomm/lz1_cargo)
 "wFS" = (
@@ -30070,7 +30096,9 @@
 /turf/open/floor/prison/bluefull,
 /area/fiorina/station/power_ring)
 "xbr" = (
-/obj/structure/machinery/power/apc/power/east,
+/obj/structure/machinery/power/apc{
+	dir = 4
+	},
 /turf/open/floor/prison/green/north,
 /area/fiorina/station/transit_hub)
 "xbE" = (
@@ -30182,7 +30210,7 @@
 /turf/open/floor/corsat/squares,
 /area/fiorina/station/medbay)
 "xgx" = (
-/obj/structure/machinery/defenses/tesla_coil/premade{
+/obj/structure/machinery/defenses/tesla_coil{
 	faction_group = list("USCM")
 	},
 /turf/open/organic/grass/astroturf,
@@ -30357,7 +30385,9 @@
 /turf/open/organic/grass/astroturf,
 /area/fiorina/station/central_ring)
 "xpw" = (
-/obj/structure/machinery/power/apc/power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8
+	},
 /turf/open/floor/prison,
 /area/fiorina/lz/near_lzI)
 "xpx" = (
@@ -31129,7 +31159,9 @@
 /turf/open/floor/plating/prison,
 /area/fiorina/lz/near_lzII)
 "xYo" = (
-/obj/structure/machinery/power/apc/power/west,
+/obj/structure/machinery/power/apc{
+	dir = 8
+	},
 /turf/open/floor/prison/darkbrownfull2,
 /area/fiorina/tumor/aux_engi)
 "xYJ" = (

@@ -3,7 +3,7 @@
 /obj/structure/dropship_equipment
 	density = TRUE
 	anchored = TRUE
-	icon = 'icons/obj/structures/props/dropship_equipment.dmi'
+	icon = 'icons/obj/structures/props/almayer_props.dmi'
 	climbable = TRUE
 	layer = ABOVE_OBJ_LAYER //so they always appear above attach points when installed
 	var/shorthand
@@ -168,7 +168,6 @@
 	var/deployment_cooldown
 	var/obj/structure/machinery/defenses/sentry/premade/dropship/deployed_turret
 	combat_equipment = FALSE
-	var/auto_deploy = FALSE // allows dropship turrets to be auto deployed, a toggle
 
 /obj/structure/dropship_equipment/sentry_holder/Initialize()
 	. = ..()
@@ -197,7 +196,6 @@
 	.["health"] = defense.health
 	.["health_max"] = defense.health_max
 	.["deployed"] = is_deployed
-	.["auto_deploy"] = auto_deploy
 
 	if(istype(defense, /obj/structure/machinery/defenses/sentry))
 		var/obj/structure/machinery/defenses/sentry/sentrygun = defense
@@ -208,10 +206,6 @@
 /obj/structure/dropship_equipment/sentry_holder/on_launch()
 	if(ship_base && ship_base.base_category == DROPSHIP_WEAPON) //only external sentires are automatically undeployed
 		undeploy_sentry()
-
-/obj/structure/dropship_equipment/sentry_holder/on_arrival()
-	if(ship_base && auto_deploy && ship_base.base_category == DROPSHIP_WEAPON) //only external sentires are automatically deployed
-		deploy_sentry()
 
 /obj/structure/dropship_equipment/sentry_holder/equipment_interact(mob/user)
 	if(deployed_turret)
@@ -294,8 +288,6 @@
 		deployed_turret.linked_cam.network = list(CAMERA_NET_ALAMO)
 	else if (linked_shuttle.id == DROPSHIP_NORMANDY)
 		deployed_turret.linked_cam.network = list(CAMERA_NET_NORMANDY)
-	else if (linked_shuttle.id == DROPSHIP_SAIPAN)
-		deployed_turret.linked_cam.network = list(CAMERA_NET_SAIPAN)
 
 
 /obj/structure/dropship_equipment/sentry_holder/proc/undeploy_sentry()
@@ -329,7 +321,6 @@
 	var/deployment_cooldown
 	var/obj/structure/machinery/m56d_hmg/mg_turret/dropship/deployed_mg
 	combat_equipment = FALSE
-	var/auto_deploy = FALSE
 
 /obj/structure/dropship_equipment/mg_holder/Initialize()
 	. = ..()
@@ -351,7 +342,6 @@
 	.["rounds"] = deployed_mg.rounds
 	.["max_rounds"] = deployed_mg.rounds_max
 	.["deployed"] = is_deployed
-	.["auto_deploy"] = auto_deploy
 
 /obj/structure/dropship_equipment/mg_holder/get_examine_text(mob/user)
 	. = ..()
@@ -361,10 +351,6 @@
 /obj/structure/dropship_equipment/mg_holder/on_launch()
 	if(ship_base && ship_base.base_category == DROPSHIP_WEAPON) //only external mgs are automatically undeployed
 		undeploy_mg()
-
-/obj/structure/dropship_equipment/mg_holder/on_arrival()
-	if(ship_base && auto_deploy && ship_base.base_category == DROPSHIP_WEAPON) //only external mgs are automatically deployed
-		deploy_mg(null)
 
 /obj/structure/dropship_equipment/mg_holder/attack_hand(user as mob)
 	if(ship_base)
@@ -461,7 +447,7 @@
 //================= FUEL EQUIPMENT =================//
 
 /obj/structure/dropship_equipment/fuel
-	icon = 'icons/obj/structures/props/dropship_equipment64.dmi'
+	icon = 'icons/obj/structures/props/almayer_props64.dmi'
 	equip_categories = list(DROPSHIP_FUEL_EQP)
 
 
@@ -510,7 +496,7 @@
 	is_interactable = TRUE
 	point_cost = 50
 	var/spotlights_cooldown
-	var/brightness = 14
+	var/brightness = 11
 
 /obj/structure/dropship_equipment/electronics/spotlights/equipment_interact(mob/user)
 	if(spotlights_cooldown > world.time)
@@ -626,7 +612,7 @@
 /// CAS Dropship weaponry, used for aerial bombardment
 /obj/structure/dropship_equipment/weapon
 	name = "abstract weapon"
-	icon = 'icons/obj/structures/props/dropship_equipment64.dmi'
+	icon = 'icons/obj/structures/props/almayer_props64.dmi'
 	equip_categories = list(DROPSHIP_WEAPON)
 	bound_width = 32
 	bound_height = 64
@@ -698,9 +684,9 @@
 			break
 
 	msg_admin_niche("[key_name(user)] is direct-firing [SA] onto [selected_target] at ([target_turf.x],[target_turf.y],[target_turf.z]) [ADMIN_JMP(target_turf)]")
-	if(ammo_travelling_time && !istype(SA, /obj/structure/ship_ammo/rocket/thermobaric))
+	if(ammo_travelling_time)
 		var/total_seconds = max(floor(ammo_travelling_time/10),1)
-		for(var/i in 0 to total_seconds)
+		for(var/i = 0 to total_seconds)
 			sleep(10)
 			if(!selected_target || !selected_target.loc)//if laser disappeared before we reached the target,
 				ammo_accuracy_range++ //accuracy decreases
@@ -710,14 +696,6 @@
 
 	var/list/possible_turfs = RANGE_TURFS(ammo_accuracy_range, target_turf)
 	var/turf/impact = pick(possible_turfs)
-
-	if(ammo_travelling_time && istype(SA, /obj/structure/ship_ammo/rocket/thermobaric))
-		playsound(impact, ammo_warn_sound, ammo_warn_sound_volume, 1, 15)
-		var/total_seconds = max(floor(ammo_travelling_time / 10), 1)
-		for(var/i in 0 to total_seconds)
-			sleep(1 SECONDS)
-			new /obj/effect/overlay/temp/blinking_laser (impact) //no decreased accuracy if laser dissapears, it will land where it is telegraphed to land
-
 	if(ammo_warn_sound)
 		playsound(impact, ammo_warn_sound, ammo_warn_sound_volume, 1,15)
 	new /obj/effect/overlay/temp/blinking_laser (impact)
@@ -743,7 +721,9 @@
 
 	ammo_accuracy_range /= 2 //buff for basically pointblanking the ground
 
-	var/list/possible_turfs = RANGE_TURFS(ammo_accuracy_range, target_turf)
+	var/list/possible_turfs = list()
+	for(var/turf/TU in range(ammo_accuracy_range, target_turf))
+		possible_turfs += TU
 	var/turf/impact = pick(possible_turfs)
 	sleep(3)
 	SA.source_mob = user
@@ -792,6 +772,7 @@
 	name = "\improper LAU-229 Rocket Pod"
 	icon_state = "minirocket_pod"
 	desc = "A rocket pod capable of launching six laser-guided mini rockets. Moving this will require some sort of lifter. Accepts the AGR-59 series of minirockets."
+	icon = 'icons/obj/structures/props/almayer_props64.dmi'
 	firing_sound = 'sound/effects/rocketpod_fire.ogg'
 	firing_delay = 10 //1 seconds
 	point_cost = 600
@@ -799,11 +780,7 @@
 
 /obj/structure/dropship_equipment/weapon/minirocket_pod/update_icon()
 	if(ammo_equipped && ammo_equipped.ammo_count)
-		var/ammo_stage = ammo_equipped.ammo_count / ammo_equipped.ammo_used_per_firing
-		icon_state = "[initial(icon_state)]_loaded_[ammo_stage]"
-
-		if (ammo_equipped.ammo_count == ammo_equipped.max_ammo_count)
-			icon_state = "[initial(icon_state)]_loaded"
+		icon_state = "minirocket_pod_loaded"
 	else
 		if(ship_base) icon_state = "minirocket_pod_installed"
 		else icon_state = "minirocket_pod"
@@ -817,6 +794,7 @@
 	name = "\improper LWU-6B Laser Cannon"
 	icon_state = "laser_beam"
 	desc = "State of the art technology recently acquired by the USCM, it fires a battery-fed pulsed laser beam at near lightspeed setting on fire everything it touches. Moving this will require some sort of lifter. Accepts the BTU-17/LW Hi-Cap Laser Batteries."
+	icon = 'icons/obj/structures/props/almayer_props64.dmi'
 	firing_sound = 'sound/effects/phasein.ogg'
 	firing_delay = 50 //5 seconds
 	point_cost = 500
@@ -835,7 +813,7 @@
 	name = "\improper LAG-14 Internal Sentry Launcher"
 	icon_state = "launch_bay"
 	desc = "A launch bay to drop special ordnance. Fits inside the dropship's crew weapon emplacement. Moving this will require some sort of lifter. Accepts the A/C-49-P Air Deployable Sentry as ammunition."
-	icon = 'icons/obj/structures/props/dropship_equipment.dmi'
+	icon = 'icons/obj/structures/props/almayer_props.dmi'
 	firing_sound = 'sound/weapons/gun_flare_explode.ogg'
 	firing_delay = 10 //1 seconds
 	bound_height = 32
@@ -1350,7 +1328,9 @@
 
 	ammo_accuracy_range /= 2 //buff for basically pointblanking the ground
 
-	var/list/possible_turfs = RANGE_TURFS(ammo_accuracy_range, target_turf)
+	var/list/possible_turfs = list()
+	for(var/turf/TU in range(ammo_accuracy_range, target_turf))
+		possible_turfs += TU
 	var/turf/impact = pick(possible_turfs)
 	sleep(3)
 	SA.source_mob = user

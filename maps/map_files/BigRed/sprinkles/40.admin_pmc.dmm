@@ -109,22 +109,13 @@
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
-"cD" = (
-/obj/item/shard,
-/turf/open/floor/darkred2,
-/area/bigredv2/outside/admin_building)
 "dC" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
 /turf/open/floor/darkred2/east,
 /area/bigredv2/outside/admin_building)
-"ed" = (
-/obj/effect/decal/cleanable/blood,
-/turf/open/floor/carpet,
-/area/bigredv2/outside/admin_building)
 "ee" = (
-/obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/darkred2/east,
 /area/bigredv2/outside/admin_building)
 "eg" = (
@@ -151,11 +142,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
 "gR" = (
-/obj/effect/decal/cleanable/blood/xeno,
-/obj/structure/barricade/metal/wired{
-	dir = 1;
-	icon_state = "metal_2"
-	},
+/obj/structure/bed/chair/comfy/black,
 /turf/open/floor/carpet,
 /area/bigredv2/outside/admin_building)
 "he" = (
@@ -218,24 +205,12 @@
 	pixel_x = -6;
 	pixel_y = -4
 	},
-/obj/item/stack/sheet/metal{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/turf/open/floor/carpet,
-/area/bigredv2/outside/admin_building)
-"kr" = (
-/obj/item/stack/sheet/metal{
-	pixel_x = 3;
-	pixel_y = -11
-	},
 /turf/open/floor/carpet,
 /area/bigredv2/outside/admin_building)
 "la" = (
 /obj/item/ammo_magazine/pistol/rubber{
 	current_rounds = 0
 	},
-/obj/effect/decal/cleanable/blood,
 /turf/open/floor/carpet,
 /area/bigredv2/outside/admin_building)
 "lv" = (
@@ -270,20 +245,13 @@
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
-"oI" = (
-/obj/item/shard,
-/turf/open/floor/dark,
-/area/bigredv2/outside/admin_building)
 "oZ" = (
-/obj/effect/decal/cleanable/blood/xeno,
 /turf/open/floor/darkred2/southwest,
 /area/bigredv2/outside/admin_building)
 "pZ" = (
 /obj/structure/machinery/door/airlock/almayer/command/colony{
 	dir = 1;
-	name = "\improper Operations Meeting Room";
-	density = 0;
-	icon_state = "door_open"
+	name = "\improper Operations Meeting Room"
 	},
 /turf/open/floor/delivery,
 /area/bigredv2/outside/admin_building)
@@ -305,7 +273,6 @@
 /area/bigredv2/outside/admin_building)
 "ts" = (
 /obj/item/storage/secure/briefcase,
-/obj/effect/decal/cleanable/blood,
 /turf/open/floor/carpet,
 /area/bigredv2/outside/admin_building)
 "tz" = (
@@ -323,8 +290,6 @@
 	dir = 4
 	},
 /obj/effect/landmark/corpsespawner/wygoon,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/carpet,
 /area/bigredv2/outside/admin_building)
 "xe" = (
@@ -333,14 +298,13 @@
 	},
 /turf/open/floor/dark,
 /area/bigredv2/outside/admin_building)
-"xQ" = (
-/obj/effect/acid_hole{
-	dir = 4
-	},
-/turf/closed/wall/solaris,
-/area/bigredv2/outside/admin_building)
 "yd" = (
-/obj/structure/window_frame/solaris,
+/obj/structure/window/framed/solaris/reinforced,
+/obj/structure/machinery/door/poddoor/shutters/almayer{
+	dir = 4;
+	id = "Operations";
+	name = "\improper Operations Shutters"
+	},
 /turf/open/floor/plating,
 /area/bigredv2/outside/admin_building)
 "za" = (
@@ -372,12 +336,6 @@
 	},
 /turf/open/floor/dark,
 /area/bigredv2/outside/admin_building)
-"Cw" = (
-/obj/effect/landmark/corpsespawner/wygoon/lead,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/gibs/body,
-/turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
 "CO" = (
 /obj/item/ammo_magazine/rifle{
 	current_rounds = 0;
@@ -390,7 +348,6 @@
 /obj/item/ammo_magazine/pistol/rubber{
 	current_rounds = 0
 	},
-/obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
 "ER" = (
@@ -406,8 +363,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
 "Mu" = (
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/gibs/body,
+/obj/effect/landmark/corpsespawner/wygoon,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
 "Nb" = (
@@ -427,8 +383,6 @@
 /area/bigredv2/outside/admin_building)
 "Nl" = (
 /obj/effect/landmark/corpsespawner/wygoon,
-/obj/effect/decal/cleanable/blood,
-/obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/floor/carpet,
 /area/bigredv2/outside/admin_building)
 "NS" = (
@@ -436,7 +390,6 @@
 	current_rounds = 0;
 	pixel_y = 11
 	},
-/obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/bigredv2/outside/admin_building)
 "Op" = (
@@ -448,13 +401,6 @@
 /obj/effect/landmark/crap_item,
 /turf/open/floor/darkred2/west,
 /area/bigredv2/outside/admin_building)
-"PX" = (
-/obj/effect/decal/cleanable/blood,
-/obj/structure/barricade/metal/wired{
-	dir = 4
-	},
-/turf/open/floor/wood,
-/area/bigredv2/outside/admin_building)
 "Sz" = (
 /obj/item/ammo_magazine/rifle/rubber{
 	current_rounds = 0;
@@ -465,12 +411,6 @@
 /area/bigredv2/outside/admin_building)
 "TJ" = (
 /turf/open/floor/dark,
-/area/bigredv2/outside/admin_building)
-"Ua" = (
-/obj/item/stack/sheet/metal{
-	amount = 3
-	},
-/turf/open/floor/carpet,
 /area/bigredv2/outside/admin_building)
 "Ux" = (
 /obj/structure/machinery/light{
@@ -495,10 +435,6 @@
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/structure/barricade/sandbags/wired,
 /turf/open/floor/darkred2/west,
-/area/bigredv2/outside/admin_building)
-"Zg" = (
-/obj/effect/decal/cleanable/blood/xeno,
-/turf/open/floor/darkred2,
 /area/bigredv2/outside/admin_building)
 "ZN" = (
 /obj/structure/machinery/light{
@@ -535,23 +471,23 @@ ab
 ab
 "}
 (2,1,1) = {"
-Zg
+hz
 aD
 lv
 Mu
 NS
-Cw
+sX
 Yb
 ZN
 Gc
 ab
 "}
 (3,1,1) = {"
-cD
-yd
+hz
+ak
 jY
 la
-Ua
+aJ
 ts
 aJ
 aQ
@@ -576,7 +512,7 @@ ae
 jq
 aC
 aQ
-kr
+aC
 Sz
 uH
 sX
@@ -589,7 +525,7 @@ Nl
 aW
 aL
 aS
-ed
+aQ
 bc
 sX
 EO
@@ -597,8 +533,8 @@ EO
 (7,1,1) = {"
 hz
 ae
-PX
 mr
+bY
 bY
 Nb
 bY
@@ -610,12 +546,12 @@ sX
 hz
 ae
 ae
-ak
+ad
 ad
 ad
 ae
 za
-xQ
+ae
 ae
 "}
 (9,1,1) = {"
@@ -628,19 +564,19 @@ re
 PU
 hC
 oZ
-ak
+bs
 "}
 (10,1,1) = {"
 mi
 jm
 eg
 Cj
-oI
+TJ
 hN
 TJ
 Cj
 TJ
-ak
+bs
 "}
 (11,1,1) = {"
 he

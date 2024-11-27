@@ -7,7 +7,7 @@
 
 	unacidable = TRUE
 	unslashable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 	// The vehicle this seat is tied to
 	var/obj/vehicle/multitile/vehicle = null

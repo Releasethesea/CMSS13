@@ -155,7 +155,7 @@
 	if(!gear_preset)
 		return ""
 	if(GLOB.gear_path_presets_list[gear_preset])
-		return GLOB.gear_path_presets_list[gear_preset].paygrades[1]
+		return GLOB.gear_path_presets_list[gear_preset].paygrade
 	return ""
 
 /datum/job/proc/get_comm_title()
@@ -318,7 +318,3 @@
 
 	if(user.client.check_whitelist_status(flags_whitelist))
 		return TRUE
-
-/// Called when the job owner enters deep cryogenic storage
-/datum/job/proc/on_cryo(mob/living/carbon/human/cryoing)
-	return

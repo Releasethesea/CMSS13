@@ -1,7 +1,6 @@
 /datum/equipment_preset/uscm_ship/uscm_police
 	name = "USCM (police roles)"
 	faction = FACTION_MARINE
-	minimap_background = "background_mp"
 	minimum_age = 27
 
 //*****************************************************************************************************/
@@ -28,7 +27,7 @@
 	)
 	assignment = JOB_POLICE
 	rank = JOB_POLICE
-	paygrades = list(PAY_SHORT_ME4 = JOB_PLAYTIME_TIER_0, PAY_SHORT_ME5 = JOB_PLAYTIME_TIER_1, PAY_SHORT_ME6 = JOB_PLAYTIME_TIER_3)
+	paygrade = PAY_SHORT_ME5
 	role_comm_title = "MP"
 	skills = /datum/skills/MP
 
@@ -60,6 +59,11 @@
 	new_human.equip_to_slot_or_del(new /obj/item/device/taperecorder(new_human), WEAR_L_STORE)
 	new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/general/medium(new_human), WEAR_R_STORE)
 
+/datum/equipment_preset/uscm_ship/uscm_police/mp/load_rank(mob/living/carbon/human/human)
+	if(human.client && get_job_playtime(human.client, rank) < JOB_PLAYTIME_TIER_1)
+		return PAY_SHORT_ME3
+	return paygrade
+
 //*****************************************************************************************************/
 
 /datum/equipment_preset/uscm_ship/uscm_police/warden
@@ -86,7 +90,7 @@
 	)
 	assignment = JOB_WARDEN
 	rank = JOB_WARDEN
-	paygrades = list(PAY_SHORT_ME5 = JOB_PLAYTIME_TIER_0, PAY_SHORT_ME6 = JOB_PLAYTIME_TIER_1, PAY_SHORT_ME7 = JOB_PLAYTIME_TIER_3)
+	paygrade = PAY_SHORT_ME6
 	role_comm_title = "MW"
 	skills = /datum/skills/MW
 
@@ -147,11 +151,12 @@
 	)
 	assignment = JOB_CHIEF_POLICE
 	rank = JOB_CHIEF_POLICE
-	paygrades = list(PAY_SHORT_MO1 = JOB_PLAYTIME_TIER_0, PAY_SHORT_MO2 = JOB_PLAYTIME_TIER_1)
+	paygrade = PAY_SHORT_MO2
 	role_comm_title = "CMP"
 	skills = /datum/skills/CMP
 
-	minimap_icon = list("cmp")
+	minimap_icon = list("mp" = MINIMAP_ICON_COLOR_HEAD)
+	minimap_background = MINIMAP_ICON_BACKGROUND_CIC
 
 	utility_under = list(/obj/item/clothing/under/marine/officer/warrant)
 	utility_hat = list(/obj/item/clothing/head/beret/marine/mp/cmp)
@@ -190,11 +195,9 @@
 	access = list()
 	assignment = JOB_RIOT
 	rank = JOB_RIOT
-	paygrades = list(PAY_SHORT_ME5 = JOB_PLAYTIME_TIER_0)
+	paygrade = PAY_SHORT_ME5
 	role_comm_title = "RMP"
 	skills = /datum/skills/CMP
-
-	minimap_icon = list("rmp")
 
 	utility_under = list(/obj/item/clothing/under/marine/officer/warrant)
 	utility_hat = list(/obj/item/clothing/head/beret/marine/mp/cmp)
@@ -238,10 +241,8 @@
 	name = "USCM Riot Chief MP (RCMP)"
 	flags = EQUIPMENT_PRESET_EXTRA
 
-	minimap_icon = list("crmp")
-
 	assignment = JOB_RIOT_CHIEF
 	rank = JOB_RIOT_CHIEF
-	paygrades = list(PAY_SHORT_MO1 = JOB_PLAYTIME_TIER_0)
+	paygrade = PAY_SHORT_MO1
 	role_comm_title = "CRMP"
 	skills = /datum/skills/CMP

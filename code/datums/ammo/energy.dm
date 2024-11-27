@@ -204,7 +204,7 @@
 
 /datum/ammo/energy/yautja/caster/sphere/stun/proc/do_area_stun(obj/projectile/P)
 	playsound(P, 'sound/weapons/wave.ogg', 75, 1, 25)
-	FOR_DVIEW(var/mob/living/carbon/M, src.stun_range, get_turf(P), HIDE_INVISIBLE_OBSERVER)
+	for (var/mob/living/carbon/M in view(src.stun_range, get_turf(P)))
 		var/stun_time = src.stun_time
 		log_attack("[key_name(M)] was stunned by a plasma immobilizer from [key_name(P.firer)] at [get_area(P)]")
 		if (isyautja(M))
@@ -214,7 +214,6 @@
 		to_chat(M, SPAN_DANGER("A powerful electric shock ripples through your body, freezing you in place!"))
 		M.apply_effect(stun_time, STUN)
 		M.apply_effect(stun_time, WEAKEN)
-	FOR_DVIEW_END
 
 /datum/ammo/energy/yautja/rifle/bolt
 	name = "plasma rifle bolt"

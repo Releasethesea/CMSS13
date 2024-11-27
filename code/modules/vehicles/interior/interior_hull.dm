@@ -16,7 +16,7 @@
 	flags_atom = NOINTERACT
 	unacidable = TRUE
 	unslashable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 /obj/structure/interior_wall/get_projectile_hit_boolean(obj/projectile/P)
 	return FALSE
@@ -37,7 +37,7 @@
 	layer = ABOVE_FLY_LAYER
 	flags_atom = NOINTERACT
 	unacidable = TRUE
-	explo_proof = TRUE
+	indestructible = TRUE
 
 	alpha = 80
 

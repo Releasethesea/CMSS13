@@ -40,7 +40,7 @@
 /area/bigredv2/outside/virology)
 "df" = (
 /obj/effect/landmark/crap_item,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "dk" = (
 /obj/effect/decal/cleanable/ash,
@@ -57,7 +57,7 @@
 /obj/structure/bed/chair/office/light{
 	dir = 4
 	},
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "jg" = (
 /turf/open/mars_cave/mars_dirt_6,
@@ -68,7 +68,7 @@
 	id = "viro";
 	name = "Virology Lockdown"
 	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/virology)
 "kt" = (
 /obj/structure/bed/roller,
@@ -77,25 +77,21 @@
 "lY" = (
 /turf/open/mars/mars_dirt_12,
 /area/bigredv2/outside/virology)
-"mu" = (
-/obj/structure/sign/safety/biohazard,
-/turf/closed/wall/solaris/reinforced,
-/area/bigredv2/outside/virology)
 "nR" = (
 /obj/structure/bed/roller,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/virology)
 "oe" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/virology)
 "ou" = (
 /obj/structure/surface/table/almayer,
 /obj/item/restraint/handcuffs,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached15,
+/turf/open/floor/asteroidwarning/southeast,
 /area/bigredv2/outside/virology)
 "oM" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "oS" = (
 /obj/effect/decal/cleanable/ash,
@@ -103,15 +99,15 @@
 /area/bigredv2/outside/virology)
 "pG" = (
 /obj/structure/machinery/light,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/virology)
 "qc" = (
 /obj/structure/inflatable/door,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/virology)
 "qW" = (
 /obj/structure/inflatable/door,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "re" = (
 /obj/item/weapon/gun/flamer,
@@ -123,39 +119,39 @@
 /obj/item/storage/syringe_case/regular{
 	pixel_y = 10
 	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/virology)
 "ru" = (
 /obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/inflatable,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/virology)
 "rM" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/nw)
 "rP" = (
 /obj/structure/inflatable,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/virology)
 "sm" = (
 /obj/structure/inflatable/door,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached14,
+/turf/open/floor/asteroidwarning/southwest,
 /area/bigredv2/outside/virology)
 "uC" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached2,
+/turf/open/floor/asteroidwarning/northwest,
 /area/bigredv2/outside/virology)
 "uO" = (
 /obj/structure/inflatable/popped/door,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "gib6"
 	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/virology)
 "vY" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached14,
+/turf/open/floor/asteroidwarning/southwest,
 /area/bigredv2/outside/nw)
 "xm" = (
 /obj/effect/decal/cleanable/ash,
@@ -171,27 +167,30 @@
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "As" = (
 /obj/structure/pipes/standard/simple/hidden/green,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/virology)
 "AF" = (
 /obj/structure/pipes/standard/simple/hidden/green,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached14,
+/turf/open/floor/asteroidwarning/southwest,
 /area/bigredv2/outside/virology)
 "Bq" = (
 /obj/structure/inflatable/popped,
 /turf/open/mars/mars_dirt_10,
+/area/bigredv2/outside/virology)
+"Cn" = (
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/virology)
 "CQ" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
 /obj/structure/inflatable/door,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "Dt" = (
 /obj/structure/surface/table/almayer,
@@ -200,28 +199,28 @@
 /turf/open/mars_cave/mars_dirt_4,
 /area/bigredv2/outside/virology)
 "Ee" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/virology)
 "Et" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "ED" = (
 /obj/structure/inflatable/popped,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "EF" = (
 /obj/structure/inflatable/door,
 /turf/open/mars_cave/mars_dirt_4,
 /area/bigredv2/outside/virology)
 "Fb" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached15,
+/turf/open/floor/asteroidwarning/southeast,
 /area/bigredv2/outside/virology)
 "FA" = (
 /obj/structure/surface/table/almayer,
 /obj/structure/machinery/computer/med_data/laptop{
 	dir = 8
 	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached9,
+/turf/open/floor/asteroidwarning/northeast,
 /area/bigredv2/outside/virology)
 "FX" = (
 /obj/structure/closet/bodybag{
@@ -234,19 +233,19 @@
 /area/bigredv2/outside/virology)
 "GF" = (
 /obj/effect/landmark/hunter_secondary,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "GP" = (
 /obj/structure/bed/roller,
 /obj/effect/decal/cleanable/blood,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached2,
+/turf/open/floor/asteroidwarning/northwest,
 /area/bigredv2/outside/virology)
 "GX" = (
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "HZ" = (
 /obj/structure/inflatable/popped,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
 /area/bigredv2/outside/virology)
 "Ie" = (
 /obj/structure/inflatable,
@@ -254,11 +253,11 @@
 /area/bigredv2/outside/virology)
 "IZ" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/virology)
 "KY" = (
 /obj/structure/inflatable/door,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/nw)
 "LF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -269,7 +268,7 @@
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 6
 	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached3,
+/turf/open/floor/asteroidwarning/west,
 /area/bigredv2/outside/virology)
 "MQ" = (
 /obj/structure/fence,
@@ -285,18 +284,18 @@
 /area/bigredv2/outside/virology)
 "Pb" = (
 /obj/structure/inflatable,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached1,
+/turf/open/floor/asteroidwarning/east,
 /area/bigredv2/outside/virology)
 "PU" = (
 /obj/structure/inflatable,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached17,
+/turf/open/floor/asteroidwarning/southeast,
 /area/bigredv2/outside/nw)
 "QV" = (
 /turf/open/mars/mars_dirt_14,
 /area/bigredv2/outside/virology)
 "RE" = (
 /obj/structure/inflatable,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached20,
+/turf/open/floor/asteroidwarning/northeast,
 /area/bigredv2/outside/nw)
 "RN" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno/body,
@@ -308,22 +307,22 @@
 	id = "viro";
 	name = "Virology Lockdown"
 	},
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "Sh" = (
 /obj/structure/inflatable/popped/door,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/nw)
 "TE" = (
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
 /obj/structure/inflatable/popped/door,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "UE" = (
 /obj/structure/inflatable,
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "Vw" = (
 /obj/structure/machinery/door/poddoor/almayer/open{
@@ -331,10 +330,15 @@
 	id = "viro";
 	name = "Virology Lockdown"
 	},
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached4,
+/turf/open/floor/asteroidwarning/north,
+/area/bigredv2/outside/virology)
+"VP" = (
+/obj/structure/inflatable,
+/turf/open/floor/asteroidwarning/northeast,
 /area/bigredv2/outside/virology)
 "Wm" = (
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached12,
+/obj/structure/sign/safety/biohazard,
+/turf/open/floor/asteroidwarning,
 /area/bigredv2/outside/virology)
 "Xm" = (
 /obj/structure/pipes/standard/simple/hidden/green{
@@ -345,7 +349,7 @@
 	id = "viro";
 	name = "Virology Lockdown"
 	},
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/virology)
 "XA" = (
 /obj/effect/decal/cleanable/blood{
@@ -355,14 +359,14 @@
 /obj/structure/pipes/standard/simple/hidden/green{
 	dir = 4
 	},
-/turf/open/asphalt/cement_sunbleached,
+/turf/open/floor/asteroidfloor/north,
 /area/bigredv2/outside/nw)
 "XR" = (
 /obj/structure/machinery/light{
 	dir = 4
 	},
 /obj/structure/inflatable,
-/turf/open/asphalt/cement_sunbleached/cement_sunbleached20,
+/turf/open/floor/asteroidwarning/northwest,
 /area/bigredv2/outside/virology)
 "Yn" = (
 /obj/effect/decal/cleanable/ash,
@@ -466,7 +470,7 @@ GX
 GX
 GX
 Wm
-mu
+bd
 "}
 (8,1,1) = {"
 bd
@@ -510,7 +514,7 @@ nR
 qW
 GX
 yk
-Wm
+Cn
 GA
 GA
 GA
@@ -522,7 +526,7 @@ HZ
 ED
 GX
 yk
-Wm
+Cn
 GA
 lY
 GA
@@ -534,7 +538,7 @@ nR
 qW
 GX
 yk
-Wm
+Cn
 GA
 ai
 QV
@@ -542,7 +546,7 @@ bd
 "}
 (14,1,1) = {"
 bd
-Pb
+VP
 Pb
 GX
 yk
@@ -561,7 +565,7 @@ yk
 GX
 UE
 GX
-Wm
+Cn
 bd
 "}
 (16,1,1) = {"
@@ -573,7 +577,7 @@ yk
 GX
 UE
 GX
-Wm
+Cn
 bd
 "}
 (17,1,1) = {"
@@ -606,7 +610,7 @@ bd
 bd
 oe
 yk
-Wm
+Cn
 bd
 bd
 bd

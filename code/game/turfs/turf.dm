@@ -478,20 +478,18 @@
 
 /turf/proc/AdjacentTurfs()
 	var/L[] = new()
-	FOR_DOVIEW(var/turf/t, 1, src, HIDE_INVISIBLE_OBSERVER)
+	for(var/turf/t in oview(src,1))
 		if(!t.density)
 			if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
 				L.Add(t)
-	FOR_DOVIEW_END
 	return L
 
 /turf/proc/AdjacentTurfsSpace()
 	var/L[] = new()
-	FOR_DOVIEW(var/turf/t, 1, src, HIDE_INVISIBLE_OBSERVER)
+	for(var/turf/t in oview(src,1))
 		if(!t.density)
 			if(!LinkBlocked(src, t) && !TurfBlockedNonWindow(t))
 				L.Add(t)
-	FOR_DOVIEW_END
 	return L
 
 /turf/proc/Distance(turf/t)

@@ -25,7 +25,7 @@
 	antigrief_protection = TRUE //Should it be checked by antigrief?
 
 	var/req_skill = SKILL_ENGINEER
-	var/req_skill_level = SKILL_ENGINEER_NOVICE
+	var/req_skill_level = SKILL_ENGINEER_TRAINED
 
 /obj/item/explosive/plastic/Destroy()
 	disarm()
@@ -46,7 +46,7 @@
 	. = ..()
 
 /obj/item/explosive/plastic/attack_self(mob/user)
-	if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_NOVICE))
+	if(!skillcheck(user, SKILL_ENGINEER, SKILL_ENGINEER_TRAINED))
 		to_chat(user, SPAN_WARNING("You don't seem to know how to use [src]..."))
 		return
 

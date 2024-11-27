@@ -61,7 +61,6 @@
 	var/own_orbit_size = 0
 	var/observer_actions = list(/datum/action/observer_action/join_xeno, /datum/action/observer_action/join_lesser_drone)
 	var/datum/action/minimap/observer/minimap
-	///The last message for this player with their larva queue information
 	var/larva_queue_cached_message
 	///Used to bypass time of death checks such as when being selected for larva.
 	var/bypass_time_of_death_checks = FALSE
@@ -377,38 +376,35 @@
 	if(!client || !client.prefs)
 		return
 
-	var/datum/mob_hud/the_hud
+	var/datum/mob_hud/H
 	HUD_toggled = client.prefs.observer_huds
 	for(var/i in HUD_toggled)
 		if(HUD_toggled[i])
 			switch(i)
 				if("Medical HUD")
-					the_hud = GLOB.huds[MOB_HUD_MEDICAL_OBSERVER]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_MEDICAL_OBSERVER]
+					H.add_hud_to(src, src)
 				if("Security HUD")
-					the_hud= GLOB.huds[MOB_HUD_SECURITY_ADVANCED]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_SECURITY_ADVANCED]
+					H.add_hud_to(src, src)
 				if("Squad HUD")
-					the_hud= GLOB.huds[MOB_HUD_FACTION_OBSERVER]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_FACTION_OBSERVER]
+					H.add_hud_to(src, src)
 				if("Xeno Status HUD")
-					the_hud= GLOB.huds[MOB_HUD_XENO_STATUS]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_XENO_STATUS]
+					H.add_hud_to(src, src)
 				if("Faction UPP HUD")
-					the_hud= GLOB.huds[MOB_HUD_FACTION_UPP]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_FACTION_UPP]
+					H.add_hud_to(src, src)
 				if("Faction Wey-Yu HUD")
-					the_hud= GLOB.huds[MOB_HUD_FACTION_WY]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_FACTION_WY]
+					H.add_hud_to(src, src)
 				if("Faction TWE HUD")
-					the_hud= GLOB.huds[MOB_HUD_FACTION_TWE]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_FACTION_TWE]
+					H.add_hud_to(src, src)
 				if("Faction CLF HUD")
-					the_hud= GLOB.huds[MOB_HUD_FACTION_CLF]
-					the_hud.add_hud_to(src, src)
-				if(HUD_MENTOR_SIGHT)
-					the_hud= GLOB.huds[MOB_HUD_NEW_PLAYER]
-					the_hud.add_hud_to(src, src)
+					H = GLOB.huds[MOB_HUD_FACTION_CLF]
+					H.add_hud_to(src, src)
 
 	see_invisible = INVISIBILITY_OBSERVER
 
@@ -1017,6 +1013,41 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	msg_admin_niche("[key_name(usr)] has joined as a [Z].")
 
 
+/mob/dead/verb/join_horde_mode()
+	set category = "Ghost.Join"
+	set name = "Join Horde Mode"
+	set desc = "Select a freed mob by staff."
+
+	if(SSticker.current_state < GAME_STATE_PLAYING || !SSticker.mode)
+		to_chat(src, SPAN_WARNING("The game hasn't started yet!"))
+		return
+
+	var/mob/new_player/player = src
+	if(!player.stat || !player.mind)
+		return
+
+	for(var/num_of_spawns in SShorde_mode.marine_spawns)
+		var/spawn_loc = SAFEPICK(SShorde_mode.marine_spawns)
+		var/mob/living/carbon/human/spawned_marine = new(spawn_loc)
+
+		spawned_marine.lastarea = get_area(spawn_loc)
+
+		setup_human(spawned_marine, player, FALSE)
+		arm_equipment(spawned_marine, /datum/equipment_preset/uscm/horde_mode_marine, FALSE, TRUE)
+
+		SShorde_mode.current_players += list(list("mob" = spawned_marine, "points" = 500))
+		spawned_marine.pain = new /datum/pain/human_hero()
+		spawned_marine.status_flags |= NO_PERMANENT_DAMAGE
+
+		var/entrydisplay = " \
+			[SPAN_ROLE_BODY("|______________________|")] \n\
+			[SPAN_ROLE_HEADER("Welcome to hell!")] \n\
+			[SPAN_ROLE_BODY("You are one of the last surviving members of a marine squad that was sent in to secure a xenomorph infested colony. Unfortunately, most of the squad was wiped out. For the past few days you have holed up in this structure, patiently awaiting rescue. Adrenaline, whether out of fear or a thirst for vengance, has become a part of your blood at this point. It has dulled you to pain, and heightened your body to its absolute peak. Still, you need to keep your quick wits with you if you plan to get out of here alive...")] \n\
+			[SPAN_ROLE_BODY("|______________________|")] \
+		"
+		to_chat_spaced(spawned_marine, html = entrydisplay)
+		break
+
 /mob/dead/verb/join_as_freed_mob()
 	set category = "Ghost.Join"
 	set name = "Join as Freed Mob"
@@ -1042,9 +1073,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	for(var/role in mobs_by_role)
 		for(var/freed_mob in mobs_by_role[role])
 			freed_mob_choices["[freed_mob] ([role])"] = freed_mob
-	if(!length(freed_mob_choices))
-		to_chat(src, SPAN_WARNING("There are no Freed Mobs available."))
-		return
+
 	var/choice = tgui_input_list(usr, "Pick a Freed Mob:", "Join as Freed Mob", freed_mob_choices)
 	if(!choice)
 		return
