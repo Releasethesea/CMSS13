@@ -172,3 +172,5 @@
 /datum/ammo/bullet/sniper/railgun/on_hit_mob(mob/M, _unused)
 	if (isxeno(M))
 		M.apply_effect(1, SLOW)
+
+test
